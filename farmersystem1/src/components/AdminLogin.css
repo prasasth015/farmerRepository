@@ -1,0 +1,172 @@
+.wrapper {
+    height: 100vh;
+    width: 100% ;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url("../Images/reg_background.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-size: cover;
+}
+
+.title {
+    width: 400px;
+    font-style: inherit;
+    background-color: #008B8B;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    padding: 10px 0px 10px 0px;
+    text-align: center;
+    border-radius: 10px 10px 10px 10px;
+    background-color: #519e8a;
+    color: #fff;
+    border: 2px solid #fff;
+    font-size: 2em;
+    font-weight: lighter;
+}
+
+.form-wrapper {
+    width: 400px;
+    background-image: url("../Images/reg_background.jpg");
+    display: flex;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px #555;
+    background-color: #ffffff;
+}
+
+form {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+
+label {
+    font-size: 0.8em;
+    margin-bottom: 0.25em;
+    color: #222;
+    font-weight: lighter;
+}
+
+input {
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #cfcfcf;
+}
+
+input::placeholder {
+    font-size: 1.2em;
+    font-weight: lighter;
+    color: #999;
+}
+
+input.error {
+    border: 1px solid red;
+}
+
+.errorMessage {
+    color: red;
+    font-size: 0.75em;
+    display: relative;
+}
+
+.adminUserName {
+    margin-left: 1%;
+    font-weight: bold;
+}
+
+.name,
+.adminUserName
+ {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+}
+
+.name,
+.adminUserName {
+    width: 100%;
+}
+
+.password {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+
+
+.Address
+ {
+    width: 100%;
+}
+
+.createAccount {
+    width: 150%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.logIn {
+    width: 150%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logIn button {
+    background-color: #519e8a;
+    color: #fff;
+    border: 2px solid #fff;
+    width: 100%;
+    margin-top: 5px;
+    padding: 8px 0px;
+    font-size: 1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+    border-radius: 10px 10px 10px 10px;
+}
+.logIn button:hover {
+    color: #519e8a;
+    background-color: green;
+    border: 5px solid #519e8a;
+}
+
+.logIn la {
+    color: #999;
+    font-weight: lighter;
+    font-size: large;
+}
+
+.container{
+    margin-top: auto;
+}
+
+.quote {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.body{
+    width: 1000px;
+    background-image: url("../Images/reg_background.jpg");
+    background-repeat: no-repeat;
+    display: flex;
+    margin-left: 45px;
+    margin-bottom: auto;
+    margin-top: 80px;
+    flex-direction: column;
+    padding: 20px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px #555;
+    background-color: #ffffff;
+}
