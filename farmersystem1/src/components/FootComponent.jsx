@@ -10,12 +10,27 @@ class FootComponent extends Component {
     }
 
     render() {
+
+        const mystyle = {
+            color: "white",
+            textAlign:"center",
+            backgroundColor: "#519e8a",
+            bottom:0,
+            
+
+    
+            padding: "10px",
+            fontFamily: "Arial"
+        }
         return (
+            
                 <div>
                     <footer className="footer">
-                        <div className="text-muted"><span className="foot" >All Rights Reserved 2021</span></div>
+                        <div className="text-muted" ><span className="foot"  >All Rights Reserved 2021</span></div>
                     </footer>
                 </div>
+
+                
         )
     }
 }
