@@ -10,10 +10,9 @@ import CreateSupplierComponent from './components/CreateSupplierComponent';
 import AdminViewComplaint from './components/AdminViewComplaint';
 import SoldProductComponent from './components/SoldProductComponent';
 import ListSoldProductComponent from './components/ListSoldProductComponent';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import HeaderComponent from './components/HeaderComponent';
-import FooterComponent from './components/FooterComponent';
-import CreateSupplierComponent from './components/CreateSupplierComponent';
+
+
+
 import SupplierQuoteComponent from './components/SupplierQuoteComponent';
 import ListQuoteComponent from './components/ListQuoteComponent';
 import UpdateQuoteComponent from './components/UpdateQuoteComponent';
