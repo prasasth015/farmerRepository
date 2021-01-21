@@ -6,16 +6,20 @@ import FootComponent from './components/FootComponent';
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
-import CreateSupplierComponent from './components/CreateSupplierComponent';
+
 import AdminViewComplaint from './components/AdminViewComplaint';
 import SoldProductComponent from './components/SoldProductComponent';
 import ListSoldProductComponent from './components/ListSoldProductComponent';
+
+import CreateSupplierComponent from './components/CreateSupplierComponent';
+
 import FarmerLogin from './components/FarmerLogin';
 import FarmerRegistration from './components/FarmerRegistration';
 
 import AddComplaint from './components/AddComplaint';
 import ComplaintList from './components/ComplaintList';
 import ViewComplaint from './components/ViewComplaint';
+
 import SupplierQuoteComponent from './components/SupplierQuoteComponent';
 import ListQuoteComponent from './components/ListQuoteComponent';
 import UpdateQuoteComponent from './components/UpdateQuoteComponent';
@@ -38,7 +42,7 @@ function App() {
 
             <Route path="/" exact component={CreateSupplierComponent}></Route>
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
-            <Route path="/supplierLogin" component={SupplierLogin}></Route>
+            <Route path="/upplierLsogin" component={SupplierLogin}></Route>
             
             <Route path="/supplierQuote" component={ListQuoteComponent}></Route>
             
