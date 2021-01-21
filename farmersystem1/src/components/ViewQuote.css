@@ -9,3 +9,7 @@
     background-image: url("../Images/reg_background.jpg");
     background-repeat: no-repeat;
 }
+
+label{
+    font-size: 1.5em;
+}

@@ -9,16 +9,22 @@ class HeadComponent extends Component {
     }
 
     render() {
-        return (
-            <div >
-            <header className="header">
-                <nav>
-                    < div className="head">
-                        Farmer Assistance System
-                     </div >
-                </nav>
-            </header>
-        </div>
+        
+            const mystyle = {
+                color: "white",
+                textAlign:"left",
+                backgroundColor: "#519e8a",
+                padding: "10px",
+                fontFamily: "Arial",
+                
+            }
+            return (
+                <div>
+                    <header>   
+                        <h3  style={mystyle}>Farmer Assistance System</h3>
+                    </header>
+                </div>
+        
         )
     }
 }

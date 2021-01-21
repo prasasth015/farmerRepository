@@ -116,7 +116,7 @@ class CreateSupplierComponent extends Component {
           <div> <h1 className="title">Sign-Up</h1></div>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="name">
-              <label htmlFor="firstName">Supplier Name</label>
+              <label htmlFor="firstName" className="Lable">Supplier Name</label>
               <input
                 className={formErrors.supplierName.length > 0 ? "error" : null}
                 placeholder="Name"
@@ -132,7 +132,7 @@ class CreateSupplierComponent extends Component {
             </div>
 
             <div className="supplierUserName">
-              <label htmlFor="supplierUserName">UserName</label>
+              <label htmlFor="supplierUserName" className="Lable">UserName</label>
               <input
                 className={formErrors.supplierUserName.length > 0 ? "error" : null}
                 placeholder="UserName"
@@ -148,7 +148,7 @@ class CreateSupplierComponent extends Component {
             </div>
 
             <div className="Address">
-              <label htmlFor="Address">Address</label>
+              <label htmlFor="Address" className="Lable">Address</label>
               <input
                 className={formErrors.supplierAddress.length > 0 ? "error" : null}
                 placeholder="Address"
@@ -164,7 +164,7 @@ class CreateSupplierComponent extends Component {
             </div>
 
             <div className="contactNumber">
-              <label htmlFor="contactNumber">Contact Number</label>
+              <label htmlFor="contactNumber" className="Lable">Contact Number</label>
               <input
                 className={formErrors.supplierContactNumber.length > 0 ? "error" : null}
                 placeholder="contactNumber"
@@ -180,7 +180,7 @@ class CreateSupplierComponent extends Component {
             </div>
 
             <div className="password">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" className="Lable">Password</label>
               <input
                 className={formErrors.password.length > 0 ? "error" : null}
                 placeholder="password"
@@ -191,12 +191,12 @@ class CreateSupplierComponent extends Component {
                 onChange={this.handleChange}
               />
               {formErrors.password.length > 0 && (
-                <span className="errorMessage">{formErrors.password}</span>
+                <span className="errorMessage" >{formErrors.password}</span>
               )}
             </div>
 
             <div className="confirmPassword">
-              <label htmlFor="password">Confirm Password</label>
+              <label htmlFor="password" className="Lable">Confirm Password</label>
               <input
                 className={formErrors.confirmPassword.length > 0 ? "error" : null}
                 placeholder="confirmPassword"

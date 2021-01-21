@@ -16,7 +16,16 @@ class SupplierQuoteComponent extends Component {
             quotePrice: '',
             product: ''
         }
-        this.saveOrUpdateQuote = this.saveOrUpdateQuote.bind(this);
+    }
+
+    
+    getTitle() {
+        if (this.state.quoteId === '_add') {
+            return <h3 className="quote">Add Quote</h3>
+        } else {
+            return <h3 className="text-center">Update </h3>
+
+        }
     }
 
     render() {
@@ -57,8 +66,8 @@ class SupplierQuoteComponent extends Component {
                                                 value={this.state.product} onChange={this.changeProductHandler}/>
                                         </div> */}
                                     <div className="button">
-                                        <button className="btn btn-success" onClick={this.saveOrUpdateQuote}>Save</button>
-                                        <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
+                                        <button className="btn btn-success" >Save</button>
+                                        <button className="btn btn-danger" style={{ marginLeft: "10px" }}>Cancel</button>
                                     </div>
                                 </form>
                             </div>
