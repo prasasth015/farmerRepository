@@ -1,0 +1,62 @@
+.container {
+    margin-top: auto;
+}
+
+.quote {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.body {
+    width: 1000px;
+    height: 500px;
+    background-image: url("../Images/reg_background.jpg");
+    background-repeat: no-repeat;
+    display: flex;
+    margin-left: 45px;
+    margin-bottom: auto;
+    margin-top: 80px;
+    flex-direction: column;
+    padding: 40px 40px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 50px #555;
+    background-color: #ffffff;
+}
+
+.container {
+    margin-bottom: 150px;
+}
+
+.button {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.box_value {
+    padding: 2px 2px;
+}
+
+.userName {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.Product {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quantity {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.quotePrice {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}

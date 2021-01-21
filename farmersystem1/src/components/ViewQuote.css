@@ -1,0 +1,11 @@
+.cancel{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+.box {
+    margin-top: 80px;
+    height: 400px;
+    background-image: url("../Images/reg_background.jpg");
+    background-repeat: no-repeat;
+}
