@@ -11,14 +11,14 @@ class HeadComponent extends Component {
     render() {
         return (
             <div >
-                <header className="header">
-                    <nav>
-                        < div className="th">
-                            Farmer Assistance System
-                         </div >
-                    </nav>
-                </header>
-            </div>
+            <header className="header">
+                <nav>
+                    < div className="head">
+                        Farmer Assistance System
+                     </div >
+                </nav>
+            </header>
+        </div>
         )
     }
 }

@@ -11,11 +11,11 @@ class FootComponent extends Component {
 
     render() {
         return (
-            <div>
-                <footer className="footer">
-                    <div className="text-muted"><span >All Rights Reserved 2021</span></div>
-                </footer>
-            </div>
+                <div>
+                    <footer className="footer">
+                        <div className="text-muted"><span className="foot" >All Rights Reserved 2021</span></div>
+                    </footer>
+                </div>
         )
     }
 }
