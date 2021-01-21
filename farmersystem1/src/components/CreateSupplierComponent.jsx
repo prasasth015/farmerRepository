@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
-import SupplierService from '../service/SupplierService';
+// import SupplierService from '../service/SupplierService';
 import "./CreateSupplier.css";
+import { Link } from "react-router-dom";
 
 
 const addressRegex = RegExp(
@@ -17,11 +18,6 @@ const passwordRegex = RegExp(
 
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
-
-  // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
-    val.length > 0 && (valid = false);
-  });
 
   // validate the form was filled out
   Object.values(rest).forEach(val => {
@@ -51,76 +47,7 @@ class CreateSupplierComponent extends Component {
         confirmPassword: ""
       }
     };
-
-    // this.changeSupplierNameHandler = this.changeSupplierNameHandler.bind(this);
-    // this.changeSupplierUserNameHandler = this.changeSupplierUserNameHandler.bind(this);
-    // this.changeSupplierAddressHandler = this.changeSupplierAddressHandler.bind(this);
-    // this.changeSupplierContactNumberHandler = this.changeSupplierContactNumberHandler.bind(this);
-    // this.changePasswordHandler = this.changePasswordHandler.bind(this);
-    // this.changeConfirmPasswordHandler = this.changeConfirmPasswordHandler.bind(this);
-    this.saveSupplier = this.saveSupplier.bind(this);
   }
-
-
-  componentDidMount() {
-
-    // step 4
-    if (this.state.supplierUserName === '_add') {
-      return
-      // }else{
-      //     SupplierService.getSupplierById(this.state.supplierUserName).then( (res) =>{
-      //         let supplier = res.data;
-      //         this.setState({name: supplier.name,
-      //           supplierUserName: supplier.supplierUserName,
-      //           Address : supplier.Address,
-      //           contactNumber : supplier.contactNumber,
-      //           password : supplier.password,
-      //           confirmPassword : supplier.confirmPassword
-      //         });
-      //     });
-    }
-  }
-
-
-  saveSupplier = (e) => {
-    e.preventDefault();
-    let supplier = { supplierName: this.state.supplierName, supplierUserName: this.state.supplierUserName, supplierAddress: this.state.supplierAddress, supplierContactNumber: this.state.supplierContactNumber, password: this.state.password, confirmPassword: this.state.confirmPassword };
-    if(this.state.password !== this.state.confirmPassword)
-    alert("Given password and confirm password should be same ");
-    console.log('supplier => ' + JSON.stringify(supplier));
-
-    SupplierService.createSupplier(supplier).then(res => {
-      this.props.history.push('/createSupplier');
-
-    });
-  }
-
-  // changeSupplierNameHandler= (event) => {
-  //     this.setState({supplierName: event.target.value});
-  // }
-
-  // changeSupplierUserNameHandler= (event) => {
-  //     this.setState({supplierUserName: event.target.value});
-  // }
-
-  // changeSupplierAddressHandler= (event) => {
-  //     this.setState({supplierAddress: event.target.value});
-  // }
-
-
-  // changeSupplierContactNumberHandler= (event) => {
-  //     this.setState({supplierContactNumber: event.target.value});
-  // }
-
-
-
-  // changePasswordHandler= (event) => {
-  //     this.setState({password: event.target.value});
-  // }
-
-  // changeConfirmPasswordHandler= (event) => {
-  //     this.setState({confirmPassword: event.target.value});
-  // }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -148,11 +75,11 @@ class CreateSupplierComponent extends Component {
     switch (name) {
       case "supplierName":
         formErrors.supplierName =
-          value.length < 5 ? "minimum 5 characaters required" : "";
+          value.length < 5 ? "minimum 5 characters required" : "";
         break;
       case "supplierUserName":
         formErrors.supplierUserName =
-          value.length < 5 ? "minimum 5 characaters required" : "";
+          value.length < 5 ? "minimum 5 characters required" : "";
         break;
       case "supplierAddress":
         formErrors.supplierAddress = addressRegex.test(value)
@@ -180,14 +107,13 @@ class CreateSupplierComponent extends Component {
     this.setState({ formErrors, [name]: value }, () => console.log(this.state));
   };
 
-
   render() {
     const { formErrors } = this.state;
     return (
 
-      <div className="wrapper">
-        <div className="form-wrapper">
-          <div> <h1 className="title">Farmer Assistance System</h1></div>
+      <div className="wrap">
+        <div className="form_wrapper">
+          <div> <h1 className="title">Sign-Up</h1></div>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="name">
               <label htmlFor="firstName">Supplier Name</label>
@@ -286,15 +212,12 @@ class CreateSupplierComponent extends Component {
             </div>
 
             <div className="createAccount">
-              <button className="button" onClick={this.saveSupplier}>Create Account</button>
-              <small>Already Have an Account? - Log-in</small>
-
+              <button className="button" ><Link to="/supplierLogin" className="link">Create Account</Link></button>
+              <small><Link to="/supplierLogin">Already Have an Account? - Log-in</Link></small>
             </div>
           </form>
         </div>
       </div>
-
-
     )
   }
 }
