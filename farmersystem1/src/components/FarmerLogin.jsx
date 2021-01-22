@@ -18,6 +18,7 @@ class FarmerLogin extends Component {
         }
         this.verifyLogin=this.verifyLogin.bind(this);
     }
+   
     changeNameHandler=(event) => {
       this.setState({farmerUserName: event.target.value});
 
@@ -27,6 +28,10 @@ class FarmerLogin extends Component {
     }
     verifyLogin=(e) => {
       e.preventDefault();
+      
+
+
+
         let farmer = {farmerUserName: this.state.farmerUserName, farmerPassword: this.state.farmerPassword};
         console.log('farmer => ' + JSON.stringify(farmer));
 
@@ -43,7 +48,7 @@ class FarmerLogin extends Component {
           ){
             alert("Login Sucessful");
            
-            this.props.history.push("/add-farmer/:farmerUserName");
+            this.props.history.push("/complaint-list");
           }
           
           else{
@@ -64,7 +69,7 @@ class FarmerLogin extends Component {
                    <form >
                    
                    <div className="farmerUserName">
-                       <label htmlFor="farmerUserName">Farmer Name</label>
+                       <label htmlFor="farmerUserName">UserName</label>
                         <input
                           id="name"
                           type="text"
@@ -78,7 +83,7 @@ class FarmerLogin extends Component {
                       </div><br></br>
                       
                       <div className="password">
-                        <label htmlFor="password">UserName</label>
+                        <label htmlFor="password">Password</label>
                       
                         <input
                           id="password"
@@ -94,6 +99,7 @@ class FarmerLogin extends Component {
     
                       <div className="logIn">
                         <button className="button" onClick={this.verifyLogin}>LogIn</button>
+                          
                     
                         <div className="la">
                           Don't have an account?{" "}

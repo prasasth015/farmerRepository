@@ -19,8 +19,18 @@ class AddComplaint extends Component{
     this.saveComplaint=this.saveComplaint.bind(this);
     
 };
+
+changeNameHandler=(event) => {
+    this.setState({supplierUserName: event.target.value});
+
+  }
+  changeComplaintHandler=(event) => {
+    this.setState({complaintText: event.target.value});
+  }
+
+
 saveComplaint=(e) =>{
-    alert("hello");
+    
 }
 cancel(){
     this.props.history.push('/complaint-list');
@@ -49,17 +59,18 @@ render() {
                                     <div className = "farmerUserName" >
                                         <label >Enter Supplier UserName </label>
                                         <input placeholder="Supplier UserName" name="UserName" className="form-control" 
-                                            value={this.state.supplierUserName} onChange={this.changeNameHandler}/>
+                                            value={this.state.supplierUserName} onChange={this.changeNameHandler} required/>
                                     </div>
                                     <br></br> 
                                     <div className = "farmerUserName" >
                                         <label >Enter Your Complaint </label>
-                                        <input placeholder="Complaint" name="Complaint" className="form-control" 
-                                            value={this.state.complaintText} onChange={this.changeComplaintHandler}/>
+                                        <textarea placeholder="Complaint" name="Complaint" className="form-control" 
+                                            value={this.state.complaintText} onChange={this.changeComplaintHandler} required/>
                                     </div>
                                     <div className = "form-group" >
 
-                                    <button className="btn btn-success" onClick={this.saveComplaint}>Save</button>
+                                    <button className="btn btn-success" disabled={ this.state.complaintText.length === 0}
+                                    onClick={this.saveComplaint}>Save</button>
                                     
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                     </div>

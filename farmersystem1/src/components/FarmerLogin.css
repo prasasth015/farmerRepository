@@ -1,6 +1,4 @@
-.background{
-    background-color: lemonchiffon;
-}
+
 
 .wrapper {
     height: 85vh;
@@ -129,12 +127,12 @@ input::placeholder {
     margin-bottom: 0.25em;
     border-radius: 10px 10px 10px 10px;
 }
-.logIn button:hover {
+/* .logIn button:hover {
     color: #519e8a;
     background-color: green;
     border: 5px solid #519e8a;
 }
-
+ */
 .logIn la {
     color: #999;
     font-weight: lighter;

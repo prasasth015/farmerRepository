@@ -8,6 +8,7 @@ class ListSoldProductComponent extends Component {
                 soldProducts: []
         }
         this.sellProduct = this.sellProduct.bind(this);
+        this.addComplaint=this.addComplaint.bind(this);
        
       //  this.deleteProduct= this.deleteProduct.bind(this);
        
@@ -15,6 +16,9 @@ class ListSoldProductComponent extends Component {
 
     sellProduct(){
         this.props.history.push('/soldProductList'); //doubt
+    }
+    addComplaint(){
+        this.props.history.push('/complaint-list');
     }
 
     
@@ -27,6 +31,8 @@ render() {
              <h2 className="text-center">Product List</h2>
              <div className = "row">
                 <button className="btn btn-primary" onClick={this.sellProduct}>Sell Product</button>
+                <button className="btn btn-primary" onClick={this.addComplaint} style={{marginLeft: "10px"}}>Add Complaint</button>
+
              </div>
              <br></br>
              <div className = "row">

@@ -154,7 +154,7 @@ class FarmerRegistration extends Component {
           <div> <h3 className="title">Farmer Registration</h3></div>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="name">
-              <label htmlFor="firstName">Farmer Name</label>
+              <label htmlFor="firstName" className="farmerLable" >Farmer Name <span className="ast">*</span></label>
               <input
                 className={formErrors.farmerName.length > 0 ? "error" : null}
                 placeholder="Name"
@@ -170,7 +170,7 @@ class FarmerRegistration extends Component {
             </div>
 
             <div className="farmerUserName">
-              <label htmlFor="farmerUserName">UserName</label>
+              <label htmlFor="farmerUserName" className="farmerLable">UserName <span className="ast">*</span></label>
               <input
                 className={formErrors.farmerUserName.length > 0 ? "error" : null}
                 placeholder="UserName"
@@ -186,24 +186,10 @@ class FarmerRegistration extends Component {
               )}
             </div>
 
-            <div className="Address">
-              <label htmlFor="Address">Address</label>
-              <input
-                className={formErrors.farmerAddress.length > 0 ? "error" : null}
-                placeholder="Address"
-                type="Address"
-                name="farmerAddress"
-                value={this.state.farmerAddress}
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.farmerAddress.length > 0 && (
-                <span className="errorMessage">{formErrors.farmerAddress}</span>
-              )}
-            </div>
+            
 
             <div className="contactNumber">
-              <label htmlFor="contactNumber">Contact Number</label>
+              <label htmlFor="contactNumber" className="farmerLable">Contact Number <span className="ast">*</span></label>
               <input
                 className={formErrors.farmerContactNo.length > 0 ? "error" : null}
                 placeholder="contactNumber"
@@ -219,7 +205,7 @@ class FarmerRegistration extends Component {
             </div>
 
             <div className="password">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" className="farmerLable">Password<span className="ast">*</span></label>
               <input
                 className={formErrors.farmerPassword.length > 0 ? "error" : null}
                 placeholder="farmerPassword"
@@ -231,6 +217,22 @@ class FarmerRegistration extends Component {
               />
               {formErrors.farmerPassword.length > 0 && (
                 <span className="errorMessage">{formErrors.farmerPassword}</span>
+              )}
+            </div>
+
+            <div className="Address">
+              <label htmlFor="Address" className="farmerLable">Address<span className="ast">*</span></label>
+              <textarea 
+                className={formErrors.farmerAddress.length > 0 ? "error" : null}
+                placeholder="Address"
+                type="Address"
+                name="farmerAddress"
+                value={this.state.farmerAddress}
+                noValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.farmerAddress.length > 0 && (
+                <span className="errorMessage">{formErrors.farmerAddress}</span>
               )}
             </div>
 
