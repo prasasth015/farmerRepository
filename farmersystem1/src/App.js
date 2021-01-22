@@ -29,9 +29,6 @@ function App() {
         {<HeadComponent />}
         <div className="container">
           <Switch>
-            <Route path="/" exact component={AdminLogin}></Route>
-            <Route path="/employees" component={AdminLogin}></Route>
-
             <Route path="/" exact component={CreateSupplierComponent}></Route>
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
             <Route path="/supplierLogin" component={SupplierLogin}></Route>
