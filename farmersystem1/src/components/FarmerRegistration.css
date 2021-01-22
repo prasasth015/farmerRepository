@@ -1,12 +1,13 @@
 .wrapper {
-    height: 100vh;
+    height: 85vh;
     width: 100% ;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    background-image: url("../Images/reg_background.jpg");
-    background-position: center;
+    justify-content: initial;
+    /*background-image: url("../images/back.jpg");*/
+    background-position:centre;
+    background-position: 100%;
     background-repeat: no-repeat;
     background-attachment: scroll;
     background-size: cover;
@@ -16,52 +17,65 @@
     width: 400px;
     font-style: inherit;
     background-color: #008B8B;
-    margin-bottom: 20px;
-    margin-top: 5px;
-    padding: 10px 0px 10px 0px;
+    margin-bottom: 10px;
+    margin-top: 2px;
+    padding: 5px 0px 5px 0px;
     text-align: center;
-    border-radius: 10px 10px 10px 10px;
+    border-radius: 8px 8px 8px 8px;
     background-color: #519e8a;
     color: #fff;
-    border: 2px solid #fff;
+    border: 1px solid #fff;
     font-size: 2em;
     font-weight: lighter;
+    
 }
 
 .form-wrapper {
     width: 400px;
-    background-image: url("../Images/reg_background.jpg");
+    
+    box-sizing: initial;
+    max-height: initial;
     display: flex;
     flex-direction: column;
     padding: 20px 40px;
-    border-radius: 10px;
+    border-radius: 5px;
     box-shadow: 0px 10px 50px #555;
     background-color: #ffffff;
 }
 
 form {
     width: 100%;
+    height: 50;
     display: flex;
     flex-wrap: wrap;
 }
 
 
-/* label {
-    font-size: 0.8em;
+/* 
+h1 {
+    text-align: center;
+    width: 100%;
+    color: #111;
+    font-weight: lighter;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+} */
+
+label {
+    font-size: medium;
     margin-bottom: 0.25em;
     color: #222;
     font-weight: lighter;
-} */
+}
 
 input {
-    padding: 10px 10px;
+    padding: 8px 8px;
     border-radius: 5px;
     outline: none;
     border: 1px solid #cfcfcf;
 }
 
 input::placeholder {
-    font-size: 1.2em;
+    font-size: 1em;
     font-weight: lighter;
     color: #999;
 }
@@ -76,21 +90,28 @@ input.error {
     display: relative;
 }
 
-.adminUserName {
-    margin-left: 1%;
+.name {
+    margin-right: 1%;
+    font-weight: bold;
+
+}
+
+.farmerUserName {
+    margin-left: 0%;
     font-weight: bold;
 }
 
 .name,
-.adminUserName
- {
+.farmerUserName,
+.Address,
+.contactNumber {
     display: flex;
     flex-direction: column;
     margin-bottom: 15px;
 }
 
 .name,
-.adminUserName {
+.farmerUserName {
     width: 100%;
 }
 
@@ -104,9 +125,10 @@ input.error {
 
 
 
-.Address
- {
+.Address,
+.contactNumber {
     width: 100%;
+    font-weight: bold;
 }
 
 .createAccount {
@@ -115,14 +137,8 @@ input.error {
     flex-direction: column;
     align-items: center;
 }
-.logIn {
-    width: 150%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.logIn button {
+.createAccount button {
     background-color: #519e8a;
     color: #fff;
     border: 2px solid #fff;
@@ -135,38 +151,15 @@ input.error {
     margin-bottom: 0.25em;
     border-radius: 10px 10px 10px 10px;
 }
-.logIn button:hover {
+
+.createAccount button:hover {
     color: #519e8a;
     background-color: green;
     border: 5px solid #519e8a;
 }
 
-.logIn la {
+.createAccount small {
     color: #999;
     font-weight: lighter;
-    font-size: large;
-}
-
-.container{
-    margin-top: auto;
-}
-
-.quote {
-    margin-top: 10px;
-    text-align: center;
-}
-
-.body{
-    width: 1000px;
-    background-image: url("../Images/reg_background.jpg");
-    background-repeat: no-repeat;
-    display: flex;
-    margin-left: 45px;
-    margin-bottom: auto;
-    margin-top: 80px;
-    flex-direction: column;
-    padding: 20px 40px;
-    border-radius: 10px;
-    box-shadow: 0px 10px 50px #555;
-    background-color: #ffffff;
+    font-size: medium;
 }

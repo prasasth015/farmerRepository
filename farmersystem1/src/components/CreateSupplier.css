@@ -1,5 +1,5 @@
 .wrap {
-    height: 100vh;
+    height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -23,7 +23,7 @@
 .title {
     width: 380px;
     padding: 8px 0px;
-    background-color: #8B008B;
+    background-color: teal;
     margin-bottom: 20px;
     margin-top: 5px;
     text-align: center;
@@ -39,7 +39,7 @@
     width: 400px;
     background-image: url("../Images/reg_background.jpg");
     display: flex;
-    margin-top: 10px;
+    margin-top: -40px;
     flex-direction: column;
     padding: 10px 10px;
     border-radius: 10px;
@@ -66,10 +66,14 @@ form {
 }
 
 label {
-    font-size: 0.9em;
-    margin-bottom: 0.15em;
+    margin-bottom: -0.5em;
     color: #222;
     font-weight: normal;
+}
+
+.Lable{
+    font-size: 15px;
+    margin-bottom: 0.5em;
 }
 
 input {
@@ -158,7 +162,7 @@ input.error {
 }
 
 .createAccount button {
-    background-color: #8B008B;
+    background-color: teal;
     color: #fff;
     border: 2px solid #fff;
     width: 100%;

@@ -37,7 +37,7 @@ class ViewQuoteComponent extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="cancel"> <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button></div>
+                <div className="cancel"> <button className="btn btn-danger"  style={{ marginLeft: "10px" }}>Cancel</button></div>
             </div>
         )
     }
