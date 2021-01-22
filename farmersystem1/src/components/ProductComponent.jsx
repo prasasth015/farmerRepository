@@ -7,20 +7,31 @@ class ProductComponent extends Component {
 
         this.state = {
             // step 2
-            id: this.props.match.params.id,
-            productId: '',
+            productId: this.props.match.params.productId,
             productName: '',
             productDescription: ''
         }
         this.saveProduct=this.saveProduct.bind(this);
+        this.changeProductNameHandler = this.changeProductNameHandler.bind(this);
+        this.changeProductDescriptionHandler = this.changeProductDescriptionHandler.bind(this);
     
     };
     saveProduct=(e) =>{
         alert("hello");
     }
     cancel(){
-        this.props.history.push('/employees');
+        this.props.history.push('/productList');
     }
+
+    changeProductDescriptionHandler= (event) => {
+        this.setState({ productDescription: event.target.value });
+    }
+
+    changeProductNameHandler = (event) => {
+        this.setState({ productName: event.target.value });
+    }
+
+   
     
     
 
@@ -42,17 +53,17 @@ class ProductComponent extends Component {
                                         <div className = "adminUserName" >
                                             <label>Enter Product Name </label>
                                             <input placeholder="Product Name" name="ProductName" className="form-control" 
-                                                value={this.state.productName} onChange={this.changeNameHandler}/>
+                                                value={this.state.productName} onChange={this.changeProductNameHandler} required/>
                                         </div>
                                         <br></br> 
                                         <div className = "password" >
                                             <label>Enter Product Description </label>
                                             <input placeholder="Product Description" name="Description" className="form-control" 
-                                                value={this.state.productDescription} onChange={this.changeComplaintHandler}/>
+                                                value={this.state.productDescription} onChange={this.changeProductDescriptionHandler} required/>
                                         </div>
                                         <div className = "form-group" >
     
-                                        <button className="btn btn-success" onClick={this.saveProduct}>Save</button>
+                                        <button className="btn btn-success" disabled={this.state.productDescription.length === 0}onClick={this.saveProduct}>Save</button>
                                         
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                         </div>

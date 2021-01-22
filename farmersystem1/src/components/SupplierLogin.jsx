@@ -2,9 +2,13 @@ import React, { Component } from 'react'
 // import SupplierService from '../service/SupplierService'
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "./CreateSupplier.css";
+
 import {Row, Col, Card, Form, InputGroup, FormControl, Button} from 'react-bootstrap';
 
+
+const passwordRegex = RegExp(
+  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
+);
 
 class SupplierLogin extends Component {
   constructor(props) {
@@ -15,16 +19,48 @@ class SupplierLogin extends Component {
       password: ""
 
     }
-
+    this.quoteList = this.quoteList.bind(this);
   }
 
-  changeNameHandler = (event) => {
+  changeSupplierUserNameHandler = (event) => {
     this.setState({ supplierUserName: event.target.value });
 
 }
-changeUserPasswordHandler = (event) => {
+changePasswordHandler = (event) => {
     this.setState({ password: event.target.value });
 }
+
+quoteList() {
+  this.props.history.push('/supplierQuote');
+}
+
+handleChange = e => {
+  e.preventDefault();
+  const { name, value } = e.target;
+  let formErrors = { ...this.state.formErrors };
+
+  switch (name) {
+   
+    case "supplierUserName":
+      formErrors.supplierUserName =
+        value.length < 5 ? "minimum 5 characters required" : "";
+      break;
+ 
+    case "password":
+      formErrors.password = passwordRegex.test(value)
+        ? ""
+        : "Enter valid password";
+      break;
+   
+
+    default:
+      break;
+  }
+
+  this.setState({ formErrors, [name]: value }, () => console.log(this.state));
+};
+
+
 
   render() {
     return (
@@ -40,7 +76,7 @@ changeUserPasswordHandler = (event) => {
                 type="text"
                 name="supplierUserName"
                 value={this.state.supplierUserName}
-                
+                required
                 onChange={this.handleChange}
               />
               {/* {formErrors.supplierUserName.length > 0 && (
@@ -56,7 +92,7 @@ changeUserPasswordHandler = (event) => {
                 type="password"
                 name="password"
                 value={this.state.password}
-                noValidate
+               required
                 onChange={this.handleChange}
               />
               {/* {formErrors.password.length > 0 && (
@@ -64,7 +100,7 @@ changeUserPasswordHandler = (event) => {
               )} */}
             </div>
             <div className="createAccount">
-            <Button className="button"  disabled={ this.state.supplierUserName.length === 0 || this.state.password.length === 0 } onClick={this.saveSupplier}><Link to="/supplierQuote" className="link">Log-In</Link></Button>
+            <Button className="button"  disabled={ this.state.supplierUserName.length === 0 || this.state.password.length === 0 } onClick={this.quoteList}>Log-In</Button>
               <small><Link to="/add-supplier/:supplierUserName">New Supplier? - Sign-Up</Link></small>
 
             </div>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-// import SupplierQuoteService from '../service/SupplierQuoteService';
+ import SupplierQuoteService from '../service/SupplierQuoteService';
 class UpdateQuoteComponent extends Component {
     constructor(props) {
         super(props)
@@ -13,7 +13,55 @@ class UpdateQuoteComponent extends Component {
             quotePrice: '',
             product: ''
         }
+        this.changeUserNameHandler = this.changeUserNameHandler.bind(this);
+        this.changeProductNameHandler = this.changeProductNameHandler.bind(this);
+        this.changeQuantityHandler = this.changeQuantityHandler.bind(this);
+        this.changeQuotePriceHandler = this.changeQuotePriceHandler.bind(this);
+        this.changeProductHandler = this.changeProductHandler.bind(this);
         this.updatePrice = this.updatePrice.bind(this);
+    }
+    componentDidMount() {
+        SupplierQuoteService.getQuoteById(this.state.quoteId).then((res) => {
+            let supplierQuote = res.data;
+            this.setState({
+                userName: supplierQuote.userName,
+                productName: supplierQuote.productName,
+                quantity: supplierQuote.quantity,
+                quotePrice: supplierQuote.quotePrice,
+
+            });
+        });
+    }
+
+    updatePrice = (e) => {
+        e.preventDefault();
+        let supplierQuote = { userName: this.state.userName, productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice };
+        console.log('supplierQuote => ' + JSON.stringify(supplierQuote));
+        console.log('quoteId => ' + JSON.stringify(this.state.quoteId));
+        SupplierQuoteService.updatePrice(supplierQuote, this.state.quoteId).then(res => {
+            this.props.history.push('/addQuote');
+        });
+    }
+
+
+    changeUserNameHandler = (event) => {
+        this.setState({ userName: event.target.value });
+    }
+
+    changeProductNameHandler = (event) => {
+        this.setState({ productName: event.target.value });
+    }
+
+    changeQuantityHandler = (event) => {
+        this.setState({ quantity: event.target.value });
+    }
+
+    changeQuotePriceHandler = (event) => {
+        this.setState({ quotePrice: event.target.value });
+    }
+
+    changeProductHandler = (event) => {
+        this.setState({ product: event.target.value });
     }
 
     cancel() {

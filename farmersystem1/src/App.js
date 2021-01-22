@@ -38,7 +38,7 @@ function App() {
             {/*Admin*/}
             <Route path="/" exact component={AdminLogin}></Route>
             <Route path="/employees" component={AdminLogin}></Route>
-            <Route path="/soldProductList" component={ListSoldProductComponent}></Route>
+            
             
             {/*supplier*/}
 

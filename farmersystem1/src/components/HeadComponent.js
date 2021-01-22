@@ -9,7 +9,6 @@ class HeadComponent extends Component {
     }
 
     render() {
-
         
             const mystyle = {
                 color: "white",
