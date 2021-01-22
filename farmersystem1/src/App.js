@@ -6,12 +6,19 @@ import FootComponent from './components/FootComponent';
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
+import ViewSoldProductComponent from './components/ViewSoldProductComponent';
 
 import AdminViewComplaint from './components/AdminViewComplaint';
 import SoldProductComponent from './components/SoldProductComponent';
 import ListSoldProductComponent from './components/ListSoldProductComponent';
 
+
 import CreateSupplierComponent from './components/CreateSupplierComponent';
+import SupplierQuoteComponent from './components/SupplierQuoteComponent';
+import ListQuoteComponent from './components/ListQuoteComponent';
+import UpdateQuoteComponent from './components/UpdateQuoteComponent';
+import ViewQuoteComponent from './components/ViewQuoteComponent';
+import SupplierLogin from './components/SupplierLogin';
 
 import FarmerLogin from './components/FarmerLogin';
 import FarmerRegistration from './components/FarmerRegistration';
@@ -19,12 +26,6 @@ import FarmerRegistration from './components/FarmerRegistration';
 import AddComplaint from './components/AddComplaint';
 import ComplaintList from './components/ComplaintList';
 import ViewComplaint from './components/ViewComplaint';
-
-import SupplierQuoteComponent from './components/SupplierQuoteComponent';
-import ListQuoteComponent from './components/ListQuoteComponent';
-import UpdateQuoteComponent from './components/UpdateQuoteComponent';
-import ViewQuoteComponent from './components/ViewQuoteComponent';
-import SupplierLogin from './components/SupplierLogin';
 
 //import ViewSupplierComponent from './components/ViewSupplierComponent';
 
@@ -35,9 +36,17 @@ function App() {
         {<HeadComponent />}
         <div className="container">
           <Switch>
-            {/*Admin*/}
-            <Route path="/" exact component={AdminLogin}></Route>
-            <Route path="/employees" component={AdminLogin}></Route>
+             {/*Admin*/}
+             <Route path="/" exact component={AdminLogin}></Route>
+            <Route path="/adminLogin" component={AdminLogin}></Route>
+            <Route path="/productList" component={ListProductComponent}></Route>
+            <Route path="/addProduct" component={ProductComponent}></Route>
+            <Route path="/soldProductList" component={ListSoldProductComponent}></Route>
+            <Route path="/soldProduct" component={SoldProductComponent}></Route>
+            <Route path="/viewSoldProduct" component={ViewSoldProductComponent}></Route>
+
+
+
             {/*supplier*/}
 
             <Route path="/" exact component={CreateSupplierComponent}></Route>
