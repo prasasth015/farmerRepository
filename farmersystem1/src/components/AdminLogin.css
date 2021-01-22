@@ -5,7 +5,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-image: url("../Images/reg_background.jpg");
+    /* background-image: url("../Images/reg_background.jpg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-attachment: scroll;
@@ -147,14 +147,7 @@ input.error {
     font-size: large;
 }
 
-.container{
-    margin-top: auto;
-}
 
-.quote {
-    margin-top: 10px;
-    text-align: center;
-}
 
 .body{
     width: 1000px;

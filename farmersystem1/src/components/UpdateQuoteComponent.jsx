@@ -16,17 +16,23 @@ class UpdateQuoteComponent extends Component {
         this.updatePrice = this.updatePrice.bind(this);
     }
 
+    cancel() {
+        this.props.history.push('/addQuote');
+    }
+
+  
     render() {
         return (
-            // <div className="fo">
-            <div>
-                <br></br>
-                <div className="container">
-                    <div className="row">
-                        <div className="card col-md-6 offset-md-3 offset-md-3">
-                            <h3 className="text-center">Update Employee</h3>
-                            <div >
-                                <form>
+            <div >
+           
+            <br></br>
+               <div className = "container">
+               
+                    <div className = "row">
+                        <div className = "card col-md-6 offset-md-3 offset-md-3">
+            
+                            <div className = "card-body">
+                                <form >
                                     <div className="form-group">
                                         <label> User Name: </label>
                                         <input placeholder="User Name" name="userName" className="form-control"

@@ -6,6 +6,7 @@ import FootComponent from './components/FootComponent';
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
+import ViewSoldProductComponent from './components/ViewSoldProductComponent';
 
 import AdminViewComplaint from './components/AdminViewComplaint';
 import SoldProductComponent from './components/SoldProductComponent';
@@ -37,12 +38,20 @@ function App() {
           <Switch>
              {/*Admin*/}
              <Route path="/" exact component={AdminLogin}></Route>
-            <Route path="/employees" component={AdminLogin}></Route>
+            <Route path="/adminLogin" component={AdminLogin}></Route>
+            <Route path="/productList" component={ListProductComponent}></Route>
+            <Route path="/addProduct" component={ProductComponent}></Route>
+            <Route path="/soldProductList" component={ListSoldProductComponent}></Route>
+            <Route path="/soldProduct" component={SoldProductComponent}></Route>
+            <Route path="/viewSoldProduct" component={ViewSoldProductComponent}></Route>
+
+
+
             {/*supplier*/}
 
             <Route path="/" exact component={CreateSupplierComponent}></Route>
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
-            <Route path="/upplierLsogin" component={SupplierLogin}></Route>
+            <Route path="/supplierLogin" component={SupplierLogin}></Route>
             
             <Route path="/supplierQuote" component={ListQuoteComponent}></Route>
             

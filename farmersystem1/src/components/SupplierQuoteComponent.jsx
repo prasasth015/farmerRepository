@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 // import SupplierQuoteService from '../service/SupplierQuoteService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./SupplierQuote.css";
+import {Row, Col, Card, Form, InputGroup, FormControl, Button} from 'react-bootstrap';
 
 class SupplierQuoteComponent extends Component {
     constructor(props) {
@@ -16,8 +17,43 @@ class SupplierQuoteComponent extends Component {
             quotePrice: '',
             product: ''
         }
+        this.changeUserNameHandler = this.changeUserNameHandler.bind(this);
+        this.changeProductNameHandler = this.changeProductNameHandler.bind(this);
+        this.changeQuantityHandler = this.changeQuantityHandler.bind(this);
+        this.changeQuotePriceHandler = this.changeQuotePriceHandler.bind(this);
+        this.changeProductHandler = this.changeProductHandler.bind(this);
+        this.addQuote = this.addQuote.bind(this);
+
     }
 
+    changeUserNameHandler = (event) => {
+        this.setState({ userName: event.target.value });
+    }
+
+    changeProductNameHandler = (event) => {
+        this.setState({ productName: event.target.value });
+    }
+
+    changeQuantityHandler = (event) => {
+        this.setState({ quantity: event.target.value });
+    }
+
+    changeQuotePriceHandler = (event) => {
+        this.setState({ quotePrice: event.target.value });
+    }
+
+    changeProductHandler = (event) => {
+        this.setState({ product: event.target.value });
+    }
+
+    addQuote() {
+        this.props.history.push('/add-supplierQuote/_add');
+    }
+
+    
+    cancel() {
+        this.props.history.push('/supplierQuote');
+    }
     
     getTitle() {
         if (this.state.quoteId === '_add') {
@@ -30,33 +66,35 @@ class SupplierQuoteComponent extends Component {
 
     render() {
         return (
-            <div className="body">
-                <br></br>
-                <div className="container">
-                    <div className="row">
-                        <div className="card col-md-6 offset-md-3 offset-md-3">
-                            {
+            <div >
+           
+            <br></br>
+               <div className = "container">
+               
+                    <div className = "row">
+                        <div className = "card col-md-6 offset-md-3 offset-md-3">
+                        {
                                 this.getTitle()
                             }
-                            <div className="box_value" >
+                            <div className = "card-body">
                                 <form >
                                     <div className="userName">
-                                        <label> User Name: </label>
+                                        <label className="Label"> User Name: </label>
                                         <input placeholder="User Name" name="userName" className="form-control"
                                             value={this.state.userName} onChange={this.changeUserNameHandler} />
                                     </div>
                                     <div className="Product">
-                                        <label> Product Name: </label>
+                                        <label className="Label"> Product Name: </label>
                                         <input placeholder="Product Name" name="ProductName" className="form-control"
                                             value={this.state.productName} onChange={this.changeProductNameHandler} />
                                     </div>
                                     <div className="quantity">
-                                        <label>Quantity: </label>
+                                        <label className="Label">Quantity: </label>
                                         <input placeholder="Quantity" name="quantity" className="form-control"
                                             value={this.state.quantity} onChange={this.changeQuantityHandler} />
                                     </div>
                                     <div className="quotePrice">
-                                        <label>Quote Price: </label>
+                                        <label className="Label">Quote Price: </label>
                                         <input placeholder="Quote Price" name="quotePrice" className="form-control"
                                             value={this.state.quotePrice} onChange={this.changeQuotePriceHandler} />
                                     </div>
@@ -66,8 +104,8 @@ class SupplierQuoteComponent extends Component {
                                                 value={this.state.product} onChange={this.changeProductHandler}/>
                                         </div> */}
                                     <div className="button">
-                                        <button className="btn btn-success" >Save</button>
-                                        <button className="btn btn-danger" style={{ marginLeft: "10px" }}>Cancel</button>
+                                        <Button className="btn btn-success"  disabled={this.state.userName.length === 0} onClick={this.addQuote.bind(this)}>Save</Button>
+                                        <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
                                     </div>
                                 </form>
                             </div>
