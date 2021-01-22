@@ -16,8 +16,7 @@ class HeadComponent extends Component {
                 textAlign:"left",
                 backgroundColor: "#519e8a",
                 padding: "10px",
-                fontFamily: "Arial",
-                
+                fontFamily: "Arial",               
             }
             return (
                 <div>

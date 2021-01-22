@@ -1,16 +1,16 @@
-.wrap {
+/* .wrap {
     height: 90vh;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    background-image: url("../Images/pexels.jpg");
-    /* background-image: url("../Images/reg_background.jpg");
+
+    background-image: url("../Images/reg_background.jpg");
     background-position: fixed;
     background-repeat: no-repeat;
     background-attachment: fixed;
-    background-size: cover; */
-}
+    background-size: cover;
+} */
 
 .login-wrap {
     margin-top: 150px;
@@ -20,10 +20,25 @@
     flex-wrap: wrap;
 }
 
-.title {
+.supplierTitle {
+    width: 400px;
+    padding: 8px 0px;
+    background-color: #33A4FF;
+    margin-bottom: 20px;
+    margin-top: 5px;
+    text-align: center;
+  
+    border-radius: 10px 10px 10px 10px;
+    color: white;
+    border: 2px solid teal;
+    font-size: 2em;
+    font-weight: lighter;
+}
+
+.loginTitle {
     width: 380px;
     padding: 8px 0px;
-    background-color: teal;
+    background-color:	 	 #33A4FF;
     margin-bottom: 20px;
     margin-top: 5px;
     text-align: center;
@@ -35,11 +50,14 @@
     font-weight: lighter;
 }
 
-.form_wrapper {
+
+.supplierForm {
     width: 400px;
+    box-sizing: initial;
+    height: -90;
     background-image: url("../Images/reg_background.jpg");
     display: flex;
-    margin-top: -40px;
+    margin-top: 5px;
     flex-direction: column;
     padding: 10px 10px;
     border-radius: 10px;
@@ -49,7 +67,6 @@
 
 .login_wrapper {
     width: 400px;
-    background-image: url("../Images/reg_background.jpg");
     display: flex;
     margin-top: 10px;
     flex-direction: column;
@@ -65,19 +82,31 @@ form {
     flex-wrap: wrap;
 }
 
-label {
-    margin-bottom: -0.5em;
-    color: #222;
-    font-weight: normal;
-}
 
 .Lable{
     font-size: 15px;
-    margin-bottom: 0.5em;
+    margin-bottom: -0.1em;
+    
+    font-weight: bold;
 }
 
-input {
-    padding: 5px 5px;
+.addressLable{
+    font-size: 15px;
+    margin-bottom: -0.1em;
+    margin-top: 0.5em;
+    font-weight: bold;
+}
+.loginLable{
+    font-size: 15px;
+    margin-bottom: 0.5em;
+    font-weight: bold;
+    margin-top: 8px;
+}
+
+
+
+.supplierInput {
+    padding: 1px 1px;
     border-radius: 5px;
     outline: none;
     border: 1px solid #cfcfcf;
@@ -165,10 +194,11 @@ input.error {
     background-color: teal;
     color: #fff;
     border: 2px solid #fff;
+     
     width: 100%;
     margin-top: 5px;
     padding: 8px 0px;
-    font-size: 1em;
+    font-size: 1.5em;
     font-weight: lighter;
     letter-spacing: 1px;
     margin-bottom: 0.25em;

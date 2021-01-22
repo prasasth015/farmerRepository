@@ -1,5 +1,6 @@
 .container {
     margin-top: auto;
+
 }
 
 .quote {
@@ -7,25 +8,15 @@
     text-align: center;
 }
 
-.body {
-    width: 1000px;
-    height: 500px;
-    background-image: url("../Images/reg_background.jpg");
-    background-repeat: no-repeat;
-    display: flex;
-    margin-left: 45px;
-    margin-bottom: auto;
-    margin-top: 80px;
-    flex-direction: column;
-    padding: 40px 40px;
-    border-radius: 10px;
-    box-shadow: 0px 10px 50px #555;
-    background-color: #ffffff;
+
+
+.Label{
+    margin-top: 5px;
+    font-size: 15px;
+    margin-bottom: 0.5em;
+    font-weight: bold;
 }
 
-.container {
-    margin-bottom: 150px;
-}
 
 .button {
     text-align: center;

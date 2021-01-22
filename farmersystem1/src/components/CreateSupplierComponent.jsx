@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 // import SupplierService from '../service/SupplierService';
+import {Row, Col, Card, Form, InputGroup, FormControl, Button} from 'react-bootstrap';
 import "./CreateSupplier.css";
 import { Link } from "react-router-dom";
 
@@ -111,13 +112,14 @@ class CreateSupplierComponent extends Component {
     const { formErrors } = this.state;
     return (
 
-      <div className="wrap">
-        <div className="form_wrapper">
-          <div> <h1 className="title">Sign-Up</h1></div>
+
+      <div className="wrapper">
+        <div className="supplierForm">
+          <div> <h3 className="supplierTitle">Sign-Up</h3></div>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="name">
               <label htmlFor="firstName" className="Lable">Supplier Name</label>
-              <input
+              <input className="supplierInput"
                 className={formErrors.supplierName.length > 0 ? "error" : null}
                 placeholder="Name"
                 type="text"
@@ -133,7 +135,7 @@ class CreateSupplierComponent extends Component {
 
             <div className="supplierUserName">
               <label htmlFor="supplierUserName" className="Lable">UserName</label>
-              <input
+              <input className="supplierInput"
                 className={formErrors.supplierUserName.length > 0 ? "error" : null}
                 placeholder="UserName"
                 type="text"
@@ -147,25 +149,11 @@ class CreateSupplierComponent extends Component {
               )}
             </div>
 
-            <div className="Address">
-              <label htmlFor="Address" className="Lable">Address</label>
-              <input
-                className={formErrors.supplierAddress.length > 0 ? "error" : null}
-                placeholder="Address"
-                type="Address"
-                name="supplierAddress"
-                value={this.state.supplierAddress}
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.supplierAddress.length > 0 && (
-                <span className="errorMessage">{formErrors.supplierAddress}</span>
-              )}
-            </div>
+          
 
             <div className="contactNumber">
-              <label htmlFor="contactNumber" className="Lable">Contact Number</label>
-              <input
+              <label htmlFor="contactNumber" className="addressLable">Contact Number</label>
+              <input className="supplierInput"
                 className={formErrors.supplierContactNumber.length > 0 ? "error" : null}
                 placeholder="contactNumber"
                 type="contactNumber"
@@ -181,7 +169,7 @@ class CreateSupplierComponent extends Component {
 
             <div className="password">
               <label htmlFor="password" className="Lable">Password</label>
-              <input
+              <input className="supplierInput"
                 className={formErrors.password.length > 0 ? "error" : null}
                 placeholder="password"
                 type="password"
@@ -197,7 +185,7 @@ class CreateSupplierComponent extends Component {
 
             <div className="confirmPassword">
               <label htmlFor="password" className="Lable">Confirm Password</label>
-              <input
+              <input className="supplierInput"
                 className={formErrors.confirmPassword.length > 0 ? "error" : null}
                 placeholder="confirmPassword"
                 type="password"
@@ -211,8 +199,24 @@ class CreateSupplierComponent extends Component {
               )}
             </div>
 
+            <div className="Address">
+              <label htmlFor="Address"  className="Lable">Address</label>
+              <textarea className="supplierInput"
+                className={formErrors.supplierAddress.length > 0 ? "error" : null}
+                placeholder="Address"
+                type="text"
+                name="supplierAddress"
+                value={this.state.supplierAddress}
+                noValidate
+                onChange={this.handleChange}
+              />
+              {formErrors.supplierAddress.length > 0 && (
+                <span className="errorMessage">{formErrors.supplierAddress}</span>
+              )}
+            </div>
+
             <div className="createAccount">
-              <button className="button"  disabled={this.state.supplierName.length === 0 || this.state.supplierUserName.length === 0|| this.state.supplierAddress.length === 0 || this.state.supplierConatactNumber.length === 0 || this.state.password.length === 0|| this.state.confirmPassword.length === 0} ><Link to="/supplierLogin" className="link">Create Account</Link></button>
+              <Button className="button"  disabled={this.state.supplierName.length === 0 || this.state.supplierUserName.length === 0|| this.state.supplierAddress.length === 0 || this.state.supplierContactNumber.length === 0 || this.state.password.length === 0|| this.state.confirmPassword.length === 0} ><Link to="/supplierLogin" className="link">Create Account</Link></Button>
               <small><Link to="/supplierLogin">Already Have an Account? - Log-in</Link></small>
               
             </div>
