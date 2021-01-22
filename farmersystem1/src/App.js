@@ -1,6 +1,8 @@
 
 import './App.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import {BrowserRouter as Router, Link, NavLink, Route, Switch} from 'react-router-dom'
+
+//import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import HeadComponent from './components/HeadComponent';
 import FootComponent from './components/FootComponent';
 import AdminLogin from './components/AdminLogin';
@@ -25,25 +27,50 @@ import ListQuoteComponent from './components/ListQuoteComponent';
 import UpdateQuoteComponent from './components/UpdateQuoteComponent';
 import ViewQuoteComponent from './components/ViewQuoteComponent';
 import SupplierLogin from './components/SupplierLogin';
+import ListPurchaseComponent from './components/ListPurchaseComponent';
 
+import CreatePurchaseComponent from './components/CreatePurchaseComponent';
+import ViewPurchaseComponent from './components/ViewPurchaseComponent';
+
+
+/* */
+import Services from './components/pages/Services';
+import Products from './components/pages/Products';
+import SignUp from './components/pages/SignUp';
+import Home from './components/pages/Home';
+import Navbar from './components/Navbar';
 //import ViewSupplierComponent from './components/ViewSupplierComponent';
 
 function App() {
   return (
     <div>
       <Router>
-        {<HeadComponent />}
+      <Navbar />
+      { /* <HeadComponent /> */}
+  
+                  
+
         <div className="container">
           <Switch>
+            {/*Home*/}
+            <Route path='/' exact component={Home} />
+          <Route path='/services' component={Services} />
+          <Route path='/products' component={Products} />
+          <Route path='/sign-up' component={SignUp} />
+                            
+                            
+                            <Route path = "/purchase" component = {ListPurchaseComponent}></Route>
+                            <Route path = "/add-employee/:id" component = {CreatePurchaseComponent}></Route>
+                            <Route path = "/view-employee/:purchaseId" component = {ViewPurchaseComponent}></Route>
+                            
             {/*Admin*/}
-            <Route path="/" exact component={AdminLogin}></Route>
+           
             <Route path="/employees" component={AdminLogin}></Route>
             {/*supplier*/}
 
-            <Route path="/" exact component={CreateSupplierComponent}></Route>
+           
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
-            <Route path="/upplierLsogin" component={SupplierLogin}></Route>
-            
+            <Route path="/supplierLogin" component={SupplierLogin}></Route>
             <Route path="/supplierQuote" component={ListQuoteComponent}></Route>
             
             <Route path="/add-supplierQuote/:quoteId" component={SupplierQuoteComponent}></Route>
@@ -58,11 +85,10 @@ function App() {
             <Route path = "/view-complaint/:farmerUserName" component = {ViewComplaint}></Route>
             <Route path = "/complaint-list" component = {ComplaintList}></Route>
                         
-             {/* <Route path="/" exact component={ViewSupplierComponent}></Route> 
-             <Route path = "/supplier" component = {ViewSupplierComponent}></Route> */}
+             
           </Switch>
         </div>
-        {<FootComponent />}
+       
       </Router>
     </div>
   );

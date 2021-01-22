@@ -10,6 +10,11 @@ class ListQuoteComponent extends Component {
         this.state = {
             quote: []
         }
+        this.addQuote = this.addQuote.bind(this);
+    }
+
+    addQuote() {
+        this.props.history.push('/add-supplierQuote/_add');
     }
     render() {
         return (
@@ -18,7 +23,7 @@ class ListQuoteComponent extends Component {
                 <div>
                     <h2 className="box_title">Quote List</h2>
                     <div className="row">
-                        <button className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
+                        <button    className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
                     </div>
                     <br></br>
                     <div className="row">

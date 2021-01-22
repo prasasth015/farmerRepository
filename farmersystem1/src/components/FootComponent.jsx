@@ -14,7 +14,7 @@ class FootComponent extends Component {
         const mystyle = {
             color: "white",
             textAlign:"center",
-            backgroundColor: "#519e8a",
+            backgroundColor: "black",
             bottom:0,
             
 

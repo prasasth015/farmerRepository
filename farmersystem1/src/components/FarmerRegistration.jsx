@@ -154,7 +154,7 @@ class FarmerRegistration extends Component {
           <div> <h3 className="title">Farmer Registration</h3></div>
           <form onSubmit={this.handleSubmit} noValidate>
             <div className="name">
-              <label htmlFor="firstName">Farmer Name</label>
+              <label htmlFor="firstName" className="farmerLable">Farmer Name</label>
               <input
                 className={formErrors.farmerName.length > 0 ? "error" : null}
                 placeholder="Name"
@@ -170,7 +170,7 @@ class FarmerRegistration extends Component {
             </div>
 
             <div className="farmerUserName">
-              <label htmlFor="farmerUserName">UserName</label>
+              <label htmlFor="farmerUserName" className="farmerLable">UserName</label>
               <input
                 className={formErrors.farmerUserName.length > 0 ? "error" : null}
                 placeholder="UserName"
@@ -187,7 +187,7 @@ class FarmerRegistration extends Component {
             </div>
 
             <div className="Address">
-              <label htmlFor="Address">Address</label>
+              <label htmlFor="Address" className="farmerLable">Address</label>
               <input
                 className={formErrors.farmerAddress.length > 0 ? "error" : null}
                 placeholder="Address"
@@ -203,7 +203,7 @@ class FarmerRegistration extends Component {
             </div>
 
             <div className="contactNumber">
-              <label htmlFor="contactNumber">Contact Number</label>
+              <label htmlFor="contactNumber" className="farmerLable">Contact Number</label>
               <input
                 className={formErrors.farmerContactNo.length > 0 ? "error" : null}
                 placeholder="contactNumber"
@@ -219,7 +219,7 @@ class FarmerRegistration extends Component {
             </div>
 
             <div className="password">
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password" className="farmerLable">Password</label>
               <input
                 className={formErrors.farmerPassword.length > 0 ? "error" : null}
                 placeholder="farmerPassword"

@@ -12,11 +12,16 @@ class ViewQuoteComponent extends Component {
             supplierQuote: {}
         }
     }
+
+    
+    cancel() {
+        this.props.history.push('/supplierQuote');
+    }
     render() {
         return (
             <div className="box">
                 <br></br>
-                <div className="card col-md-6 offset-md-3">
+                <div className="card col-md-6 offset-md-3" style={{height:'30vh',borderRadius: '20px'}}>
                     <h3 className="text-center"> View Quote Details</h3>
                     <div className="card-body">
                         <div className="row">
@@ -24,7 +29,7 @@ class ViewQuoteComponent extends Component {
                             <div> {this.state.supplierQuote.userName}</div>
                         </div>
                         <div className="row">
-                            <label>  product Name :  </label>
+                            <label>  Product Name :  </label>
                             <div> {this.state.supplierQuote.productName}</div>
                         </div>
                         <div className="row">
@@ -35,9 +40,11 @@ class ViewQuoteComponent extends Component {
                             <label>Quote Price :  </label>
                             <div> {this.state.supplierQuote.quotePrice}</div>
                         </div>
+                        <div className="cancel"> <button className="btn btn-danger" onClick={this.cancel.bind(this)}  >Cancel</button></div>
                     </div>
+                   
                 </div>
-                <div className="cancel"> <button className="btn btn-danger"  style={{ marginLeft: "10px" }}>Cancel</button></div>
+               
             </div>
         )
     }
