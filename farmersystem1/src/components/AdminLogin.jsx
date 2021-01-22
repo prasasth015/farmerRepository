@@ -91,8 +91,7 @@ class AdminLogin extends Component {
                         <button className="button" onClick={this.verifyLogin}>LogIn</button>
                     
                         <div className="la">
-                          Don't have an account?{" "}
-                          <Link to="/add-adminLogin/:adminUserName" >SignUp</Link>
+
                         </div>
                       </div>
                    
