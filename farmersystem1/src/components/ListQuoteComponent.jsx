@@ -11,6 +11,8 @@ class ListQuoteComponent extends Component {
             quote: []
         }
     }
+
+    
     render() {
         return (
             // <div className="body_wrapper">

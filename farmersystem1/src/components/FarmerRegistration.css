@@ -14,7 +14,7 @@
 }
 
 .title {
-    width: 400px;
+    width: 380px;
     font-style: inherit;
     background-color: #008B8B;
     margin-bottom: 10px;
@@ -31,7 +31,7 @@
 }
 
 .form-wrapper {
-    width: 400px;
+    width: 380px;
     
     box-sizing: initial;
     max-height: initial;

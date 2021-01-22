@@ -42,7 +42,7 @@ function App() {
 
             <Route path="/" exact component={CreateSupplierComponent}></Route>
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
-            <Route path="/upplierLsogin" component={SupplierLogin}></Route>
+            <Route path="/supplierLogin" component={SupplierLogin}></Route>
             
             <Route path="/supplierQuote" component={ListQuoteComponent}></Route>
             

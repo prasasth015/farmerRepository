@@ -212,8 +212,9 @@ class CreateSupplierComponent extends Component {
             </div>
 
             <div className="createAccount">
-              <button className="button" ><Link to="/supplierLogin" className="link">Create Account</Link></button>
+              <button className="button"  disabled={this.state.supplierName.length === 0 || this.state.supplierUserName.length === 0|| this.state.supplierAddress.length === 0 || this.state.supplierConatactNumber.length === 0 || this.state.password.length === 0|| this.state.confirmPassword.length === 0} ><Link to="/supplierLogin" className="link">Create Account</Link></button>
               <small><Link to="/supplierLogin">Already Have an Account? - Log-in</Link></small>
+              
             </div>
           </form>
         </div>
