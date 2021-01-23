@@ -39,8 +39,6 @@
 }
 
 
-
-
 .head {
   margin-top: 0.5%;
   color: white;
@@ -89,7 +87,7 @@
 }
 
 .services {
-  background-image: url('');
+  background-image: url('Images/purchase10.jpg');
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;

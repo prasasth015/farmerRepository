@@ -10,29 +10,29 @@ function Cards() {
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-9.jpg'
-              text='Explore the hidden waterfall deep inside the Amazon Jungle'
-              label='Adventure'
+              src='images/purchase1.jpg'
+              text='Fresh Spring small fresh green Wheat Field Banner'
+              label='Spring'
               path='/services'
             />
             <CardItem
-              src='images/img-2.jpg'
-              text='Travel through the Islands of Bali in a Private Cruise'
-              label='Luxury'
+              src='images/purchase6.jpg'
+              text='Grren wheat field during blue sky during daytime'
+              label='Agriculture'
               path='/services'
             />
           </ul>
           <ul className='cards__items'>
             <CardItem
-              src='images/img-3.jpg'
-              text='Set Sail in the Atlantic Ocean visiting Uncharted Waters'
-              label='Mystery'
+              src='images/purchase7.jpg'
+              text='Beautiful Scenery in Farm Stock Footage'
+              label='Farmland'
               path='/services'
             />
             <CardItem
-              src='images/img-4.jpg'
-              text='Experience Football on Top of the Himilayan Mountains'
-              label='Adventure'
+              src='images/purchase10.jpg'
+              text='Production area has been stabled, But production has been intensified'
+              label='nature'
               path='/products'
             />
             <CardItem
