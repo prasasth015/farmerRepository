@@ -1,6 +1,6 @@
 
 import './App.css';
-import {BrowserRouter as Router, Link, NavLink, Route, Switch} from 'react-router-dom'
+import { BrowserRouter as Router, Link, NavLink, Route, Switch } from 'react-router-dom'
 import Navbar from './components/Navbar';
 
 
@@ -44,22 +44,22 @@ function App() {
   return (
     <div>
       <Router>
-      <Navbar />
-      { /* <HeadComponent /> */}
-  {/*home*/}
-      <Route path='/' exact component={Home} />
-          <Route path='/services' component={Services} />
-          <Route path='/products' component={Products} />
-          <Route path='/sign-up' component={SignUp} />
-         
-            <div className="container">
+        <Navbar />
+        { /* <HeadComponent /> */}
+        {/*home*/}
+        <Route path='/' exact component={Home} />
+        <Route path='/services' component={Services} />
+        <Route path='/products' component={Products} />
+        <Route path='/sign-up' component={SignUp} />
+
+        <div className="container">
           <Switch>
-      {/*home*/}
-      
+            {/*home*/}
 
 
-             {/*Admin*/}
-             
+
+            {/*Admin*/}
+
             <Route path="/adminLogin" component={AdminLogin}></Route>
             <Route path="/productList" component={ListProductComponent}></Route>
             <Route path="/addProduct" component={ProductComponent}></Route>
@@ -71,29 +71,29 @@ function App() {
 
             {/*supplier*/}
 
-           
+
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
             <Route path="/supplierLogin" component={SupplierLogin}></Route>
-           
+
             <Route path="/supplierQuote" component={ListQuoteComponent}></Route>
-            
+
             <Route path="/add-supplierQuote/:quoteId" component={SupplierQuoteComponent}></Route>
             <Route path="/view-supplierQuote/:quoteId" component={ViewQuoteComponent}></Route>
             <Route path="/add-supplierQuote/:quoteId" component={UpdateQuoteComponent}></Route>
             <Route path="/supplierProduct" component={SupplierProduct}></Route>
-            
-          {/*Farmer*/}
-            <Route path = "/farmerLogin" component = {FarmerLogin}></Route>
-            <Route path = "/add-farmer/:farmerUserName" component = {FarmerRegistration}></Route>
-            <Route path = "/login" component = {AdminLogin}></Route>
-            <Route path = "/add-complaint/:farmerUserName" component = {AddComplaint}></Route>
-            <Route path = "/view-complaint/:farmerUserName" component = {ViewComplaint}></Route>
-    <Route path = "/complaint-list" component = {ComplaintList}></Route>
-                        
-             
+
+            {/*Farmer*/}
+            <Route path="/farmerLogin" component={FarmerLogin}></Route>
+            <Route path="/add-farmer/:farmerUserName" component={FarmerRegistration}></Route>
+            <Route path="/login" component={AdminLogin}></Route>
+            <Route path="/add-complaint/:farmerUserName" component={AddComplaint}></Route>
+            <Route path="/view-complaint/:farmerUserName" component={ViewComplaint}></Route>
+            <Route path="/complaint-list" component={ComplaintList}></Route>
+
+
           </Switch>
         </div>
-   
+
       </Router>
     </div>
   );
