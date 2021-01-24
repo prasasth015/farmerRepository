@@ -1,8 +1,6 @@
 
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import HeadComponent from './components/HeadComponent';
-import FootComponent from './components/FootComponent';
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
@@ -19,6 +17,7 @@ import ListQuoteComponent from './components/ListQuoteComponent';
 import UpdateQuoteComponent from './components/UpdateQuoteComponent';
 import ViewQuoteComponent from './components/ViewQuoteComponent';
 import SupplierLogin from './components/SupplierLogin';
+import SupplierProduct from './components/SupplierProduct';
 
 import FarmerLogin from './components/FarmerLogin';
 import FarmerRegistration from './components/FarmerRegistration';
@@ -33,7 +32,7 @@ function App() {
   return (
     <div>
       <Router>
-        {<HeadComponent />}
+    
         <div className="container">
           <Switch>
              {/*Admin*/}
@@ -52,12 +51,13 @@ function App() {
             <Route path="/" exact component={CreateSupplierComponent}></Route>
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
             <Route path="/supplierLogin" component={SupplierLogin}></Route>
-            
+           
             <Route path="/supplierQuote" component={ListQuoteComponent}></Route>
             
             <Route path="/add-supplierQuote/:quoteId" component={SupplierQuoteComponent}></Route>
             <Route path="/view-supplierQuote/:quoteId" component={ViewQuoteComponent}></Route>
             <Route path="/add-supplierQuote/:quoteId" component={UpdateQuoteComponent}></Route>
+            <Route path="/supplierProduct" component={SupplierProduct}></Route>
             
           {/*Farmer*/}
             <Route path = "/farmerLogin" component = {FarmerLogin}></Route>
@@ -71,7 +71,7 @@ function App() {
              <Route path = "/supplier" component = {ViewSupplierComponent}></Route> */}
           </Switch>
         </div>
-        {<FootComponent />}
+   
       </Router>
     </div>
   );

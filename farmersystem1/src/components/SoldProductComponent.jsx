@@ -66,7 +66,7 @@ class SoldProductComponent extends Component {
 
     getTitle() {
         if (this.state.quoteId === '_add') { //doubt
-            return <h3 className="quote">Add Quote</h3>
+            return <h3 className="quote">Add Product</h3>
         } else {
             return <h3 className="text-center">Sell Product </h3>
 
