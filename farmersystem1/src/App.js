@@ -3,9 +3,6 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 import Navbar from './components/Navbar';
-
-
-
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
@@ -24,6 +21,8 @@ import ViewQuoteComponent from './components/ViewQuoteComponent';
 import SupplierLogin from './components/SupplierLogin';
 import SupplierProduct from './components/SupplierProduct';
 
+import SoldProductQuote from './components/SoldProductQuote';
+
 import FarmerLogin from './components/FarmerLogin';
 import FarmerRegistration from './components/FarmerRegistration';
 
@@ -32,6 +31,7 @@ import ComplaintList from './components/ComplaintList';
 import ViewComplaint from './components/ViewComplaint';
 
 import Home from './components/pages/Home';
+
 
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
@@ -60,7 +60,7 @@ function App() {
 
 
             {/*Admin*/}
-
+            <Route path="/quoteList" component={SoldProductQuote}></Route>
             <Route path="/adminLogin" component={AdminLogin}></Route>
             <Route path="/productList" component={ListProductComponent}></Route>
             <Route path="/addProduct" component={ProductComponent}></Route>

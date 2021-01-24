@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import ProductService from '../service/ProductService';
-import SupplierQuoteService from '../service/SupplierQuoteService'
+import SupplierQuoteService from '../service/SupplierQuoteService';
+import SoldProductService from '../service/SoldProductService';
 import "./ListQuote.css";
 
 
-class SupplierProduct extends Component {
+class SoldProductQuote extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            product: []
+            quote: []
         }
         this.addQuote = this.addQuote.bind(this);
 
@@ -18,13 +18,13 @@ class SupplierProduct extends Component {
 
 
     componentDidMount() {
-        ProductService.getAllProduct().then((res) => {
-            this.setState({ product: res.data });
+        SupplierQuoteService.getAllQuote().then((res) => {
+            this.setState({ quote: res.data });
         });
     }
 
     addQuote() {
-        this.props.history.push('/add-supplierQuote/_add');
+        this.props.history.push('/soldProduct');
     }
 
 
@@ -36,7 +36,7 @@ class SupplierProduct extends Component {
                     <div>
                         <h2 className="box_title">Product List</h2>
                         <div className="row">
-                            <button    className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
+                            <button    className="btn btn-primary" onClick={this.addQuote}> Sell product</button>
                 </div>
                 <br></br>
                 <div className="row">
@@ -44,19 +44,23 @@ class SupplierProduct extends Component {
 
                         <thead>
                             <tr>
+                                <th> User Name</th>
+
                                 <th> Product Name</th>
-                                <th> Product Description</th>
+                                <th> Quantity</th>
+                                <th> quote Price</th>
 
                             </tr>
                         </thead>
                         <tbody>
                             {
-                                this.state.product.map(
-                                    products =>
-                                        <tr key={products.productId}>
-
-                                            <td> {products.productName} </td>
-                                            <td> {products.productDescription}</td>
+                                this.state.quote.map(
+                                    quote =>
+                                        <tr key={quote.quoteId}>
+                                            <td> {quote.userName} </td>
+                                            <td> {quote.productName} </td>
+                                            <td> {quote.quantity}</td>
+                                            <td> {quote.quotePrice} </td>
                                         </tr>
                                 )
                             }
@@ -71,4 +75,4 @@ class SupplierProduct extends Component {
     }
 }
 
-export default SupplierProduct
+export default SoldProductQuote
