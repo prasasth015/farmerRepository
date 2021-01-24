@@ -7,14 +7,14 @@ class ListSoldProductComponent extends Component {
         this.state = {
                 soldProducts: []
         }
-        this.sellProduct = this.sellProduct.bind(this);
+        this.listSellProduct = this.listSellProduct.bind(this);
        
       //  this.deleteProduct= this.deleteProduct.bind(this);
        
     }
 
-    sellProduct(){
-        this.props.history.push('/soldProductList'); //doubt
+    listSellProduct(){
+        this.props.history.push('/soldProduct'); //doubt
     }
 
     
@@ -26,7 +26,7 @@ render() {
         <div>
              <h2 className="text-center">Product List</h2>
              <div className = "row">
-                <button className="btn btn-primary" onClick={this.sellProduct}>Sell Product</button>
+                <button className="btn btn-primary" onClick={this.listSellProduct}>Sell Product</button>
              </div>
              <br></br>
              <div className = "row">

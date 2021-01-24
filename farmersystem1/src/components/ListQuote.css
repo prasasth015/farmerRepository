@@ -12,6 +12,7 @@
     justify-content: center;
     margin-top: 80px;
     flex-direction: column;
+    /* overflow:scroll; */
     background-attachment: scroll;
     padding: 20px 40px;
     border-radius: 10px;

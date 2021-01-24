@@ -15,7 +15,7 @@ class ListProductComponent extends Component {
     }
 
     addProduct(){
-        this.props.history.push('/employees');
+        this.props.history.push('/addProduct');
     }
 
     

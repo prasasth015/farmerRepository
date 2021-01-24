@@ -14,6 +14,7 @@ class AdminLogin extends Component {
                  
         }
         this.verifyLogin=this.verifyLogin.bind(this);
+        this.addProduct = this.addProduct.bind(this);
     }
     changeNameHandler=(event) => {
       this.setState({adminUserName: event.target.value});
@@ -27,7 +28,7 @@ class AdminLogin extends Component {
         let admin = {adminUserName: this.state.adminUserName, farmerPassword: this.state.adminPassword};
         console.log('admin => ' + JSON.stringify(admin));
 
-        
+          AdminLoginService.login(this.state.adminUserName,this.state.adminPassword);
           AdminLoginService.login(this.state.adminUserName,this.state.adminPassword).then((res) => {
           this.setState({admin:res.data});
           console.log('hello');
@@ -46,6 +47,13 @@ class AdminLogin extends Component {
         })
        
       }
+
+      
+  addProduct() {
+    this.props.history.push('/productList');
+}
+
+
       render() {
         return (
           <div>
@@ -88,12 +96,9 @@ class AdminLogin extends Component {
                       </div>
     
                       <div className="logIn">
-                        <button className="button" onClick={this.verifyLogin}>LogIn</button>
+                        <button className="button" onClick={this.addProduct}>LogIn</button>
                     
-                        <div className="la">
-                          Don't have an account?{" "}
-                          <Link to="/add-adminLogin/:adminUserName" >SignUp</Link>
-                        </div>
+                        
                       </div>
                    
                   </form>

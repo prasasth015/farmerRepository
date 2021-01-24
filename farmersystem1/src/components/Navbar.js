@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from './Button';
 import { Link } from 'react-router-dom';
 import './Navbar.css';
+import './Button.css';
 
 function Navbar() {
   const [click, setClick] = useState(false);
@@ -29,7 +30,7 @@ function Navbar() {
       <nav className='navbar'>
         <div className='navbar-container'>
           <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-            Farmer Assistance 
+            <h3 style={{"marginBottom":"26px"}}>Farmer Assistance </h3>
             <i class='fab fa-typo3' />
           </Link>
           <div className='menu-icon' onClick={handleClick}>
@@ -62,7 +63,7 @@ function Navbar() {
 
             <li className='nav-item'>
               <Link
-                to='/Services'
+                to='/'
                 className='nav-links'
                 onClick={closeMobileMenu}
               >
@@ -70,7 +71,7 @@ function Navbar() {
               </Link>
             </li>
 
-
+               
             <li>
               <Link
                 to='/sign-up'
@@ -80,9 +81,10 @@ function Navbar() {
                 Sign Up
               </Link>
             </li>
-          </ul>
-          {button && <Button buttonStyle='btn--outline'>Admin Login</Button>}
-          
+              
+            </ul>
+        <button style={{"color":"white","marginBottom":"21px","width":"140px","borderRadius":"10px"}}><span  style={{"color":"black"}} ><Link to="/adminLogin" style={{"color":"black"}}>Admin </Link></span></button>
+       
         </div>
       </nav>
     </>

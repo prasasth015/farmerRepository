@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-//import SupplierQuoteService from '../service/SupplierQuoteService'
+import SupplierQuoteService from '../service/SupplierQuoteService'
 import "./ViewQuote.css";
 //import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -12,6 +12,14 @@ class ViewQuoteComponent extends Component {
             supplierQuote: {}
         }
     }
+
+    
+    componentDidMount() {
+        SupplierQuoteService.getQuoteById(this.state.quoteId).then(res => {
+            this.setState({ supplierQuote: res.data });
+        })
+    }
+
 
     
     cancel() {
