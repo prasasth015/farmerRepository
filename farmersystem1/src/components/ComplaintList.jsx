@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ComplaintService from '../service/ComplaintService'
 
 
 class ComplaintList extends Component {
@@ -6,35 +7,40 @@ class ComplaintList extends Component {
         super(props)
 
         this.state = {
-                complaints: []
+                complaint: []
         }
-        this.addEmployee = this.addEmployee.bind(this);
+        this.addComplaint = this.addComplaint.bind(this);
         
-        this.deleteEmployee = this.deleteEmployee.bind(this);
+        this.deleteComplaint = this.deleteComplaint.bind(this);
     }
 
-    deleteEmployee(farmerUserName){
-        alert("Are you sure u want to delete this");
-        
+    componentDidMount(){
+        ComplaintService.getAllComplaint().then((res) => {
+            this.setState({ complaint: res.data })
+            console.log(res.data);
+    });
+}
+
+    deleteComplaint(complaintId) {
+        ComplaintService.deleteComplaint(complaintId).then(res => {
+            this.setState({ complaint: this.state.complaint.filter(complaints => complaints.complaintId !== complaintId) });
+        });
     }
-    viewEmployee(farmerUserName){
-        this.props.history.push(`/view-employee/${farmerUserName}`);
+    viewComplaint(complaintId){
+        this.props.history.push(`/view-complaint/:complaintId`);
+    }
+
+    addComplaint(){
+        this.props.history.push('/add-complaint/:farmerUserName/:supplierUserName');
     }
     
-    componentDidMount(){
-        
-    }
-
-    addEmployee(){
-        this.props.history.push('/add-complaint/:farmerUserName');
-    }
 
     render() {
         return (
             <div>
                  <h2 className="text-center">Complaint List</h2>
                  <div className = "row">
-                    <button className="btn btn-primary" onClick={this.addEmployee}> Add Complaint</button>
+                    <button className="btn btn-primary" onClick={this.addComplaint}> Add Complaint</button>
                  </div>
                  <br></br>
                  <div className = "row">
@@ -42,6 +48,7 @@ class ComplaintList extends Component {
 
                             <thead>
                                 <tr>
+                                    <th>User Name</th>
                                     <th> Supplier</th>
                                     <th> Complaint</th>
                                     <th> Actions</th>
@@ -49,16 +56,17 @@ class ComplaintList extends Component {
                             </thead>
                             <tbody>
                                 {
-                                    this.state.complaints.map(
+                                    this.state.complaint.map(
                                         complaint => 
-                                        <tr key = {complaint.farmerUserName}>
+                                        <tr key = {complaint.complaintId}>
+                                            <td>{complaint.farmerUserName}</td>
                                              <td> {complaint.supplierUserName} </td>   
                                              <td> {complaint.complaintText}</td>
                                              
                                              <td>
                                                 
-                                                 <button  onClick={ () => this.deleteEmployee(complaint.farmerUserName)} className="btn btn-danger">Delete </button>
-                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewEmployee(complaint.farmerUserName)} className="btn btn-info">View </button>
+                                                 <button  onClick={ () => this.deleteComplaint(complaint.complaintId)} className="btn btn-danger">Delete </button>
+                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewComplaint(complaint.complaintId)} className="btn btn-info">View </button>
                                              </td>
                                         </tr>
                                     )
