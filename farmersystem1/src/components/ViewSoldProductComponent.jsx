@@ -18,7 +18,7 @@ class ViewSoldProductComponent extends Component {
         this.props.history.push('/soldProductList');
     }
     viewSoldProduct() {
-        this.props.history.push('/soldProductList');
+        this.props.history.push('/');
     }
 
     render() {

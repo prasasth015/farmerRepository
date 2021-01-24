@@ -1,6 +1,7 @@
 
 import './App.css';
-import { BrowserRouter as Router, Link, NavLink, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+
 import Navbar from './components/Navbar';
 
 
@@ -94,6 +95,7 @@ function App() {
           </Switch>
         </div>
 
+    
       </Router>
     </div>
   );

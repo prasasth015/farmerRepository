@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ProductService from '../service/ProductService'
 
 
 class ListProductComponent extends Component {
@@ -9,18 +10,31 @@ class ListProductComponent extends Component {
                 products: []
         }
         this.addProduct = this.addProduct.bind(this);
+        this.deleteProduct = this.deleteProduct.bind(this);
        
-      //  this.deleteProduct= this.deleteProduct.bind(this);
+      
        
     }
+
+    deleteProduct(productId){
+        ProductService.deleteProduct(productId).then( res => {
+            this.setState({products: this.state.products.filter(product => product.productId !== productId)});
+        });
+    }
+   
+   
+
+    componentDidMount(){
+        ProductService.getAllProduct().then((res) => {
+            this.setState({ products: res.data});
+        });
+    }
+  
 
     addProduct(){
         this.props.history.push('/addProduct');
     }
-
     
-
-   
 
 render() {
     return (
@@ -35,9 +49,10 @@ render() {
 
                         <thead>
                             <tr>
-                                <th> Product Id</th>
+                                
                                 <th> Product Name</th>
                                 <th> Product Description</th>
+                                <th>Actions</th>
                                
                             </tr>
                         </thead>
@@ -50,8 +65,9 @@ render() {
                                          <td> {product.productDescription}</td>
                                         
                                          <td>
-                                             <button style={{marginLeft: "10px"}} onClick={ () => this.deleteProduct(product.id)} className="btn btn-danger">Delete </button>
-                                             <button style={{marginLeft: "10px"}} onClick={ () => this.viewEmployee(product.id)} className="btn btn-info">View </button>
+                                        
+                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.deleteProduct(product.productId)} className="btn btn-danger">Delete </button>
+                                                
                                          </td>
                                          
                                     </tr>
