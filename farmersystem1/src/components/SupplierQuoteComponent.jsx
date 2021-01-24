@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import SupplierQuoteService from '../service/SupplierQuoteService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./SupplierQuote.css";
+import ProductService from '../service/ProductService'
 import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { Link } from "react-router-dom";
 
@@ -43,10 +44,17 @@ class SupplierQuoteComponent extends Component {
         e.preventDefault();
         let supplierQuote = { userName: this.state.userName, productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice }; //product: this.state.product
         console.log('supplierQuote => ' + JSON.stringify(supplierQuote));
-
+        ProductService.getAllProduct(this.state.productName);
+        
         if (this.state.quoteId === '_add') {
+            
             SupplierQuoteService.insertQuote(supplierQuote).then(res => {
+                SupplierQuoteService.getAllProduct(this.state.productName);
+                if(res.data.productName!=this.state.productName){
+                    alert("invalid product")
+                }else{
                 this.props.history.push('/supplierQuote');
+                }
             });
         }
         else {

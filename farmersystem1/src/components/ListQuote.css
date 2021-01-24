@@ -5,7 +5,7 @@
 
 .body_wrap {
     width: 1000px;
-    background-image: url("../Images/reg_background.jpg");
+    /* background-image: url("../Images/reg_background.jpg"); */
     display: flex;
     margin-bottom: auto;
     margin-left: 60px;
