@@ -8,7 +8,7 @@ class ViewComplaint extends Component {
 
         this.state = {
             complaintId: this.props.match.params.complaintId,
-            complaint: {}
+            complaint: []
         }
 
         this.back=this.back.bind(this);

@@ -11,6 +11,7 @@ class ListQuoteComponent extends Component {
             quote: []
         }
         this.addQuote = this.addQuote.bind(this);
+        this.viewProduct = this.viewProduct.bind(this);
         this.editPrice = this.editPrice.bind(this);
         this.deleteQuote = this.deleteQuote.bind(this);
     }
@@ -36,6 +37,10 @@ class ListQuoteComponent extends Component {
     addQuote() {
         this.props.history.push('/add-supplierQuote/_add');
     }
+    viewProduct() {
+        this.props.history.push('/supplierProduct');
+    }
+
     render() {
         return (
             // <div className="body_wrapper">
@@ -44,6 +49,7 @@ class ListQuoteComponent extends Component {
                     <h2 className="box_title">Quote List</h2>
                     <div className="row">
                         <button    className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
+                        <button   style={{"marginLeft":"10px"}} className="btn btn-primary" onClick={this.viewProduct}> View Product</button>
                     </div>
                     <br></br>
                     <div className="row">

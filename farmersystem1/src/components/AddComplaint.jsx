@@ -25,9 +25,13 @@ componentDidMount()
     if(this.state.complaintId === '_add'){
         return
     }else{
+        console.log(this.state.farmerUserName);
+        console.log(this.state.supplierUserName);
+        console.log(this.state.complaintText);
         ComplaintService.saveComplaint(this.state.farmerUserName,this.state.supplierUserName).then((res) =>{
             let complaint =res.data;
-            this.setState({ supplierUserName:complaint.supplierUserName,complaintText:complaint.complaintText})
+            console.log(res.data);
+            this.setState({farmerUserName:complaint.farmerUserName, supplierUserName:complaint.supplierUserName,complaintText:complaint.complaintText})
         })
         
        
@@ -35,6 +39,7 @@ componentDidMount()
 }
 changeUserNameHandler=(event) => {
     this.setState({farmerUserName: event.target.value});
+    console.log(this.state.farmerUserName);
 
   }
 
@@ -44,6 +49,7 @@ changeNameHandler=(event) => {
   }
   changeComplaintHandler=(event) => {
     this.setState({complaintText: event.target.value});
+    console.log(this.state.complaintText);
   }
 
 
@@ -54,7 +60,7 @@ saveComplaint=(e) =>{
     // step 5
     if(this.state.farmerUserName === '_add'){
         ComplaintService.saveComplaint(complaint).then(res =>{
-            this.props.history.push('/employees');
+            this.props.history.push('/complaint-list');
         });
     
     }

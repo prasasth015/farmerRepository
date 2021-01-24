@@ -17,6 +17,7 @@ class ComplaintList extends Component {
     componentDidMount(){
         ComplaintService.getAllComplaint().then((res) => {
             this.setState({ complaint: res.data })
+            console.log(res.data);
     });
 }
 
@@ -30,7 +31,7 @@ class ComplaintList extends Component {
     }
 
     addComplaint(){
-        this.props.history.push('/add-complaint/:complaintId');
+        this.props.history.push('/add-complaint/:farmerUserName/:supplierUserName');
     }
     
 

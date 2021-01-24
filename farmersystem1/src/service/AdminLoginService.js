@@ -6,7 +6,7 @@ import axios from 'axios';
 class AdminLoginService {
 
     login(adminUserName,adminPassword){
-        return axios.get("http://localhost:8082/api/v1/adminLogin" +'/'+adminUserName+"/"+adminPassword);
+        return axios.get("http://localhost:8082/api/v1/adminlogin" +'/'+adminUserName+"/"+adminPassword);
     }
 
     register(admin){

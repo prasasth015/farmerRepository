@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PurchaseService from '../services/PurchaseService'
+import PurchaseService from '../service/PurchaseService'
 import "./ListPurchase.css";
 
 
@@ -24,6 +24,7 @@ componentDidMount(){
 render() {
     return (
         <div className="wrapper">
+            <br></br>
              <h2 className="text-center">Purchase History</h2>
              
              <br></br>

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faPhone, faEnvelope, faLock, faUndo, faUserPlus, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faLock, faUserPlus, faUser } from "@fortawesome/free-solid-svg-icons";
 
 
 
@@ -46,8 +46,8 @@ class FarmerLogin extends Component {
           
           console.log(res.data);
           if(
-            res.data.farmerUserName == this.state.farmerUserName ||
-            res.data.farmerPassword == this.state.farmerPassword)
+            res.data.farmerUserName === this.state.farmerUserName ||
+            res.data.farmerPassword === this.state.farmerPassword)
           {
             alert("Login Sucessful")
             
