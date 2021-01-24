@@ -1,10 +1,15 @@
 import React, { Component } from 'react'
 import FarmerService from '../service/FarmerService';
-import "./FarmerRegistration.css";
+
 
 import { Link } from "react-router-dom";
 
-import "bootstrap/dist/css/bootstrap.min.css";
+
+import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import { faPhone, faEnvelope, faLock, faUndo, faUserPlus, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+
 
 
 const addressRegex = RegExp(
@@ -76,8 +81,6 @@ class FarmerRegistration extends Component {
   saveFarmer = (e) => {
     e.preventDefault();
     let farmer = { farmerName: this.state.farmerName, farmerUserName: this.state.farmerUserName, farmerAddress: this.state.farmerAddress, farmerContactNo: this.state.farmerContactNo, farmerPassword: this.state.farmerPassword };
-    if(this.state.password !== this.state.password)
-    alert("Given password and confirm password should be same ");
     console.log('farmer => ' + JSON.stringify(farmer));
 
     FarmerService.register(farmer).then(res => {
@@ -148,108 +151,106 @@ class FarmerRegistration extends Component {
   render() {
     const { formErrors } = this.state;
     return (
+      <Row className="justify-content-md-center" style={{ "margin-top": "60px" }}>
+        <Col xs={5}>
+          <Card className={"border border-dark bg-white-dark"} >
+            <Card.Header style={{ "text-align": "center" ,"fontSize":"20px"}}>
+              <FontAwesomeIcon icon={faUsers} />SIGN-UP
+                        </Card.Header>
+            <Card.Body>
+              <Form.Row>
+                <Form.Group as={Col}>
+                  <InputGroup>
+                    <InputGroup.Prepend>
+                      <InputGroup.Text><FontAwesomeIcon icon={faUser} /></InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl className={formErrors.farmerName.length > 0 ? "error" : null} autoComplete="off" type="text" name="farmerName" value={this.state.farmerName} onChange={this.handleChange}
+                      className={"bg-white text-dark "} placeholder="Enter Name" />
+                  </InputGroup>
+                  {formErrors.farmerName.length > 0 && (
+                    <span className="errorMessage">{formErrors.farmerName}</span>
+                  )}
+                </Form.Group>
+              </Form.Row>
 
-      <div className="wrapper">
-        <div className="form-wrapper">
-          <div> <h3 className="title">Farmer Registration</h3></div>
-          <form onSubmit={this.handleSubmit} noValidate>
-            <div className="name">
-              <label htmlFor="firstName" className="farmerLable" >Farmer Name <span className="ast">*</span></label>
-              <input
-                className={formErrors.farmerName.length > 0 ? "error" : null}
-                placeholder="Name"
-                type="text"
-                name="farmerName"
-                value={this.state.farmerName}
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.farmerName.length > 0 && (
-                <span className="errorMessage">{formErrors.farmerName}</span>
-              )}
-            </div>
+              <Form.Row>
+                <Form.Group as={Col}>
+                  <InputGroup>
+                    <InputGroup.Prepend>
+                      <InputGroup.Text><FontAwesomeIcon icon={faUser} /></InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl className={formErrors.farmerUserName.length > 0 ? "error" : null} required autoComplete="off" type="text" name="farmerUserName" value={this.state.farmerUserName} onChange={this.handleChange}
+                      className={"bg-white text-dark"} placeholder="Enter User Name" />
+                  </InputGroup>
+                  {formErrors.farmerUserName.length > 0 && (
+                    <span className="errorMessage">{formErrors.farmerUserName}</span>
+                  )}
+                </Form.Group>
+              </Form.Row>
 
-            <div className="farmerUserName">
-              <label htmlFor="farmerUserName" className="farmerLable">UserName <span className="ast">*</span></label>
-              <input
-                className={formErrors.farmerUserName.length > 0 ? "error" : null}
-                placeholder="UserName"
-                type="text"
-                name="farmerUserName"
-                value={this.state.farmerUserName}
-                
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.farmerUserName.length > 0 && (
-                <span className="errorMessage">{formErrors.farmerUserName}</span>
-              )}
-            </div>
-
-            
-
-            <div className="contactNumber">
-              <label htmlFor="contactNumber" className="farmerLable">Contact Number <span className="ast">*</span></label>
-              <input
-                className={formErrors.farmerContactNo.length > 0 ? "error" : null}
-                placeholder="contactNumber"
-                type="contactNumber"
-                name="farmerContactNo"
-                value={this.state.farmerContactNo}
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.farmerContactNo.length > 0 && (
-                <span className="errorMessage">{formErrors.farmerContactNo}</span>
-              )}
-            </div>
-
-            <div className="password">
-              <label htmlFor="password" className="farmerLable">Password<span className="ast">*</span></label>
-              <input
-                className={formErrors.farmerPassword.length > 0 ? "error" : null}
-                placeholder="farmerPassword"
-                type="farmerPassword"
-                name="farmerPassword"
-                value={this.state.farmerPassword}
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.farmerPassword.length > 0 && (
-                <span className="errorMessage">{formErrors.farmerPassword}</span>
-              )}
-            </div>
-
-            <div className="Address">
-              <label htmlFor="Address" className="farmerLable">Address<span className="ast">*</span></label>
-              <textarea 
-                className={formErrors.farmerAddress.length > 0 ? "error" : null}
-                placeholder="Address"
-                type="Address"
-                name="farmerAddress"
-                value={this.state.farmerAddress}
-                noValidate
-                onChange={this.handleChange}
-              />
-              {formErrors.farmerAddress.length > 0 && (
-                <span className="errorMessage">{formErrors.farmerAddress}</span>
-              )}
-            </div>
-
-            
-
-            <div className="createAccount">
-              <button className="button" onClick={this.saveFarmer}>Create Account</button>
-              <small>Already Have an Account?  <Link to="/farmerLogin" >Log In</Link></small>
               
 
-            </div>
-          </form>
-        </div>
-      </div>
+              <Form.Row>
+                <Form.Group as={Col}>
+                  <InputGroup>
+                    <InputGroup.Prepend>
+                      <InputGroup.Text><FontAwesomeIcon icon={faPhone} /></InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl className={formErrors.farmerContactNo.length > 0 ? "error" : null} autoComplete="off" type="contactNumber"
+                      name="farmerContactNo" value={this.state.farmerContactNo} onChange={this.handleChange}
+                      className={"bg-white text-dark"} placeholder="Enter Contact Number" />
+                  </InputGroup>
+                  {formErrors.farmerContactNo.length > 0 && (
+                    <span className="errorMessage">{formErrors.farmerContactNo}</span>
+                  )}
+                </Form.Group>
+              </Form.Row>
 
+              <Form.Row>
+                <Form.Group as={Col}>
+                  <InputGroup>
+                    <InputGroup.Prepend>
+                      <InputGroup.Text><FontAwesomeIcon icon={faLock} /></InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl className={formErrors.farmerPassword.length > 0 ? "error" : null} autoComplete="off" type="password"
+                      name="farmerPassword" value={this.state.farmerPassword} onChange={this.handleChange}
+                      className={"bg-white text-dark"} placeholder="Enter Password" />
+                  </InputGroup>
+                  {formErrors.farmerPassword.length > 0 && (
+                    <span className="errorMessage">{formErrors.farmerPassword}</span>
+                  )}
+                </Form.Group>
+              </Form.Row>
+              <Form.Row>
+                <Form.Group as={Col}>
+                  <InputGroup>
+                    <InputGroup.Prepend>
+                      <InputGroup.Text><FontAwesomeIcon icon={faEnvelope} /></InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl className={formErrors.farmerAddress.length > 0 ? "error" : null} required autoComplete="off" type="textarea" name="farmerAddress" value={this.state.farmerAddress} onChange={this.handleChange}
+                      className={"bg-white text-dark"} placeholder="Enter Address" />
+                  </InputGroup>
+                  {formErrors.farmerAddress.length > 0 && (
+                    <span className="errorMessage">{formErrors.farmerAddress}</span>
+                  )}
+                </Form.Group>
+              </Form.Row>
 
-    )
+              
+            </Card.Body>
+            <Card.Footer style={{ "text-align": "center"}}>
+              <Button size="sm" type="button" variant="success" style={{ "width":"80%","padding":"10px"}} onClick={this.saveFarmer}>
+                <FontAwesomeIcon icon={faUserPlus} /> SIGN-UP
+                            </Button>{' '}<br></br>
+                            <small><Link to="/farmerLogin">Already Have an Account? - Log-in</Link></small>
+            </Card.Footer>
+          </Card>
+        </Col>
+      </Row>
+    );
+
+     
+    
   }
 }
 
