@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SupplierQuoteService from '../service/SupplierQuoteService'
 import "./ListQuote.css";
+import ProductService from '../service/ProductService'
 
 class SupplierProduct extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class SupplierProduct extends Component {
     }
 
     componentDidMount() {
-        SupplierQuoteService.getAllProduct().then((res) => {
+        ProductService.getAllProduct().then((res) => {
             this.setState({ product: res.data });
         });
     }
