@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
- import SupplierQuoteService from '../service/SupplierQuoteService';
- import { Link } from "react-router-dom";
+import SupplierQuoteService from '../service/SupplierQuoteService';
 
 class UpdateQuoteComponent extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
-            // step 2
             quoteId: this.props.match.params.quoteId,
             userName: '',
             productName: '',
@@ -70,18 +68,18 @@ class UpdateQuoteComponent extends Component {
         this.props.history.push('/supplierQuote');
     }
 
-  
+
     render() {
         return (
             <div >
-           
-            <br></br>
-               <div className = "container">
-               
-                    <div className = "row">
-                        <div className = "card col-md-6 offset-md-3 offset-md-3">
-            
-                            <div className = "card-body">
+
+                <br></br>
+                <div className="container">
+
+                    <div className="row">
+                        <div className="card col-md-6 offset-md-3 offset-md-3">
+
+                            <div className="card-body">
                                 <form >
                                     <div className="form-group">
                                         <label> User Name: </label>

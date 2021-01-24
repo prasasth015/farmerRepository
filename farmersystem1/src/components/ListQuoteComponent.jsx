@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
- import SupplierQuoteService from '../service/SupplierQuoteService'
+import SupplierQuoteService from '../service/SupplierQuoteService'
 import "./ListQuote.css";
-//import 'bootstrap/dist/css/bootstrap.min.css';
 
 class ListQuoteComponent extends Component {
     constructor(props) {
@@ -12,6 +11,7 @@ class ListQuoteComponent extends Component {
         }
         this.addQuote = this.addQuote.bind(this);
         this.viewProduct = this.viewProduct.bind(this);
+        this.viewPurchase = this.viewPurchase.bind(this);
         this.editPrice = this.editPrice.bind(this);
         this.deleteQuote = this.deleteQuote.bind(this);
     }
@@ -41,15 +41,19 @@ class ListQuoteComponent extends Component {
         this.props.history.push('/supplierProduct');
     }
 
+    viewPurchase(){
+        this.props.history.push('/purchase')
+    }
+
     render() {
         return (
-            // <div className="body_wrapper">
             <div className="body_wrap ">
                 <div>
                     <h2 className="box_title">Quote List</h2>
                     <div className="row">
-                        <button    className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
-                        <button   style={{"marginLeft":"10px"}} className="btn btn-primary" onClick={this.viewProduct}> View Product</button>
+                        <button className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
+                        <button style={{ "marginLeft": "10px" }} className="btn btn-primary" onClick={this.viewProduct}> View Product</button>
+                        <button style={{ "marginLeft": "10px" }} className="btn btn-primary" onClick={this.viewPurchase}> View Purchase</button>
                     </div>
                     <br></br>
                     <div className="row">
@@ -84,12 +88,9 @@ class ListQuoteComponent extends Component {
                                 }
                             </tbody>
                         </table>
-
                     </div>
-
                 </div>
             </div>
-            // </div>
         )
     }
 }
