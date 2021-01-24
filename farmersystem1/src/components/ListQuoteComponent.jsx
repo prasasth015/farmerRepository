@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
- import SupplierQuoteService from '../service/SupplierQuoteService'
+import SupplierQuoteService from '../service/SupplierQuoteService'
 import "./ListQuote.css";
-//import 'bootstrap/dist/css/bootstrap.min.css';
 
 class ListQuoteComponent extends Component {
     constructor(props) {
@@ -43,13 +42,12 @@ class ListQuoteComponent extends Component {
 
     render() {
         return (
-            // <div className="body_wrapper">
             <div className="body_wrap ">
                 <div>
                     <h2 className="box_title">Quote List</h2>
                     <div className="row">
-                        <button    className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
-                        <button   style={{"marginLeft":"10px"}} className="btn btn-primary" onClick={this.viewProduct}> View Product</button>
+                        <button className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
+                        <button style={{ "marginLeft": "10px" }} className="btn btn-primary" onClick={this.viewProduct}> View Product</button>
                     </div>
                     <br></br>
                     <div className="row">
@@ -84,12 +82,9 @@ class ListQuoteComponent extends Component {
                                 }
                             </tbody>
                         </table>
-
                     </div>
-
                 </div>
             </div>
-            // </div>
         )
     }
 }
