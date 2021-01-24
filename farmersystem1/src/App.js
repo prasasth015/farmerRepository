@@ -1,8 +1,8 @@
 
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import HeadComponent from './components/HeadComponent';
-import FootComponent from './components/FootComponent';
+
+
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
@@ -33,7 +33,7 @@ function App() {
   return (
     <div>
       <Router>
-        {<HeadComponent />}
+       
         <div className="container">
           <Switch>
              {/*Admin*/}
@@ -71,7 +71,7 @@ function App() {
              <Route path = "/supplier" component = {ViewSupplierComponent}></Route> */}
           </Switch>
         </div>
-        {<FootComponent />}
+    
       </Router>
     </div>
   );

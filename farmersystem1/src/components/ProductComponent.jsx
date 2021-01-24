@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ProductService from '../service/ProductService'
 
 class ProductComponent extends Component {
     constructor(props) {
@@ -16,9 +17,34 @@ class ProductComponent extends Component {
         this.changeProductDescriptionHandler = this.changeProductDescriptionHandler.bind(this);
     
     };
-    saveProduct=(e) =>{
-        alert("hello");
-    }
+// step 3
+componentDidMount(){
+
+    // step 4
+    if(this.state.productId === '_add'){
+        return
+    // }else{
+    //     ProductService.getProductById(this.state.id).then( (res) =>{
+    //         let product = res.data;
+    //         this.setState({productId: product.productId,
+    //             productName: product.productName,
+    //             productDescription : product.productDescription
+    //         });
+    //     });
+    }        
+}
+
+saveProduct = (e) => {
+    e.preventDefault();
+    let product = { productName: this.state.productName, productDescription: this.state.productDescription};
+    console.log('product => ' + JSON.stringify(product));
+
+        ProductService.insertProduct(product).then(res =>{
+            this.props.history.push('/productList');
+        });
+}
+
+
     cancel(){
         this.props.history.push('/productList');
     }
@@ -63,7 +89,7 @@ class ProductComponent extends Component {
                                         </div>
                                         <div className = "form-group" >
     
-                                        <button className="btn btn-success" disabled={this.state.productDescription.length === 0}onClick={this.saveProduct}>Save</button>
+                                        <button className="btn btn-success" disabled={this.state.productDescription.length === 0} onClick={this.saveProduct}>Save</button>
                                         
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                         </div>
