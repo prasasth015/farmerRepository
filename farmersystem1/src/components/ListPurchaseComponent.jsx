@@ -12,7 +12,7 @@ class ListPurchaseComponent extends Component{
     }
 }
 viewEmployee(purchaseId){
-    this.props.history.push(`/view-employee/${purchaseId}`);
+    this.props.history.push(`/view-purchase/${purchaseId}`);
 }
 
 componentDidMount(){

@@ -24,6 +24,9 @@ import ViewQuoteComponent from './components/ViewQuoteComponent';
 import SupplierLogin from './components/SupplierLogin';
 import SupplierProduct from './components/SupplierProduct';
 
+import ViewPurchaseComponent from './components/ViewPurchaseComponent';
+
+
 import FarmerLogin from './components/FarmerLogin';
 import FarmerRegistration from './components/FarmerRegistration';
 
@@ -55,7 +58,9 @@ function App() {
 
         <div className="container">
           <Switch>
-            {/*home*/}
+           {/* purchase*/}
+           <Route path="/purchase" component={ListPurchaseComponent}></Route>
+             <Route path="/view-purchase" component={ViewPurchaseComponent}></Route>
 
 
 
