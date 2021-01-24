@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PurchaseService from '../services/PurchaseService'
+import PurchaseService from '../service/PurchaseService'
 
 class ViewPurchaseComponent extends Component{
     constructor(props) {

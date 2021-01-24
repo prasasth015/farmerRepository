@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./SupplierQuote.css";
 import {Row, Col, Card, Form, InputGroup, FormControl, Button} from 'react-bootstrap';
+import { Link } from "react-router-dom";
 
 class SupplierQuoteComponent extends Component {
     constructor(props) {
@@ -55,7 +56,7 @@ class SupplierQuoteComponent extends Component {
         // step 5
         if (this.state.quoteId === '_add') {
             SupplierQuoteService.insertQuote(supplierQuote).then(res => {
-                this.props.history.push('/addQuote');
+                this.props.history.push('/supplierQuote');
             });
         }
         else {
@@ -144,7 +145,7 @@ class SupplierQuoteComponent extends Component {
                                                 value={this.state.product} onChange={this.changeProductHandler}/>
                                         </div> */}
                                     <div className="button">
-                                    <button className="btn btn-success"  onClick={this.saveOrUpdateQuote}>Save</button>
+                                    <button className="btn btn-success"  onClick={this.saveOrUpdateQuote} disabled={this.state.userName.length === 0||this.state.productName.length === 0||this.state.quantity.length === 0||this.state.quotePrice.length === 0}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
                                     </div>
                                 </form>

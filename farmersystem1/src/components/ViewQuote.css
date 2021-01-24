@@ -10,7 +10,7 @@
     background-repeat: no-repeat;
 }
 
-label{
+.viewLabel{
     font-size: 1.1em;
     font-weight: bold;
     margin-bottom: 1em;

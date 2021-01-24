@@ -33,20 +33,20 @@ class ViewQuoteComponent extends Component {
                     <h3 className="text-center"> View Quote Details</h3>
                     <div className="card-body">
                         <div className="row">
-                            <label> User Name :  </label>
-                            <div> {this.state.supplierQuote.userName}</div>
+                            <label className="viewLabel"> User Name :  </label>
+                            <div style={{"marginTop":"2px","marginLeft":"5px"}}> {this.state.supplierQuote.userName}</div>
                         </div>
                         <div className="row">
-                            <label>  Product Name :  </label>
-                            <div> {this.state.supplierQuote.productName}</div>
+                            <label className="viewLabel">  Product Name :  </label>
+                            <div style={{"marginTop":"2px","marginLeft":"5px"}}> {this.state.supplierQuote.productName}</div>
                         </div>
                         <div className="row">
-                            <label> Quantity :  </label>
-                            <div> {this.state.supplierQuote.quantity}</div>
+                            <label className="viewLabel"> Quantity :  </label>
+                            <div style={{"marginTop":"2px","marginLeft":"5px"}}> {this.state.supplierQuote.quantity}</div>
                         </div>
                         <div className="row">
-                            <label>Quote Price :  </label>
-                            <div> {this.state.supplierQuote.quotePrice}</div>
+                            <label className="viewLabel">Quote Price :  </label>
+                            <div style={{"marginTop":"2px","marginLeft":"5px"}}> {this.state.supplierQuote.quotePrice}</div>
                         </div>
                         <div className="cancel"> <button className="btn btn-danger" onClick={this.cancel.bind(this)}  >Cancel</button></div>
                     </div>
