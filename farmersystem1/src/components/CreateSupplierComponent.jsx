@@ -21,11 +21,6 @@ const passwordRegex = RegExp(
 const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
 
-  // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
-    val.length > 0 && (valid = false);
-  });
-
   // validate the form was filled out
   Object.values(rest).forEach(val => {
     val === null && (valid = false);
@@ -40,7 +35,7 @@ class CreateSupplierComponent extends Component {
 
     this.state = {
       supplierName: '',
-      supplierUserName:'',
+      supplierUserName: '',
       supplierAddress: '',
       supplierContactNumber: '',
       password: '',
@@ -54,7 +49,6 @@ class CreateSupplierComponent extends Component {
         confirmPassword: ""
       }
     };
-
     this.saveSupplier = this.saveSupplier.bind(this);
   }
 
@@ -144,9 +138,9 @@ class CreateSupplierComponent extends Component {
       <Row className="justify-content-md-center" style={{ "margin-top": "60px" }}>
         <Col xs={5}>
           <Card className={"border border-dark bg-white-dark"} >
-            <Card.Header style={{ "text-align": "center" ,"fontSize":"20px"}}>
+            <Card.Header style={{ "text-align": "center", "fontSize": "20px" }}>
               <FontAwesomeIcon icon={faUsers} />SIGN-UP
-                        </Card.Header>
+            </Card.Header>
             <Card.Body>
               <Form.Row>
                 <Form.Group as={Col}>
@@ -177,9 +171,7 @@ class CreateSupplierComponent extends Component {
                   )}
                 </Form.Group>
               </Form.Row>
-
-           
-
+              
               <Form.Row>
                 <Form.Group as={Col}>
                   <InputGroup>
@@ -227,8 +219,8 @@ class CreateSupplierComponent extends Component {
                   )}
                 </Form.Group>
               </Form.Row>
-              
-                 <Form.Row>
+
+              <Form.Row>
                 <Form.Group as={Col}>
                   <InputGroup>
                     <InputGroup.Prepend>
@@ -244,11 +236,11 @@ class CreateSupplierComponent extends Component {
               </Form.Row>
 
             </Card.Body>
-            <Card.Footer style={{ "text-align": "center"}}>
-              <Button size="sm" type="button" variant="success" style={{ "width":"80%","padding":"10px"}} onClick={this.saveSupplier}  disabled={this.state.password.length === 0||this.state.supplierName.length === 0||this.state.supplierUserName.length === 0||this.state.supplierAddress.length === 0||this.state.supplierContactNumber.length === 0||this.state.password.length === 0||this.state.confirmPassword.length === 0}>
+            <Card.Footer style={{ "text-align": "center" }}>
+              <Button size="sm" type="button" variant="success" style={{ "width": "80%", "padding": "10px" }} onClick={this.saveSupplier} disabled={this.state.password.length === 0 || this.state.supplierName.length === 0 || this.state.supplierUserName.length === 0 || this.state.supplierAddress.length === 0 || this.state.supplierContactNumber.length === 0 || this.state.password.length === 0 || this.state.confirmPassword.length === 0}>
                 <FontAwesomeIcon icon={faUserPlus} /> SIGN-UP
                             </Button>{' '}<br></br>
-                            <small><Link to="/supplierLogin">Already Have an Account? - Log-in</Link></small>
+              <small><Link to="/supplierLogin">Already Have an Account? - Log-in</Link></small>
             </Card.Footer>
           </Card>
         </Col>
