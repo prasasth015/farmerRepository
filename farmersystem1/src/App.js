@@ -13,6 +13,7 @@ import ViewSoldProductComponent from './components/ViewSoldProductComponent';
 import AdminViewComplaint from './components/AdminViewComplaint';
 import SoldProductComponent from './components/SoldProductComponent';
 import ListSoldProductComponent from './components/ListSoldProductComponent';
+import ViewPurchaseComponent from './components/ViewPurchaseComponent';
 
 import ListPurchaseComponent from './components/ListPurchaseComponent';
 import CreateSupplierComponent from './components/CreateSupplierComponent';
@@ -54,10 +55,8 @@ function App() {
          
             <div className="container">
           <Switch>
-      {/*home*/}
       
-
-
+      
              {/*Admin*/}
              
             <Route path="/adminLogin" component={AdminLogin}></Route>
@@ -66,8 +65,6 @@ function App() {
             <Route path="/soldProductList" component={ListSoldProductComponent}></Route>
             <Route path="/soldProduct" component={SoldProductComponent}></Route>
             <Route path="/viewSoldProduct" component={ViewSoldProductComponent}></Route>
-
-
 
             {/*supplier*/}
 
@@ -90,7 +87,10 @@ function App() {
             <Route path = "/view-complaint/:farmerUserName" component = {ViewComplaint}></Route>
     <Route path = "/complaint-list" component = {ComplaintList}></Route>
                         
-             
+             {/* purchase*/}
+             <Route path="/purchase" component={ListPurchaseComponent}></Route>
+             <Route path="/view-employee" component={ViewPurchaseComponent}></Route>
+
           </Switch>
         </div>
    
