@@ -4,6 +4,7 @@ import {BrowserRouter as Router, Link, NavLink, Route, Switch} from 'react-route
 import Navbar from './components/Navbar';
 
 
+
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
@@ -20,6 +21,7 @@ import ListQuoteComponent from './components/ListQuoteComponent';
 import UpdateQuoteComponent from './components/UpdateQuoteComponent';
 import ViewQuoteComponent from './components/ViewQuoteComponent';
 import SupplierLogin from './components/SupplierLogin';
+import SupplierProduct from './components/SupplierProduct';
 
 import FarmerLogin from './components/FarmerLogin';
 import FarmerRegistration from './components/FarmerRegistration';
@@ -44,18 +46,18 @@ function App() {
       <Router>
       <Navbar />
       { /* <HeadComponent /> */}
-  
+  {/*home*/}
       <Route path='/' exact component={Home} />
           <Route path='/services' component={Services} />
           <Route path='/products' component={Products} />
           <Route path='/sign-up' component={SignUp} />
-          <Route path='/about' component={about} />
-          <Route path="/purchase" component={ListPurchaseComponent}></Route>
-            
-
-
-        <div className="container">
+         
+            <div className="container">
           <Switch>
+      {/*home*/}
+      
+
+
              {/*Admin*/}
              
             <Route path="/adminLogin" component={AdminLogin}></Route>
@@ -72,11 +74,13 @@ function App() {
            
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
             <Route path="/supplierLogin" component={SupplierLogin}></Route>
+           
             <Route path="/supplierQuote" component={ListQuoteComponent}></Route>
             
             <Route path="/add-supplierQuote/:quoteId" component={SupplierQuoteComponent}></Route>
             <Route path="/view-supplierQuote/:quoteId" component={ViewQuoteComponent}></Route>
             <Route path="/add-supplierQuote/:quoteId" component={UpdateQuoteComponent}></Route>
+            <Route path="/supplierProduct" component={SupplierProduct}></Route>
             
           {/*Farmer*/}
             <Route path = "/farmerLogin" component = {FarmerLogin}></Route>
@@ -89,7 +93,7 @@ function App() {
              
           </Switch>
         </div>
-       
+   
       </Router>
     </div>
   );

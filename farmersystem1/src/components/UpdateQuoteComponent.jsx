@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
  import SupplierQuoteService from '../service/SupplierQuoteService';
+ import { Link } from "react-router-dom";
+
 class UpdateQuoteComponent extends Component {
     constructor(props) {
         super(props)
@@ -39,7 +41,7 @@ class UpdateQuoteComponent extends Component {
         console.log('supplierQuote => ' + JSON.stringify(supplierQuote));
         console.log('quoteId => ' + JSON.stringify(this.state.quoteId));
         SupplierQuoteService.updatePrice(supplierQuote, this.state.quoteId).then(res => {
-            this.props.history.push('/addQuote');
+            this.props.history.push('/supplierQuote');
         });
     }
 
@@ -65,7 +67,7 @@ class UpdateQuoteComponent extends Component {
     }
 
     cancel() {
-        this.props.history.push('/addQuote');
+        this.props.history.push('/supplierQuote');
     }
 
   
@@ -105,7 +107,7 @@ class UpdateQuoteComponent extends Component {
                                             value={this.state.quotePrice} onChange={this.changeQuotePriceHandler} />
                                     </div>
 
-                                    <button className="btn btn-success" onClick={this.updatePrice}>Save</button>
+                                    <button className="btn btn-success" onClick={this.updatePrice}> Save</button>
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
                                 </form>
                             </div>

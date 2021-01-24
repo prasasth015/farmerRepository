@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ProductService from '../service/ProductService'
 
 class ProductComponent extends Component {
     constructor(props) {
@@ -31,6 +32,9 @@ class ProductComponent extends Component {
         this.setState({ productName: event.target.value });
     }
 
+
+        // step 4
+    
    
     
     

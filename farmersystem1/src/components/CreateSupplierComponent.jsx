@@ -74,7 +74,7 @@ class CreateSupplierComponent extends Component {
     console.log('supplier => ' + JSON.stringify(supplier));
 
     SupplierService.createSupplier(supplier).then(res => {
-      this.props.history.push('/createSupplier');
+      this.props.history.push('/supplierLogin');
 
     });
   }
@@ -154,7 +154,7 @@ class CreateSupplierComponent extends Component {
                     <InputGroup.Prepend>
                       <InputGroup.Text><FontAwesomeIcon icon={faUser} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className={formErrors.supplierName.length > 0 ? "error" : null} autoComplete="off" type="text" name="supplierName" value={this.state.supplierName} onChange={this.handleChange}
+                    <FormControl className={formErrors.supplierName.length > 0 ? "error" : null} required autoComplete="off" type="text" name="supplierName" value={this.state.supplierName} onChange={this.handleChange}
                       className={"bg-white text-dark "} placeholder="Enter Name" />
                   </InputGroup>
                   {formErrors.supplierName.length > 0 && (
@@ -169,7 +169,7 @@ class CreateSupplierComponent extends Component {
                     <InputGroup.Prepend>
                       <InputGroup.Text><FontAwesomeIcon icon={faUser} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className={formErrors.supplierUserName.length > 0 ? "error" : null} required autoComplete="off" type="text" name="supplierUserName" value={this.state.supplierUserName} onChange={this.handleChange}
+                    <FormControl className={formErrors.supplierUserName.length > 0 ? "error" : null} required required autoComplete="off" type="text" name="supplierUserName" value={this.state.supplierUserName} onChange={this.handleChange}
                       className={"bg-white text-dark"} placeholder="Enter User Name" />
                   </InputGroup>
                   {formErrors.supplierUserName.length > 0 && (
@@ -178,20 +178,7 @@ class CreateSupplierComponent extends Component {
                 </Form.Group>
               </Form.Row>
 
-              <Form.Row>
-                <Form.Group as={Col}>
-                  <InputGroup>
-                    <InputGroup.Prepend>
-                      <InputGroup.Text><FontAwesomeIcon icon={faEnvelope} /></InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <FormControl className={formErrors.supplierAddress.length > 0 ? "error" : null} required autoComplete="off" type="textarea" name="supplierAddress" value={this.state.supplierAddress} onChange={this.handleChange}
-                      className={"bg-white text-dark"} placeholder="Enter Address" />
-                  </InputGroup>
-                  {formErrors.supplierAddress.length > 0 && (
-                    <span className="errorMessage">{formErrors.supplierAddress}</span>
-                  )}
-                </Form.Group>
-              </Form.Row>
+           
 
               <Form.Row>
                 <Form.Group as={Col}>
@@ -199,7 +186,7 @@ class CreateSupplierComponent extends Component {
                     <InputGroup.Prepend>
                       <InputGroup.Text><FontAwesomeIcon icon={faPhone} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className={formErrors.supplierContactNumber.length > 0 ? "error" : null} autoComplete="off" type="contactNumber"
+                    <FormControl className={formErrors.supplierContactNumber.length > 0 ? "error" : null} required autoComplete="off" type="contactNumber"
                       name="supplierContactNumber" value={this.state.supplierContactNumber} onChange={this.handleChange}
                       className={"bg-white text-dark"} placeholder="Enter Contact Number" />
                   </InputGroup>
@@ -215,7 +202,7 @@ class CreateSupplierComponent extends Component {
                     <InputGroup.Prepend>
                       <InputGroup.Text><FontAwesomeIcon icon={faLock} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className={formErrors.confirmPassword.length > 0 ? "error" : null} autoComplete="off" type="password"
+                    <FormControl className={formErrors.confirmPassword.length > 0 ? "error" : null} required autoComplete="off" type="password"
                       name="password" value={this.state.password} onChange={this.handleChange}
                       className={"bg-white text-dark"} placeholder="Enter password" />
                   </InputGroup>
@@ -231,7 +218,7 @@ class CreateSupplierComponent extends Component {
                     <InputGroup.Prepend>
                       <InputGroup.Text><FontAwesomeIcon icon={faLock} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className={formErrors.confirmPassword.length > 0 ? "error" : null} autoComplete="off" type="password" name="confirmPassword"
+                    <FormControl className={formErrors.confirmPassword.length > 0 ? "error" : null} required autoComplete="off" type="password" name="confirmPassword"
                       value={this.state.confirmPassword} onChange={this.handleChange}
                       className={"bg-white text-dark"} placeholder="Enter Confirm password" />
                   </InputGroup>
@@ -240,9 +227,25 @@ class CreateSupplierComponent extends Component {
                   )}
                 </Form.Group>
               </Form.Row>
+              
+                 <Form.Row>
+                <Form.Group as={Col}>
+                  <InputGroup>
+                    <InputGroup.Prepend>
+                      <InputGroup.Text><FontAwesomeIcon icon={faEnvelope} /></InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl className={formErrors.supplierAddress.length > 0 ? "error" : null} required autoComplete="off" type="textarea" name="supplierAddress" value={this.state.supplierAddress} onChange={this.handleChange}
+                      className={"bg-white text-dark"} placeholder="Enter Address" />
+                  </InputGroup>
+                  {formErrors.supplierAddress.length > 0 && (
+                    <span className="errorMessage">{formErrors.supplierAddress}</span>
+                  )}
+                </Form.Group>
+              </Form.Row>
+
             </Card.Body>
             <Card.Footer style={{ "text-align": "center"}}>
-              <Button size="sm" type="button" variant="success" style={{ "width":"80%","padding":"10px"}} onClick={this.saveSupplier}>
+              <Button size="sm" type="button" variant="success" style={{ "width":"80%","padding":"10px"}} onClick={this.saveSupplier}  disabled={this.state.password.length === 0||this.state.supplierName.length === 0||this.state.supplierUserName.length === 0||this.state.supplierAddress.length === 0||this.state.supplierContactNumber.length === 0||this.state.password.length === 0||this.state.confirmPassword.length === 0}>
                 <FontAwesomeIcon icon={faUserPlus} /> SIGN-UP
                             </Button>{' '}<br></br>
                             <small><Link to="/supplierLogin">Already Have an Account? - Log-in</Link></small>
