@@ -27,11 +27,12 @@ class ComplaintList extends Component {
         });
     }
     viewComplaint(complaintId){
-        this.props.history.push(`/view-complaint/:complaintId`);
+        this.props.history.push(`/view-complaint/${complaintId}`);
+        
     }
 
     addComplaint(){
-        this.props.history.push('/add-complaint/:farmerUserName/:supplierUserName');
+        this.props.history.push(`/add-complaint/:farmerUserName/:supplierUserName`);
     }
     
 

@@ -58,7 +58,7 @@ saveComplaint=(e) =>{
     console.log('complaint => ' + JSON.stringify(complaint));
 
     // step 5
-    if(this.state.farmerUserName === '_add'){
+    if(this.state.complaintId === '_add'){
         ComplaintService.saveComplaint(complaint).then(res =>{
             this.props.history.push('/complaint-list');
         });

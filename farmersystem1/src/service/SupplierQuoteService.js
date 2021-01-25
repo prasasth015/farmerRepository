@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const QUOTE_API_BASE_URL = "http://localhost:8061/api/v1/addQuote";
-const PRODUCT_API_BASE_URL = "http://localhost:8061/api/v1/addproduct";
+const QUOTE_API_BASE_URL = "http://localhost:8082/api/v1/addQuote";
+// const PRODUCT_API_BASE_URL = "http://localhost:8082/api/v1/addproduct";
 
 class SupplierQuoteService {
 
@@ -20,9 +20,9 @@ class SupplierQuoteService {
     updatePrice(supplierQuote, quoteId){
         return axios.put(QUOTE_API_BASE_URL + '/' + quoteId, supplierQuote);
     }
-    getAllProduct(){
-        return axios.get(PRODUCT_API_BASE_URL);
-    }
+    // getAllProduct(){
+    //     return axios.get(PRODUCT_API_BASE_URL);
+    // }
 
     deleteQuote(quoteId){
         return axios.delete(QUOTE_API_BASE_URL + '/' + quoteId);

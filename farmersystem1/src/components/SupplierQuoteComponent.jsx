@@ -49,12 +49,9 @@ class SupplierQuoteComponent extends Component {
         if (this.state.quoteId === '_add') {
             
             SupplierQuoteService.insertQuote(supplierQuote).then(res => {
-                SupplierQuoteService.getAllProduct(this.state.productName);
-                if(res.data.productName!=this.state.productName){
-                    alert("invalid product")
-                }else{
+               
                 this.props.history.push('/supplierQuote');
-                }
+                
             });
         }
         else {

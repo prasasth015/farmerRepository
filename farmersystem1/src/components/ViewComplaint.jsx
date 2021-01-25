@@ -46,7 +46,7 @@ class ViewComplaint extends Component {
                         
                         <div className = "row">
                             <label style={{fontWeight:'bold',fontSize: 'medium'}}>Complaint: </label>
-                            <div> { this.state.complaint.complaintText }</div>
+                            <div style={{ "marginTop": "5px", "marginLeft": "5px" }} >{ this.state.complaint.complaintText }</div>
                         </div>
                         <br></br>
 

@@ -82,7 +82,7 @@ function App() {
             <Route path = "/add-farmer/:farmerUserName" component = {FarmerRegistration}></Route>
            
             <Route path = "/add-complaint/:farmerUserName/:supplierUserName" component = {AddComplaint}></Route>
-            <Route path = "/view-complaint" component = {ViewComplaint}></Route>
+            <Route path = "/view-complaint/:complaintId" component = {ViewComplaint}></Route>
             <Route path = "/complaint-list" component = {ComplaintList}></Route>
 
 
