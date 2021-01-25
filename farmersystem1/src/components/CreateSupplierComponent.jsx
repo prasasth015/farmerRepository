@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SupplierService from '../service/SupplierService';
-import { faPhone, faEnvelope, faLock, faUndo, faUserPlus, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faPhone, faEnvelope, faLock, faUserPlus, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 
 const addressRegex = RegExp(
@@ -171,14 +171,14 @@ class CreateSupplierComponent extends Component {
                   )}
                 </Form.Group>
               </Form.Row>
-              
+
               <Form.Row>
                 <Form.Group as={Col}>
                   <InputGroup>
                     <InputGroup.Prepend>
                       <InputGroup.Text><FontAwesomeIcon icon={faPhone} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className={formErrors.supplierContactNumber.length > 0 ? "error" : null} required autoComplete="off" type="contactNumber"
+                    <FormControl className={formErrors.supplierContactNumber.length > 0 ? "error" : null} required autoComplete="off" type="text"
                       name="supplierContactNumber" value={this.state.supplierContactNumber} onChange={this.handleChange}
                       className={"bg-white text-dark"} placeholder="Enter Contact Number" />
                   </InputGroup>

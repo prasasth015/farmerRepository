@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import ProductService from '../service/ProductService';
-import SupplierQuoteService from '../service/SupplierQuoteService'
 import "./ListQuote.css";
+import ProductService from '../service/ProductService';
 
 
 class SupplierProduct extends Component {

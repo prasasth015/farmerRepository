@@ -9,6 +9,7 @@ import ViewSoldProductComponent from './components/ViewSoldProductComponent'
 
 import SoldProductComponent from './components/SoldProductComponent';
 import ListSoldProductComponent from './components/ListSoldProductComponent';
+import ViewPurchaseComponent from './components/ViewPurchaseComponent';
 
 
 import CreateSupplierComponent from './components/CreateSupplierComponent';
@@ -18,6 +19,9 @@ import UpdateQuoteComponent from './components/UpdateQuoteComponent';
 import ViewQuoteComponent from './components/ViewQuoteComponent';
 import SupplierLogin from './components/SupplierLogin';
 import SupplierProduct from './components/SupplierProduct';
+import ListPurchaseComponent from './components/ListPurchaseComponent';
+
+
 
 import SoldProductQuote from './components/SoldProductQuote';
 
@@ -53,7 +57,9 @@ function App() {
 
         <div className="container">
           <Switch>
-            {/*home*/}
+           {/* purchase*/}
+           <Route path="/purchase" component={ListPurchaseComponent}></Route>
+             <Route path="/view-purchase" component={ViewPurchaseComponent}></Route>
 
 
 
