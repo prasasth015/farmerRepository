@@ -9,6 +9,7 @@ import ViewSoldProductComponent from './components/ViewSoldProductComponent'
 
 import SoldProductComponent from './components/SoldProductComponent';
 import ListSoldProductComponent from './components/ListSoldProductComponent';
+import ViewPurchaseComponent from './components/ViewPurchaseComponent';
 
 
 import CreateSupplierComponent from './components/CreateSupplierComponent';
@@ -18,9 +19,13 @@ import UpdateQuoteComponent from './components/UpdateQuoteComponent';
 import ViewQuoteComponent from './components/ViewQuoteComponent';
 import SupplierLogin from './components/SupplierLogin';
 import SupplierProduct from './components/SupplierProduct';
+import ListPurchaseComponent from './components/ListPurchaseComponent';
 
+<<<<<<< HEAD
 import ViewPurchaseComponent from './components/ViewPurchaseComponent';
 import ListPurchaseComponent from './components/ListPurchaseComponent';
+=======
+>>>>>>> 6caf8e692c3c85654e8bbdce6418a8e655d8f068
 
 
 import FarmerLogin from './components/FarmerLogin';
