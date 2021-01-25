@@ -1,18 +1,16 @@
 
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-
 import Navbar from './components/Navbar';
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
-import ViewSoldProductComponent from './components/ViewSoldProductComponent';
+import ViewSoldProductComponent from './components/ViewSoldProductComponent'
 
-import AdminViewComplaint from './components/AdminViewComplaint';
 import SoldProductComponent from './components/SoldProductComponent';
 import ListSoldProductComponent from './components/ListSoldProductComponent';
 
-import ListPurchaseComponent from './components/ListPurchaseComponent';
+
 import CreateSupplierComponent from './components/CreateSupplierComponent';
 import SupplierQuoteComponent from './components/SupplierQuoteComponent';
 import ListQuoteComponent from './components/ListQuoteComponent';
@@ -36,7 +34,7 @@ import Home from './components/pages/Home';
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
-import about from './components/about';
+
 
 
 //import ViewSupplierComponent from './components/ViewSupplierComponent';
@@ -67,11 +65,9 @@ function App() {
             <Route path="/soldProductList" component={ListSoldProductComponent}></Route>
             <Route path="/soldProduct" component={SoldProductComponent}></Route>
             <Route path="/viewSoldProduct" component={ViewSoldProductComponent}></Route>
-
-
-
+            
+            
             {/*supplier*/}
-
 
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
             <Route path="/supplierLogin" component={SupplierLogin}></Route>
@@ -84,12 +80,13 @@ function App() {
             <Route path="/supplierProduct" component={SupplierProduct}></Route>
 
             {/*Farmer*/}
-            <Route path="/farmerLogin" component={FarmerLogin}></Route>
-            <Route path="/add-farmer/:farmerUserName" component={FarmerRegistration}></Route>
-            <Route path="/login" component={AdminLogin}></Route>
-            <Route path="/add-complaint/:farmerUserName" component={AddComplaint}></Route>
-            <Route path="/view-complaint/:farmerUserName" component={ViewComplaint}></Route>
-            <Route path="/complaint-list" component={ComplaintList}></Route>
+            
+            <Route path = "/farmerLogin" component = {FarmerLogin}></Route>
+            <Route path = "/add-farmer/:farmerUserName" component = {FarmerRegistration}></Route>
+           
+            <Route path = "/add-complaint/:farmerUserName/:supplierUserName" component = {AddComplaint}></Route>
+            <Route path = "/view-complaint" component = {ViewComplaint}></Route>
+            <Route path = "/complaint-list" component = {ComplaintList}></Route>
 
 
           </Switch>

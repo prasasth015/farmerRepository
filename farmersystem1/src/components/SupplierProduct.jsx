@@ -15,8 +15,6 @@ class SupplierProduct extends Component {
 
     }
 
-
-
     componentDidMount() {
         ProductService.getAllProduct().then((res) => {
             this.setState({ product: res.data });
@@ -30,43 +28,42 @@ class SupplierProduct extends Component {
 
     render() {
         return (
-          
-              
-                <div className="body_wrap ">
-                    <div>
-                        <h2 className="box_title">Product List</h2>
-                        <div className="row">
-                            <button    className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
+
+
+            <div className="body_wrap ">
+                <div>
+                    <h2 className="box_title">Product List</h2>
+                    <div className="row">
+                        <button className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
+                    </div>
+                    <br></br>
+                    <div className="row">
+                        <table className="table table-striped table-bordered">
+
+                            <thead>
+                                <tr>
+                                    <th> Product Name</th>
+                                    <th> Product Description</th>
+
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.product.map(
+                                        products =>
+                                            <tr key={products.productId}>
+                                                <td> {products.proName} </td>
+                                                <td> {products.productDescription}</td>
+                                            </tr>
+                                    )
+                                }
+                            </tbody>
+                        </table>
+
+                    </div>
+
                 </div>
-                <br></br>
-                <div className="row">
-                    <table className="table table-striped table-bordered">
-
-                        <thead>
-                            <tr>
-                                <th> Product Name</th>
-                                <th> Product Description</th>
-
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {
-                                this.state.product.map(
-                                    products =>
-                                        <tr key={products.productId}>
-
-                                            <td> {products.productName} </td>
-                                            <td> {products.productDescription}</td>
-                                        </tr>
-                                )
-                            }
-                        </tbody>
-                    </table>
-
-                </div>
-
             </div>
-             </div>
         )
     }
 }

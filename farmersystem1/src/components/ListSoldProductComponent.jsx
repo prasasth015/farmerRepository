@@ -10,10 +10,9 @@ class ListSoldProductComponent extends Component {
                 soldProducts: []
         }
         this.listSellProduct = this.listSellProduct.bind(this);
-        this.viewSoldProduct = this.viewSoldProduct.bind(this);
+        this.addComplaint=this.addComplaint.bind(this);
         this.viewSupplierQuote = this.viewSupplierQuote.bind(this);
-        
-       
+
        
       
        
@@ -29,6 +28,9 @@ class ListSoldProductComponent extends Component {
 
     viewSupplierQuote(){
         this.props.history.push('/quoteList'); 
+    }
+    addComplaint(){
+        this.props.history.push('/complaint-list');
     }
 
     
@@ -48,7 +50,9 @@ render() {
              <h2 className="text-center">Product List</h2>
              <div className = "row">
                 <button className="btn btn-primary" onClick={this.listSellProduct}>Sell Product</button>
+                <button className="btn btn-primary" onClick={this.addComplaint} style={{marginLeft:"10px"}}>Complaint Page</button>
                 <button   style={{"marginLeft":"10px"}} className="btn btn-primary" onClick={this.viewSupplierQuote}> View Supplier Quote</button>
+
              </div>
              <br></br>
              <div className = "row">
