@@ -7,10 +7,11 @@ class ComplaintList extends Component {
         super(props)
 
         this.state = {
+            complaintId: this.props.match.params.complaintId,
                 complaint: []
         }
         this.addComplaint = this.addComplaint.bind(this);
-        
+        this.back=this.back.bind(this);
         this.deleteComplaint = this.deleteComplaint.bind(this);
     }
 
@@ -19,7 +20,13 @@ class ComplaintList extends Component {
             this.setState({ complaint: res.data })
             console.log(res.data);
     });
-}
+    
+        /* ComplaintService.viewComplaint(this.state.complaintId).then((res) => {
+            this.setState({ complaint: res.data })
+            console.log(res.data);
+    }); */
+
+    }
 
     deleteComplaint(complaintId) {
         ComplaintService.deleteComplaint(complaintId).then(res => {
@@ -32,7 +39,11 @@ class ComplaintList extends Component {
     }
 
     addComplaint(){
-        this.props.history.push(`/add-complaint/:farmerUserName/:supplierUserName`);
+        this.props.history.push(`/add-complaint/:complaintId}`);
+    }
+    back(){
+        this.props.history.push(`/soldProductList`);
+
     }
     
 
@@ -73,7 +84,12 @@ class ComplaintList extends Component {
                                     )
                                 }
                             </tbody>
+                            
                         </table>
+                        <div >
+
+                        <button className="btn btn-success" onClick={this.back}>Back</button>
+                        </div> 
 
                  </div>
 

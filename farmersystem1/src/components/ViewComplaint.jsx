@@ -8,6 +8,7 @@ class ViewComplaint extends Component {
 
         this.state = {
             complaintId: this.props.match.params.complaintId,
+            farmerUserName: this.props.match.params.farmerUserName,
             complaint: []
         }
 
@@ -33,10 +34,10 @@ class ViewComplaint extends Component {
                 <div className = "card col-md-6 offset-md-3" style={{height:'40vh',borderRadius: '20px'}}>
                     <h4 className = "text-center"> View Complaint Details</h4>
                     <div className = "card-body" >
-                    <div className = "row" >
+                    {/* <div className = "row" >
                             <label style={{fontWeight:'bold',fontSize:'medium'}}>UserName: </label>
                             <div> { this.state.complaint.farmerUserName }</div>
-                        </div>
+                        </div> */}
                         <br></br>
                         <div className = "row" >
                             <label style={{fontWeight:'bold',fontSize:'medium'}}>Supplier UserName: </label>

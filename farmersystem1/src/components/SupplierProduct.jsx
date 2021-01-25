@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./ListQuote.css";
-import ProductService from '../service/ProductService'
+import ProductService from '../service/ProductService';
+
 
 class SupplierProduct extends Component {
     constructor(props) {
