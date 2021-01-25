@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import SupplierService from '../service/SupplierService';
-import { faPhone, faEnvelope, faLock, faUndo, faUserPlus, faUser, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faLock,  faUserPlus, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 
 
@@ -72,7 +72,7 @@ class SupplierLogin extends Component {
         res.data.password === this.state.password) {
         alert("Login Successful");
 
-        this.props.history.push("supplierQuote");
+        this.props.history.push("/supplierQuote");
       }
 
       else {

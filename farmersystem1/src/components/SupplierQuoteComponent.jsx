@@ -3,8 +3,6 @@ import SupplierQuoteService from '../service/SupplierQuoteService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "./SupplierQuote.css";
 import ProductService from '../service/ProductService'
-import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
-import { Link } from "react-router-dom";
 
 class SupplierQuoteComponent extends Component {
     constructor(props) {
@@ -49,9 +47,8 @@ class SupplierQuoteComponent extends Component {
         if (this.state.quoteId === '_add') {
             
             SupplierQuoteService.insertQuote(supplierQuote).then(res => {
-               
                 this.props.history.push('/supplierQuote');
-                
+           
             });
         }
         else {

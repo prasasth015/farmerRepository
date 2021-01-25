@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import SupplierQuoteService from '../service/SupplierQuoteService'
 import "./ListQuote.css";
 import ProductService from '../service/ProductService'
 

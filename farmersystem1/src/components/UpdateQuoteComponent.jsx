@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import SupplierQuoteService from '../service/SupplierQuoteService';
-import { Link } from "react-router-dom";
 
 class UpdateQuoteComponent extends Component {
     constructor(props) {
