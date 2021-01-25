@@ -20,6 +20,7 @@ import SupplierLogin from './components/SupplierLogin';
 import SupplierProduct from './components/SupplierProduct';
 
 import ViewPurchaseComponent from './components/ViewPurchaseComponent';
+import ListPurchaseComponent from './components/ListPurchaseComponent';
 
 
 import FarmerLogin from './components/FarmerLogin';
