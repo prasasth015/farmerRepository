@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
-import ViewSoldProductComponent from './components/ViewSoldProductComponent'
+
 
 import SoldProductComponent from './components/SoldProductComponent';
 import ListSoldProductComponent from './components/ListSoldProductComponent';
@@ -38,6 +38,7 @@ import Home from './components/pages/Home';
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
+import AdminViewComplaint from './components/AdminViewComplaint';
 
 
 
@@ -70,7 +71,7 @@ function App() {
             <Route path="/addProduct" component={ProductComponent}></Route>
             <Route path="/soldProductList" component={ListSoldProductComponent}></Route>
             <Route path="/soldProduct" component={SoldProductComponent}></Route>
-            <Route path="/viewSoldProduct" component={ViewSoldProductComponent}></Route>
+            <Route path="/viewAdminComplaintList" component={AdminViewComplaint}></Route>
             
             
             {/*supplier*/}

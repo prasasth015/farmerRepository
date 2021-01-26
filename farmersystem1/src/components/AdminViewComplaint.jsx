@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import ProductService from '../service/ProductService';
+import ComplaintService from '../service/ComplaintService'
+import "./ListQuote.css";
 
 
 class AdminViewComplaint extends Component {
@@ -6,38 +9,68 @@ class AdminViewComplaint extends Component {
         super(props)
 
         this.state = {
-            farmerUserNam: this.props.match.params.farmerUserNam,
-            complaint: {}
+            admincomplaint: []
         }
+       
+
     }
 
-    componentDidMount(){
-        
+
+
+    componentDidMount() {
+        ComplaintService.getAllComplaint().then((res) => {
+            this.setState({ admincomplaint: res.data });
+        });
     }
+
+   
+
 
     render() {
         return (
             <div>
-                <br></br>
-                <div className = "card col-md-6 offset-md-3" style={{height:'30vh',borderRadius: '20px'}}>
-                    <h4 className = "text-center"> View Complaint Details</h4>
-                    <div className = "card-body" >
-                        <div className = "row" >
-                            <label style={{fontWeight:'bold',fontSize:'medium'}}>Supplier UserName: </label>
-                            <div> { this.state.complaint.supplierUserName }</div>
-                        </div>
-                        <br></br>
-                        
-                        <div className = "row">
-                            <label style={{fontWeight:'bold',fontSize: 'medium'}}>Complaint: </label>
-                            <div> { this.state.complaint.complaintText }</div>
-                        </div>
-                    </div>
+                 <h2 className="text-center">Admin Complaint List</h2>
+                 {/* <div className = "row">
+                    <button className="btn btn-primary" onClick={this.addComplaint}> Add Complaint</button>
+                 </div> */}
+                 <br></br>
+                 <div className = "row">
+                        <table className = "table table-striped table-bordered">
 
-                </div>
+                            <thead>
+                                <tr>
+                                    <th>User Name</th>
+                                    <th> Supplier</th>
+                                    <th> Complaint</th>
+                                    <th> Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {
+                                    this.state.complaint.map(
+                                        complaint => 
+                                        <tr key = {complaint.complaintId}>
+                                            <td>{complaint.farmerUserName}</td>
+                                             <td> {complaint.supplierUserName} </td>   
+                                             <td> {complaint.complaintText}</td>
+                                             
+                                             <td>
+                                                
+                                                 <button  onClick={ () => this.deleteComplaint(complaint.complaintId)} className="btn btn-danger">Delete </button>
+                                                 <button style={{marginLeft: "10px"}} onClick={ () => this.viewComplaint(complaint.complaintId)} className="btn btn-info">View </button>
+                                             </td>
+                                        </tr>
+                                    )
+                                }
+                            </tbody>
+                        </table>
+
+                 </div>
+
             </div>
         )
     }
 }
+
 
 export default AdminViewComplaint
