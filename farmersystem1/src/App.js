@@ -56,7 +56,7 @@ function App() {
           <Switch>
            {/* purchase*/}
            <Route path="/purchase" component={ListPurchaseComponent}></Route>
-             <Route path="/view-purchase" component={ViewPurchaseComponent}></Route>
+             <Route path="/view-purchase/:pId" component={ViewPurchaseComponent}></Route>
 
 
 

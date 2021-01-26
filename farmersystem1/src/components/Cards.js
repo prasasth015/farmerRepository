@@ -5,29 +5,29 @@ import CardItem from './CardItem';
 function Cards() {
   return (
     <div className='cards'>
-      <h1>Check out these EPIC Farmer Pictures!</h1>
+      <h1>Some Interesting fatcts of farming system!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
-              src='images/purchase1.jpg'
+              src='images/mixedfarmm.jpg'
               text='Fresh Spring small fresh green Wheat Field Banner'
-              label='Spring'
+              label='Mixed Farm'
               path='/services'
             />
             <CardItem
-              src='images/purchase6.jpg'
+              src='images/commercial.jpg'
               text='Grren wheat field during blue sky during daytime'
-              label='Agriculture'
+              label='Commercial'
               path='/services'
             />
           </ul>
           <ul className='cards__items'>
             <CardItem
-              src='images/purchase7.jpg'
+              src='images/plant.jpg'
               text='Beautiful Scenery in Farm Stock Footage'
-              label='Farmland'
-              path='/services'
+              label='Plantation Farming'              
+              path="/services"
             />
             <CardItem
               src='images/purchase10.jpg'
@@ -36,9 +36,9 @@ function Cards() {
               path='/products'
             />
             <CardItem
-              src='images/purchase.jpg'
+              src='images/shifting.jpg'
               text='Ride through the Sahara Desert on a guided camel tour'
-              label='Adrenaline'
+              label='Shifting'
               path='/sign-up'
             />
           </ul>
