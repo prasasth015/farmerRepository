@@ -67,18 +67,9 @@ class SupplierLogin extends Component {
       this.setState({ supplier: res.data });
       console.log('hello');
       console.log(res.data);
-      if (
-        res.data.supplierUserName === this.state.supplierUserName &&
-        res.data.password === this.state.password) {
-        alert("Login Successful");
-
-        this.props.history.push("supplierQuote");
-      }
-
-      else {
-        alert("Enter valid User name and password");
-      }
-    })
+   
+      this.props.history.push("supplierQuote");
+       })
 
   }
 

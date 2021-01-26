@@ -25,7 +25,7 @@ class ListQuoteComponent extends Component {
         this.props.history.push(`/view-supplierQuote/${quoteId}`);
     }
     editPrice(quoteId) {
-        this.props.history.push(`/add-supplierQuote/${quoteId}`);
+        this.props.history.push(`/update-supplierQuote/${quoteId}`);
     }
 
     componentDidMount() {
@@ -61,7 +61,6 @@ class ListQuoteComponent extends Component {
 
                             <thead>
                                 <tr>
-                                    <th> User Name</th>
                                     <th> Product name</th>
                                     <th> Quantity</th>
                                     <th> Price</th>
@@ -72,12 +71,10 @@ class ListQuoteComponent extends Component {
                                 {
                                     this.state.quote.map(
                                         supplierQuote =>
-                                            <tr key={supplierQuote.quoteId}>
-                                                <td> {supplierQuote.userName} </td>
+                                            <tr key={supplierQuote.quoteId}>                                               
                                                 <td> {supplierQuote.productName} </td>
                                                 <td> {supplierQuote.quantity}</td>
                                                 <td> {supplierQuote.quotePrice}</td>
-
                                                 <td>
                                                     <button onClick={() => this.editPrice(supplierQuote.quoteId)} className="btn btn-info">Update </button>
                                                     <button style={{ marginLeft: "10px" }} onClick={() => this.deleteQuote(supplierQuote.quoteId)} className="btn btn-danger">Delete </button>

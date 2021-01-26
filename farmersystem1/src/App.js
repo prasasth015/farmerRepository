@@ -79,7 +79,7 @@ function App() {
 
             <Route path="/add-supplierQuote/:quoteId" component={SupplierQuoteComponent}></Route>
             <Route path="/view-supplierQuote/:quoteId" component={ViewQuoteComponent}></Route>
-            <Route path="/add-supplierQuote/:quoteId" component={UpdateQuoteComponent}></Route>
+            <Route path="/update-supplierQuote/:quoteId" component={UpdateQuoteComponent}></Route>
             <Route path="/supplierProduct" component={SupplierProduct}></Route>
 
             {/*Farmer*/}
