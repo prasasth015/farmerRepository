@@ -159,17 +159,6 @@ export default SupplierQuoteComponent
 
 
 
-{/* 
-                                        <select value={this.state.productName} 
-                                        
-                                        style={{ "width": "100%", "padding": "5px 5px" }} placeholder="Product Name" name="Product Name" className="form-control" onChange={this.changeProductNameHandler}> */}
-
-
-
-
-
-
-
 
 
 

@@ -42,8 +42,6 @@ import TempLogin from './components/TempLogin';
 
 
 
-//import ViewSupplierComponent from './components/ViewSupplierComponent';
-
 function App() {
   return (
     <div>
