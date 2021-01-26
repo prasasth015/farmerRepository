@@ -12,13 +12,24 @@ class ListPurchaseComponent extends Component{
     }
     this.addPurchase = this.addPurchase.bind(this);
 }
+
+/*
 viewEmployee(pId){
     this.props.history.push(`/view-purchase/${pId}`);
 }
+*/
+
+viewSoldProduct(invoiceId) {
+    this.props.history.push(`/view-purchase/${invoiceId}`);
+}
 
 componentDidMount(){
-    PurchaseService.getPurchase().then((res) => {
-        this.setState({ purchase: res.data});
+    //PurchaseService.getPurchase().then((res) => {
+      //  this.setState({ purchase: res.data});
+      PurchaseService.getAllSold().then((res) => {
+        console.log("service ");
+      this.setState({ purchase: res.data });
+  
     });
 }
 
@@ -29,11 +40,11 @@ addPurchase() {
 
 render() {
     return (
-        <div className="wrapper">
-            <br></br>
-             <h2 className="text-center">Purchase History</h2>
+        <div className="body_wrap">
+            
+             <h2 className="box_title">Purchase History</h2>
              <div className="row">
-                        <button style={{"marginLeft":"-350px"}}   className="btn btn-primary" onClick={this.addPurchase}> Go Back</button>
+                        <button style={{"marginLeft":"10px"}}   className="btn btn-primary" onClick={this.addPurchase}> Go Back</button>
                         
                     </div>
                     
@@ -43,16 +54,18 @@ render() {
 
                         <thead>
                             <tr>
-                                <th> Product Name</th>
-                                <th> Quantity</th>
-                                <th> Quote Price</th>
+                            <th> Product Name</th>
                                 <th> User Name</th>
-                                <th> farmer UserName</th>
+                                <th> Quantity</th>
+                                <th> Quote Price</th>                                
+                                
+                               {/* <th> farmer UserName</th> */}
                                 <th> Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             {
+                                /*
                                 this.state.purchase.map(
                                     employee => 
                                     <tr key = {employee.pId}>
@@ -68,6 +81,21 @@ render() {
                                          </td>
                                     </tr>
                                 )
+                                */
+                               this.state.purchase.map(
+                                soldProduct => 
+                                <tr key = {soldProduct.invoiceId}>                                        
+                                     <td> {soldProduct.productName} </td>  
+                                     <td> {soldProduct.userName} </td>  
+                                     <td> {soldProduct.quantity}</td>
+                                     <td> {soldProduct.quotePrice}</td>                                   
+                                     <td>
+                                        
+                                         <button style={{marginLeft: "10px"}} onClick={ () => this.viewSoldProduct(soldProduct.invoiceId)} className="btn btn-info">View </button>
+                                     </td>
+                                     
+                                </tr>
+                            )
                             }
                         </tbody>
                     </table>
