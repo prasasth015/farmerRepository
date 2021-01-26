@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import FarmerService from '../service/FarmerService'
-import { Link } from "react-router-dom";
+import { Link,Redirect } from "react-router-dom";
 //import "bootstrap/dist/css/bootstrap.min.css";
 import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,10 +15,16 @@ import { faLock, faUserPlus, faUser } from "@fortawesome/free-solid-svg-icons";
 class FarmerLogin extends Component {
     constructor(props) {
         super(props)
+        const token = localStorage.getItem("token")
+        let loggedIn = true
+        if(token == null){
+            loggedIn = false
+        }
 
         this.state = {
             farmerUserName:"",
-            farmerPassword:""
+            farmerPassword:"",
+            loggedIn
                  
         }
         this.verifyLogin=this.verifyLogin.bind(this);
@@ -34,9 +40,6 @@ class FarmerLogin extends Component {
     verifyLogin=(e) => {
       e.preventDefault();
       
-
-
-
         let farmer = {farmerUserName: this.state.farmerUserName, farmerPassword: this.state.farmerPassword};
         console.log('farmer => ' + JSON.stringify(farmer));
         
@@ -49,9 +52,13 @@ class FarmerLogin extends Component {
             res.data.farmerUserName === this.state.farmerUserName ||
             res.data.farmerPassword === this.state.farmerPassword)
           {
-            alert("Login Sucessful")
+            localStorage.setItem("token","farmer")
+            this.setState({
+              loggedIn: true
+            })
             
-            this.props.history.push("/soldProductList");
+            
+            //this.props.history.push("/soldProductList");
             
           }
           else 
@@ -64,6 +71,10 @@ class FarmerLogin extends Component {
        
       }
     render() {
+      if(this.state.loggedIn){
+        return <Redirect to="/soldProductList"/>
+      }
+
         return (
           <Row className="justify-content-md-center" style={{ "margin-top": "60px" }}>
         <Col xs={5}>

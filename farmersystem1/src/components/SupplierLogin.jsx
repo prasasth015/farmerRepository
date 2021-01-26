@@ -72,7 +72,7 @@ class SupplierLogin extends Component {
         res.data.password === this.state.password) {
         alert("Login Successful");
 
-        this.props.history.push("supplierQuote");
+        this.props.history.push("/supplierQuote");
       }
 
       else {

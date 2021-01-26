@@ -23,6 +23,8 @@ import ListPurchaseComponent from './components/ListPurchaseComponent';
 
 
 
+import SoldProductQuote from './components/SoldProductQuote';
+
 import FarmerLogin from './components/FarmerLogin';
 import FarmerRegistration from './components/FarmerRegistration';
 
@@ -32,13 +34,13 @@ import ViewComplaint from './components/ViewComplaint';
 
 import Home from './components/pages/Home';
 
+
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
 import SignUp from './components/pages/SignUp';
+import TempLogin from './components/TempLogin';
 
 
-
-//import ViewSupplierComponent from './components/ViewSupplierComponent';
 
 function App() {
   return (
@@ -61,7 +63,7 @@ function App() {
 
 
             {/*Admin*/}
-
+            <Route path="/quoteList" component={SoldProductQuote}></Route>
             <Route path="/adminLogin" component={AdminLogin}></Route>
             <Route path="/productList" component={ListProductComponent}></Route>
             <Route path="/addProduct" component={ProductComponent}></Route>
@@ -79,16 +81,16 @@ function App() {
 
             <Route path="/add-supplierQuote/:quoteId" component={SupplierQuoteComponent}></Route>
             <Route path="/view-supplierQuote/:quoteId" component={ViewQuoteComponent}></Route>
-            <Route path="/add-supplierQuote/:quoteId" component={UpdateQuoteComponent}></Route>
+            <Route path="/update-supplierQuote/:quoteId" component={UpdateQuoteComponent}></Route>
             <Route path="/supplierProduct" component={SupplierProduct}></Route>
 
             {/*Farmer*/}
             
             <Route path = "/farmerLogin" component = {FarmerLogin}></Route>
             <Route path = "/add-farmer/:farmerUserName" component = {FarmerRegistration}></Route>
-           
-            <Route path = "/add-complaint/:farmerUserName/:supplierUserName" component = {AddComplaint}></Route>
-            <Route path = "/view-complaint" component = {ViewComplaint}></Route>
+            <Route path = "/templogin" component = {TempLogin}></Route>
+            <Route path = "/add-complaint" component = {AddComplaint}></Route>
+            <Route path = "/view-complaint/:complaintId" component = {ViewComplaint}></Route>
             <Route path = "/complaint-list" component = {ComplaintList}></Route>
 
 
