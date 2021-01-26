@@ -64,9 +64,6 @@ class FarmerLogin extends Component {
           else 
           {
             alert("sorry")}
-          
-          
-          
         })
        
       }
