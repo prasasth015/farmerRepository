@@ -114,7 +114,7 @@ class SupplierQuoteComponent extends Component {
                                         <select style={{ "width": "100%", "padding": "7px 7px" }} placeholder="Product Name" name="Product Name" className="form-control" onChange={this.changeProductNameHandler}>{
                                             this.state.product.map(products =>
                                             <option value={this.state.productName}
-                                                onChange={this.changeProductNameHandler} >{products.proName}
+                                                onChange={this.changeProductNameHandler} >{products.productName}
                                             </option>)
                                         }
                                         </select>
