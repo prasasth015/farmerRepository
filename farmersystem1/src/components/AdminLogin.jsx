@@ -42,7 +42,7 @@ class AdminLogin extends Component {
           res.data.adminUserName === this.state.adminUserName &&
           res.data.adminPassword === this.state.adminPassword
         ){
-          alert("Login Sucessful");
+         
          
           this.props.history.push("/productList");
         }

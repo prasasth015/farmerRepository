@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
+/* import React, { Component } from 'react'
 import "./ViewQuote.css";
+import SoldProductService from '../service/SoldProductService';
 
 
 class ViewSoldProductComponent extends Component {
@@ -10,16 +11,20 @@ class ViewSoldProductComponent extends Component {
             invoiceId: this.props.match.params.invoiceId,
             soldProduct: {}
         }
-        this.viewSoldProduct = this.viewSoldProduct.bind(this);
+        // this.viewSoldProduct = this.viewSoldProduct.bind(this);
     }
 
-    
+    componentDidMount() {
+          SoldProductService.getSoldProductById(this.state.invoiceId).then(res => {
+            this.setState({ soldProduct: res.data });
+        })
+    }
     cancel() {
         this.props.history.push('/soldProductList');
     }
-    viewSoldProduct() {
-        this.props.history.push('/viewSoldProduct');
-    }
+    // viewSoldProduct() {
+    //     this.props.history.push('/ViewSoldProduct');
+    // }
 
     render() {
         return (
@@ -44,7 +49,7 @@ class ViewSoldProductComponent extends Component {
                             <label>Quote Price :  </label>
                             <div> {this.state.soldProduct.quotePrice}</div>
                         </div>
-                        <div className="cancel"> <button className="btn btn-danger" onClick={this.cancel.bind(this)}  >Cancel</button></div>
+                        <div className="cancel"> <button className="btn btn-danger" onClick={this.cancel.bind(this)}  >Back</button></div>
                     </div>
                    
                 </div>
@@ -55,3 +60,4 @@ class ViewSoldProductComponent extends Component {
 }
 
 export default ViewSoldProductComponent
+ */

@@ -32,6 +32,10 @@ class ListProductComponent extends Component {
         this.props.history.push('/addProduct');
     }
     
+    
+    // viewComplaintList(){
+    //     this.props.history.push('/viewAdminComplaintList');
+    // }
 
 render() {
     return (
@@ -39,6 +43,7 @@ render() {
              <h2 className="text-center">Product List</h2>
              <div className = "row">
                 <button className="btn btn-primary" onClick={this.addProduct}> Add Product</button>
+                {/* <button style={{marginLeft: "10px"}} onClick={ this.viewComplaintList}  className="btn btn-primary">View Complaint List </button> */}
              </div>
              <br></br>
              <div className = "row">
@@ -64,6 +69,7 @@ render() {
                                          <td>
                                         
                                                  <button style={{marginLeft: "10px"}} onClick={ () => this.deleteProduct(product.productId)} className="btn btn-danger">Delete </button>
+                                                 
                                                 
                                          </td>
                                          
