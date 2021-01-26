@@ -11,6 +11,7 @@ class SupplierProduct extends Component {
             product: []
         }
         this.addQuote = this.addQuote.bind(this);
+        this.goBack = this.goBack.bind(this);
 
     }
 
@@ -24,6 +25,10 @@ class SupplierProduct extends Component {
         this.props.history.push('/add-supplierQuote/_add');
     }
 
+    goBack() {
+        this.props.history.push('/supplierQuote');
+    }
+
 
     render() {
         return (
@@ -32,6 +37,7 @@ class SupplierProduct extends Component {
                     <h2 className="box_title">Product List</h2>
                     <div className="row">
                         <button className="btn btn-primary" onClick={this.addQuote}> Add Quote</button>
+                        <button className="btn btn-primary" style={{ "marginLeft": "10px" }} onClick={this.goBack}> Go Back</button>
                     </div>
                     <br></br>
                     <div className="row">

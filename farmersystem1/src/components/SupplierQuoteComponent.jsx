@@ -13,8 +13,8 @@ class SupplierQuoteComponent extends Component {
             userName: '',
             productName: '',
             quantity: '',
-            quotePrice: '',
-            product: ''
+            quotePrice: ''
+          
         }
 
         this.state = {
@@ -24,7 +24,6 @@ class SupplierQuoteComponent extends Component {
         this.changeProductNameHandler = this.changeProductNameHandler.bind(this);
         this.changeQuantityHandler = this.changeQuantityHandler.bind(this);
         this.changeQuotePriceHandler = this.changeQuotePriceHandler.bind(this);
-        this.changeProductHandler = this.changeProductHandler.bind(this);
         this.saveOrUpdateQuote = this.saveOrUpdateQuote.bind(this);
     }
     componentDidMount() {
@@ -37,6 +36,7 @@ class SupplierQuoteComponent extends Component {
             SupplierQuoteService.getQuoteById(this.state.quoteId).then((res) => {
                 let supplierQuote = res.data;
                 this.setState({
+                    userName:supplierQuote.userName,
                     productName: supplierQuote.productName,
                     quantity: supplierQuote.quantity,
                     quotePrice: supplierQuote.quotePrice,
@@ -80,9 +80,6 @@ class SupplierQuoteComponent extends Component {
         this.setState({ quotePrice: event.target.value });
     }
 
-    changeProductHandler = (event) => {
-        this.setState({ product: event.target.value });
-    }
 
     addQuote() {
         this.props.history.push('/add-supplierQuote/_add');
@@ -141,7 +138,7 @@ class SupplierQuoteComponent extends Component {
                                     </div>
 
                                     <div className="button">
-                                        <button className="btn btn-success" onClick={this.saveOrUpdateQuote} >Save</button>
+                                        <button className="btn btn-success"  onClick={this.saveOrUpdateQuote}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
                                     </div>
                                 </form>
