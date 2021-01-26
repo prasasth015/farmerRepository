@@ -20,9 +20,9 @@ class SupplierQuoteService {
     updatePrice(supplierQuote, quoteId){
         return axios.put(QUOTE_API_BASE_URL + '/' + quoteId, supplierQuote);
     }
-    getAllProduct(){
-        return axios.get(PRODUCT_API_BASE_URL);
-    }
+    // getAllProduct(){
+    //     return axios.get(PRODUCT_API_BASE_URL);
+    // }
 
     deleteQuote(quoteId){
         return axios.delete(QUOTE_API_BASE_URL + '/' + quoteId);

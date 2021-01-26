@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import "./SupplierQuote.css";
+
+import SoldProductService from '../service/SoldProductService';
 
 
 class SoldProductComponent extends Component {
@@ -25,15 +26,36 @@ class SoldProductComponent extends Component {
         this.sellProduct = this.sellProduct.bind(this);
     }
 
-   
+    // step 3
+    componentDidMount() {
+
+        // step 4
+        if (this.state.invoiceId === '_add') {
+            return
+        } else {
+            SoldProductService.getSoldProductById(this.state.invoiceId).then((res) => {
+                let soldProduct = res.data;
+                this.setState({
+                    userName: soldProduct.userName,
+                    productName: soldProduct.productName,
+                    quantity: soldProduct.quantity,
+                    quotePrice: soldProduct.quotePrice,
+                    // product:supplierQuote.product
+                });
+            });
+        }
+    }
     saveOrUpdateQuote = (e) => {
         e.preventDefault();
-        let supplierQuote = { userName: this.state.userName, productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice }; //product: this.state.product
-        console.log('supplierQuote => ' + JSON.stringify(supplierQuote));
+        let quoteId = { userName: this.state.userName, productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice }; //product: this.state.product
+        console.log('supplierQuote => ' + JSON.stringify(quoteId));
 
+        SoldProductService.insertSoldProduct(quoteId).then(res =>{
+            this.props.history.push('/soldProductList');
+        });
     }
 
-       
+ 
 
     changeUserNameHandler = (event) => {
         this.setState({ userName: event.target.value });

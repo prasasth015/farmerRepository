@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import "./ListQuote.css";
-import ProductService from '../service/ProductService'
+import ProductService from '../service/ProductService';
+
 
 class SupplierProduct extends Component {
     constructor(props) {
@@ -50,7 +51,7 @@ class SupplierProduct extends Component {
                                     this.state.product.map(
                                         products =>
                                             <tr key={products.productId}>
-                                                <td> {products.proName} </td>
+                                                <td> {products.productName} </td>
                                                 <td> {products.productDescription}</td>
                                             </tr>
                                     )
