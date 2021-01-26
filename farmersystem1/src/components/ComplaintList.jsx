@@ -39,7 +39,7 @@ class ComplaintList extends Component {
     }
 
     addComplaint(){
-        this.props.history.push(`/add-complaint/:complaintId}`);
+        this.props.history.push('/add-complaint/_add');
     }
     back(){
         this.props.history.push(`/soldProductList`);

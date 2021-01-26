@@ -40,7 +40,7 @@ class ListSoldProductComponent extends Component {
         this.props.history.push('/quoteList'); 
     }
     addComplaint(){
-        this.props.history.push(`/complaint-list/_add`);
+        this.props.history.push(`/complaint-list`);
     }
 
     

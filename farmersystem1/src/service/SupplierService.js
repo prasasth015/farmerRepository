@@ -11,5 +11,9 @@ class SupplierService {
     supplierLogin(supplierUserName,password){
         return axios.get(SUPPLIER_API_BASE_URL, +'/'+supplierUserName+"/"+password);
     }
+    getAllSupplier(){
+        return axios.post(SUPPLIER_API_BASE_URL);
+
+    }
 }
 export default new SupplierService()

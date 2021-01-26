@@ -91,7 +91,7 @@ function App() {
             <Route path = "/farmerLogin" component = {FarmerLogin}></Route>
             <Route path = "/add-farmer/:farmerUserName" component = {FarmerRegistration}></Route>
             <Route path = "/templogin" component = {TempLogin}></Route>
-            <Route path = "/add-complaint" component = {AddComplaint}></Route>
+            <Route path = "/add-complaint/:complaintId" component = {AddComplaint}></Route>
             <Route path = "/view-complaint/:complaintId" component = {ViewComplaint}></Route>
             <Route path = "/complaint-list" component = {ComplaintList}></Route>
 
