@@ -100,8 +100,10 @@ class UpdateQuoteComponent extends Component {
                                             value={this.state.quotePrice} onChange={this.changeQuotePriceHandler} />
                                     </div>
 
-                                    <div
-                                    >
+                                    <div style={{
+                                        "marginTop": "20px",
+                                        "marginBottom": "10px", "marginLeft": "100px"
+                                    }}>
                                         <button className="btn btn-success" onClick={this.updatePrice} > Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
                                     </div>

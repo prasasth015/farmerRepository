@@ -67,10 +67,7 @@ class FarmerLogin extends Component {
         console.log("applicant=>"+JSON.stringify(this.state.user));
          alert(this.state.user);
           } */
-          
-          
-          
-        } )
+        })
        
       }
     render() {

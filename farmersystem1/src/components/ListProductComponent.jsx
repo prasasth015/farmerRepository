@@ -11,9 +11,6 @@ class ListProductComponent extends Component {
         }
         this.addProduct = this.addProduct.bind(this);
         this.deleteProduct = this.deleteProduct.bind(this);
-       
-      
-       
     }
 
     deleteProduct(productId){

@@ -63,14 +63,16 @@ class CreateSupplierComponent extends Component {
   saveSupplier = (e) => {
     e.preventDefault();
     let supplier = { supplierName: this.state.supplierName, supplierUserName: this.state.supplierUserName, supplierAddress: this.state.supplierAddress, supplierContactNumber: this.state.supplierContactNumber, password: this.state.password, confirmPassword: this.state.confirmPassword };
-    if (this.state.password !== this.state.confirmPassword)
-      alert("Given password and confirm password should be same ");
-    console.log('supplier => ' + JSON.stringify(supplier));
 
+    console.log('supplier => ' + JSON.stringify(supplier));
+    if (this.state.password !== this.state.confirmPassword){
+    alert("Given password and confirm password should be same ");
+    }else{
     SupplierService.createSupplier(supplier).then(res => {
       this.props.history.push('/supplierLogin');
-
+    
     });
+  }
   }
 
   handleSubmit = e => {
@@ -89,6 +91,9 @@ class CreateSupplierComponent extends Component {
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
     }
+ 
+
+
   };
 
   handleChange = e => {
@@ -121,7 +126,8 @@ class CreateSupplierComponent extends Component {
           : "Enter valid password (A-z),(!@#),(0-9)";
         break;
       case "confirmPassword":
-        formErrors.confirmPassword = passwordRegex.test(value) ? "" : "Enter valid password (A-z),(!@#),(0-9)";
+        formErrors.confirmPassword = passwordRegex.test(value) ? "" : "Confirm password should match password";
+        
         break;
 
       default:

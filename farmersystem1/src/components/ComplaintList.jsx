@@ -50,7 +50,8 @@ class ComplaintList extends Component {
     render() {
         return (
             <div>
-                 <h2 className="text-center">Complaint List</h2>
+                 <h2 className="box_title">Complaint List</h2>
+                 <h2 className="">Complaint List</h2>
                  <div className = "row">
                     <button className="btn btn-primary" onClick={this.addComplaint}> Add Complaint</button>
                  </div>
@@ -82,6 +83,7 @@ class ComplaintList extends Component {
                                              </td>
                                         </tr>
                                     )
+                                    
                                 }
                             </tbody>
                             

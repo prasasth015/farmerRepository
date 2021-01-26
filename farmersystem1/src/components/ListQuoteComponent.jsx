@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
+import { Redirect } from "react-router-dom";
 import SupplierQuoteService from '../service/SupplierQuoteService'
 import "./ListQuote.css";
 
 class ListQuoteComponent extends Component {
     constructor(props) {
         super(props)
+        const token = localStorage.getItem("token")
+        let loggedIn = true
+        if(token == null){
+            loggedIn = false
+        }
 
         this.state = {
+            loggedIn,
             quote: []
         }
         this.addQuote = this.addQuote.bind(this);
@@ -46,7 +53,12 @@ class ListQuoteComponent extends Component {
     }
 
     render() {
+        if(this.state.loggedIn === false){
+            return<Redirect to ="/supplierLogin"/>
+        }
         return (
+
+           
             <div className="body_wrap ">
                 <div>
                     <h2 className="box_title">Quote List</h2>
@@ -61,6 +73,7 @@ class ListQuoteComponent extends Component {
 
                             <thead>
                                 <tr>
+                                <th> User name</th>
                                     <th> Product name</th>
                                     <th> Quantity</th>
                                     <th> Price</th>
@@ -71,7 +84,8 @@ class ListQuoteComponent extends Component {
                                 {
                                     this.state.quote.map(
                                         supplierQuote =>
-                                            <tr key={supplierQuote.quoteId}>                                               
+                                            <tr key={supplierQuote.quoteId}>     
+                                             <td> {supplierQuote.userName} </td>                                          
                                                 <td> {supplierQuote.productName} </td>
                                                 <td> {supplierQuote.quantity}</td>
                                                 <td> {supplierQuote.quotePrice}</td>
