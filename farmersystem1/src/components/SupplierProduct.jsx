@@ -27,8 +27,6 @@ class SupplierProduct extends Component {
 
     render() {
         return (
-
-
             <div className="body_wrap ">
                 <div>
                     <h2 className="box_title">Product List</h2>
@@ -43,7 +41,6 @@ class SupplierProduct extends Component {
                                 <tr>
                                     <th> Product Name</th>
                                     <th> Product Description</th>
-
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,16 +48,14 @@ class SupplierProduct extends Component {
                                     this.state.product.map(
                                         products =>
                                             <tr key={products.productId}>
-                                                <td> {products.productName} </td>
+                                                <td> {products.proName} </td>
                                                 <td> {products.productDescription}</td>
                                             </tr>
                                     )
                                 }
                             </tbody>
                         </table>
-
                     </div>
-
                 </div>
             </div>
         )

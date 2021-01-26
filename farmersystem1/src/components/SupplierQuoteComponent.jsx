@@ -48,7 +48,7 @@ class SupplierQuoteComponent extends Component {
 
     saveOrUpdateQuote = (e) => {
         e.preventDefault();
-        let supplierQuote = { productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice }; //product: this.state.product
+        let supplierQuote = { userName: this.state.userName,productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice }; //product: this.state.product
         console.log('supplierQuote => ' + JSON.stringify(supplierQuote));
         ProductService.getAllProduct(this.state.productName);
 
@@ -101,7 +101,7 @@ class SupplierQuoteComponent extends Component {
 
     render() {
         return (
-            <div >
+            <div>
                 <br></br>
                 <div className="container">
                     <div className="row">
@@ -109,9 +109,17 @@ class SupplierQuoteComponent extends Component {
                             <h3 style={{ "textAlign": "center" }}>Add Quote</h3>
                             <div className="card-body">
                                 <form >
+                                <div className="UserName">
+                                        <label className="Label">User Name: </label>
+                                        <input style={{ "width": "150%" }} placeholder="User name" name="user name" type="text" className="form-control"
+                                            value={this.state.userName} onChange={this.changeUserNameHandler} />
+                                    </div>
+
                                     <div className="Product">
                                         <label className="Label"> Product Name: </label>
-                                        <select style={{ "width": "100%", "padding": "7px 7px" }} placeholder="Product Name" name="Product Name" className="form-control" onChange={this.changeProductNameHandler}>{
+                                        <select style={{ "width": "100%", "padding": "7px 7px" }} placeholder="Product Name" 
+                                        name="Product Name" className="form-control"
+                                        onChange={this.changeProductNameHandler}> <option selected disabled>Choose Product</option>{
                                             this.state.product.map(products =>
                                             <option value={this.state.productName}
                                                 onChange={this.changeProductNameHandler} >{products.productName}
