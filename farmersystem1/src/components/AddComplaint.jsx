@@ -3,8 +3,6 @@ import "./FarmerLogin.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ComplaintService from '../service/ComplaintService'
 
-
-
 class AddComplaint extends Component{
     constructor(props)
     {
@@ -20,23 +18,6 @@ class AddComplaint extends Component{
     this.saveComplaint=this.saveComplaint.bind(this);
     
 };
-componentDidMount()
-{
-    if(this.state.complaintId === '_add'){
-        return
-    }else{
-        console.log(this.state.farmerUserName);
-        console.log(this.state.supplierUserName);
-        console.log(this.state.complaintText);
-        ComplaintService.saveComplaint(this.state.farmerUserName,this.state.supplierUserName).then((res) =>{
-            let complaint =res.data;
-            console.log(res.data);
-            this.setState({farmerUserName:complaint.farmerUserName, supplierUserName:complaint.supplierUserName,complaintText:complaint.complaintText})
-        })
-        
-       
-    }        
-}
 changeUserNameHandler=(event) => {
     this.setState({farmerUserName: event.target.value});
     console.log(this.state.farmerUserName);
@@ -52,23 +33,42 @@ changeNameHandler=(event) => {
     console.log(this.state.complaintText);
   }
 
+componentDidMount()
+{
+    if(this.state.complaintId === '_add'){
+        return
+    }
+    /* else{
+        console.log(this.state.complaintId);
+        console.log(this.state.farmerUserName);
+        console.log(this.state.supplierUserName);
+        console.log(this.state.complaintText);
+        ComplaintService.viewComplaint(this.state.complaintId).then((res) =>{
+            let complaint = res.data;
+            console.log(res.data);
+            this.setState({farmerUserName:complaint.farmerUserName,
+                 supplierUserName:complaint.supplierUserName,
+                 complaintText:complaint.complaintText})
+        })
+    }    */     
+}
+
 
 saveComplaint=(e) =>{
-    let complaint = {supplierUserName: this.state.supplierUserName, complaintText: this.state.complaintText };
+    e.preventDefault();
+    let complaint = {farmerUserName:this.state.farmerUserName,
+        supplierUserName: this.state.supplierUserName, complaintText: this.state.complaintText };
     console.log('complaint => ' + JSON.stringify(complaint));
 
     // step 5
-    if(this.state.farmerUserName === '_add'){
+    
         ComplaintService.saveComplaint(complaint).then(res =>{
             this.props.history.push('/complaint-list');
         });
     
-    }
-
-    
-
     
 }
+
 cancel(){
     this.props.history.push('/complaint-list');
 }
@@ -119,6 +119,7 @@ render() {
                     </div>
 
                </div>
+               
       
     )
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+/* import React, { Component } from 'react'
 import ProductService from '../service/ProductService';
 import ComplaintService from '../service/ComplaintService'
 import "./ListQuote.css";
@@ -30,9 +30,9 @@ class AdminViewComplaint extends Component {
         return (
             <div>
                  <h2 className="text-center">Admin Complaint List</h2>
-                 {/* <div className = "row">
+                  <div className = "row">
                     <button className="btn btn-primary" onClick={this.addComplaint}> Add Complaint</button>
-                 </div> */}
+                 </div> 
                  <br></br>
                  <div className = "row">
                         <table className = "table table-striped table-bordered">
@@ -74,3 +74,4 @@ class AdminViewComplaint extends Component {
 
 
 export default AdminViewComplaint
+ */

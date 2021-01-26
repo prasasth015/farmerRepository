@@ -4,10 +4,10 @@ const API_BASE_URL = "http://localhost:8082/api/v1/complaint";
 
 class ComplaintService {
 
-    saveComplaint(complaint,farmerUserName,supplierUserName){
-        console.log(farmerUserName);
+    saveComplaint(complaint){
+        console.log(complaint);
 
-        return axios.post(API_BASE_URL +'/'+farmerUserName+"/"+supplierUserName,complaint);
+        return axios.post(API_BASE_URL ,complaint);
     }
 
     viewComplaint(complaintId){

@@ -1,8 +1,6 @@
 import axios from 'axios';
 
 const QUOTE_API_BASE_URL = "http://localhost:8082/api/v1/addQuote";
-const PRODUCT_API_BASE_URL = "http://localhost:8082/api/v1/addproduct";
-
 class SupplierQuoteService {
 
     getAllQuote(){
@@ -19,9 +17,6 @@ class SupplierQuoteService {
 
     updatePrice(supplierQuote, quoteId){
         return axios.put(QUOTE_API_BASE_URL + '/' + quoteId, supplierQuote);
-    }
-    getAllProduct(){
-        return axios.get(PRODUCT_API_BASE_URL);
     }
 
     deleteQuote(quoteId){

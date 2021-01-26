@@ -13,24 +13,30 @@ class SupplierQuoteComponent extends Component {
             userName: '',
             productName: '',
             quantity: '',
-            quotePrice: '',
-            product: ''
+            quotePrice: ''
+          
+        }
+
+        this.state = {
+            product: []
         }
         this.changeUserNameHandler = this.changeUserNameHandler.bind(this);
         this.changeProductNameHandler = this.changeProductNameHandler.bind(this);
         this.changeQuantityHandler = this.changeQuantityHandler.bind(this);
         this.changeQuotePriceHandler = this.changeQuotePriceHandler.bind(this);
-        this.changeProductHandler = this.changeProductHandler.bind(this);
         this.saveOrUpdateQuote = this.saveOrUpdateQuote.bind(this);
     }
     componentDidMount() {
         if (this.state.quoteId === '_add') {
+            fetch('http://localhost:8082/api/v1/addproduct')
+                .then(response => response.json())
+                .then(product => this.setState({ product: product }))
             return
         } else {
             SupplierQuoteService.getQuoteById(this.state.quoteId).then((res) => {
                 let supplierQuote = res.data;
                 this.setState({
-                    userName: supplierQuote.userName,
+                    userName:supplierQuote.userName,
                     productName: supplierQuote.productName,
                     quantity: supplierQuote.quantity,
                     quotePrice: supplierQuote.quotePrice,
@@ -38,24 +44,23 @@ class SupplierQuoteComponent extends Component {
             });
         }
     }
+
+
     saveOrUpdateQuote = (e) => {
         e.preventDefault();
-        let supplierQuote = { userName: this.state.userName, productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice }; //product: this.state.product
+        let supplierQuote = { userName: this.state.userName,productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice }; //product: this.state.product
         console.log('supplierQuote => ' + JSON.stringify(supplierQuote));
         ProductService.getAllProduct(this.state.productName);
-        
-        if (this.state.quoteId === '_add') {
-            
-            SupplierQuoteService.insertQuote(supplierQuote).then(res => {
-                this.props.history.push('/supplierQuote');
-           
-            });
-        }
-        else {
-            SupplierQuoteService.updatePrice(supplierQuote, this.state.quoteId).then(res => {
-                this.props.history.push('/supplierQuote');
-            });
-        }
+
+        fetch('http://localhost:8082/api/v1/addproduct')
+            .then(response => response.json())
+            .then(product => this.setState({ product: product }))
+
+        SupplierQuoteService.insertQuote(supplierQuote).then(res => {
+            this.props.history.push('/supplierQuote');
+
+        });
+
     }
 
 
@@ -75,9 +80,6 @@ class SupplierQuoteComponent extends Component {
         this.setState({ quotePrice: event.target.value });
     }
 
-    changeProductHandler = (event) => {
-        this.setState({ product: event.target.value });
-    }
 
     addQuote() {
         this.props.history.push('/add-supplierQuote/_add');
@@ -88,51 +90,55 @@ class SupplierQuoteComponent extends Component {
         this.props.history.push('/supplierQuote');
     }
 
-    getTitle() {
-        if (this.state.quoteId === '_add') {
-            return <h3 className="quote">Add Quote</h3>
-        } else {
-            return <h3 className="text-center">Update </h3>
-
-        }
+    componentDidMount() {
+        fetch('http://localhost:8082/api/v1/addproduct')
+            .then(response => response.json())
+            .then(product => this.setState({ product: product }))
     }
 
     render() {
         return (
-            <div >
-
+            <div>
                 <br></br>
                 <div className="container">
-
                     <div className="row">
                         <div className="card col-md-6 offset-md-3 offset-md-3">
-                            {
-                                this.getTitle()
-                            }
+                            <h3 style={{ "textAlign": "center" }}>Add Quote</h3>
                             <div className="card-body">
                                 <form >
-                                    <div className="userName">
-                                        <label className="Label"> User Name: </label>
-                                        <input placeholder="User Name" name="userName" className="form-control"
+                                <div className="UserName">
+                                        <label className="Label">User Name: </label>
+                                        <input style={{ "width": "150%" }} placeholder="User name" name="user name" type="text" className="form-control"
                                             value={this.state.userName} onChange={this.changeUserNameHandler} />
                                     </div>
+
                                     <div className="Product">
                                         <label className="Label"> Product Name: </label>
-                                        <input placeholder="Product Name" name="ProductName" className="form-control"
-                                            value={this.state.productName} onChange={this.changeProductNameHandler} />
+                                        <select style={{ "width": "100%", "padding": "7px 7px" }} placeholder="Product Name" 
+                                        name="Product Name" className="form-control"
+                                        onChange={this.changeProductNameHandler}> <option selected disabled>Choose Product</option>{
+                                            this.state.product.map(products =>
+                                            <option value={this.state.productName}
+                                                onChange={this.changeProductNameHandler} >{products.productName}
+                                            </option>)
+                                        }
+                                        </select>
                                     </div>
+
                                     <div className="quantity">
                                         <label className="Label">Quantity: </label>
-                                        <input placeholder="Quantity" name="quantity" className="form-control"
+                                        <input placeholder="Quantity" name="quantity" type="number" className="form-control"
                                             value={this.state.quantity} onChange={this.changeQuantityHandler} />
                                     </div>
+
                                     <div className="quotePrice">
                                         <label className="Label">Quote Price: </label>
-                                        <input placeholder="Quote Price" name="quotePrice" className="form-control"
+                                        <input placeholder="Quote Price" name="quotePrice" type="number" className="form-control"
                                             value={this.state.quotePrice} onChange={this.changeQuotePriceHandler} />
                                     </div>
+
                                     <div className="button">
-                                        <button className="btn btn-success" onClick={this.saveOrUpdateQuote} disabled={this.state.userName.length === 0 || this.state.productName.length === 0 || this.state.quantity.length === 0 || this.state.quotePrice.length === 0}>Save</button>
+                                        <button className="btn btn-success"  onClick={this.saveOrUpdateQuote}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
                                     </div>
                                 </form>
@@ -146,3 +152,34 @@ class SupplierQuoteComponent extends Component {
 }
 
 export default SupplierQuoteComponent
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

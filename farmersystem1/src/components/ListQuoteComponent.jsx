@@ -1,12 +1,19 @@
 import React, { Component } from 'react'
+import { Redirect } from "react-router-dom";
 import SupplierQuoteService from '../service/SupplierQuoteService'
 import "./ListQuote.css";
 
 class ListQuoteComponent extends Component {
     constructor(props) {
         super(props)
+        const token = localStorage.getItem("token")
+        let loggedIn = true
+        if(token == null){
+            loggedIn = false
+        }
 
         this.state = {
+            loggedIn,
             quote: []
         }
         this.addQuote = this.addQuote.bind(this);
@@ -25,7 +32,7 @@ class ListQuoteComponent extends Component {
         this.props.history.push(`/view-supplierQuote/${quoteId}`);
     }
     editPrice(quoteId) {
-        this.props.history.push(`/add-supplierQuote/${quoteId}`);
+        this.props.history.push(`/update-supplierQuote/${quoteId}`);
     }
 
     componentDidMount() {
@@ -46,7 +53,12 @@ class ListQuoteComponent extends Component {
     }
 
     render() {
+        if(this.state.loggedIn === false){
+            return<Redirect to ="/supplierLogin"/>
+        }
         return (
+
+           
             <div className="body_wrap ">
                 <div>
                     <h2 className="box_title">Quote List</h2>
@@ -61,7 +73,7 @@ class ListQuoteComponent extends Component {
 
                             <thead>
                                 <tr>
-                                    <th> User Name</th>
+                                <th> User name</th>
                                     <th> Product name</th>
                                     <th> Quantity</th>
                                     <th> Price</th>
@@ -72,12 +84,11 @@ class ListQuoteComponent extends Component {
                                 {
                                     this.state.quote.map(
                                         supplierQuote =>
-                                            <tr key={supplierQuote.quoteId}>
-                                                <td> {supplierQuote.userName} </td>
+                                            <tr key={supplierQuote.quoteId}>     
+                                             <td> {supplierQuote.userName} </td>                                          
                                                 <td> {supplierQuote.productName} </td>
                                                 <td> {supplierQuote.quantity}</td>
                                                 <td> {supplierQuote.quotePrice}</td>
-
                                                 <td>
                                                     <button onClick={() => this.editPrice(supplierQuote.quoteId)} className="btn btn-info">Update </button>
                                                     <button style={{ marginLeft: "10px" }} onClick={() => this.deleteQuote(supplierQuote.quoteId)} className="btn btn-danger">Delete </button>

@@ -1,12 +1,22 @@
 import React, { Component } from 'react'
+import { Link,Redirect } from "react-router-dom";
 import SoldProductService from '../service/SoldProductService';
 import SupplierQuoteService from '../service/SupplierQuoteService';
 
 class ListSoldProductComponent extends Component {
     constructor(props) {
         super(props)
+        const token = localStorage.getItem("token")
+        let loggedIn = true
+        if(token == null){
+            loggedIn = false
+        }
+
+        
 
         this.state = {
+            loggedIn,
+           
                 soldProducts: []
         }
         this.listSellProduct = this.listSellProduct.bind(this);
@@ -35,7 +45,7 @@ class ListSoldProductComponent extends Component {
         this.props.history.push('/quoteList'); 
     }
     addComplaint(){
-        this.props.history.push('/complaint-list');
+        this.props.history.push(`/complaint-list/_add`);
     }
 
     
@@ -50,6 +60,11 @@ class ListSoldProductComponent extends Component {
    
 
 render() {
+
+    if(this.state.loggedIn === false){
+        return<Redirect to ="/farmerlogin"/>
+    }
+    
     return (
         <div>
              <h2 className="text-center">Sold Product List</h2>

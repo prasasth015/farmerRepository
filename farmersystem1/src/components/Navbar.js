@@ -10,6 +10,10 @@ function Navbar() {
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
+  const logout =() =>{
+    localStorage.removeItem("token")
+      window.location.href = '/';
+  }
 
   const showButton = () => {
     if (window.innerWidth <= 960) {
@@ -65,7 +69,7 @@ function Navbar() {
               <Link
                 to='/'
                 className='nav-links'
-                onClick={closeMobileMenu}
+                onClick={logout}
               >
               Logout
               </Link>

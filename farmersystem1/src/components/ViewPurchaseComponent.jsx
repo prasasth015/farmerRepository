@@ -6,18 +6,18 @@ class ViewPurchaseComponent extends Component{
         super(props)
 
         this.state = {
-            purchaseId: this.props.match.params.purchaseId,
+            invoiceId: this.props.match.params.invoiceId,
             productName: '',
             quantity: '',
             quotePrice: '',
             userName: '',
-            employee: {}
+            soldProduct: {}
         }
     }
 
     componentDidMount(){
-        PurchaseService.findPurchaseById(this.state.purchaseId).then( res => {
-            this.setState({employee: res.data});
+        PurchaseService.getSoldProductById(this.state.invoiceId).then( res => {
+            this.setState({soldProduct: res.data});
             
         })
     }
@@ -31,20 +31,20 @@ class ViewPurchaseComponent extends Component{
                     <div className = "card-body">
                         <div className = "row">
                             <label> Product Name: </label>
-                            <div> { this.state.employee.productName }</div>
+                            <div> { this.state.soldProduct.productName }</div>
                             
                         </div>
                         <div className = "row">
+                            <label> User Name </label>
+                            <div> { this.state.soldProduct.quantity }</div>
+                        </div>
+                        <div className = "row">
                             <label> Quantity: </label>
-                            <div> { this.state.employee.quantity }</div>
+                            <div> { this.state.soldProduct.quotePrice }</div>
                         </div>
                         <div className = "row">
-                            <label> Quote price: </label>
-                            <div> { this.state.employee.quotePrice }</div>
-                        </div>
-                        <div className = "row">
-                            <label> User Name: </label>
-                            <div> { this.state.employee.userName }</div>
+                            <label> Quote Price </label> &nbsp;
+                            <div> { this.state.soldProduct.userName }</div>
                         </div>
 
                     </div>
