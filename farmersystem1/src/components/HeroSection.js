@@ -8,7 +8,7 @@ function HeroSection() {
     <div className='hero-container'>
       
       <img src='images/purchase5.jpg'></img>
-      <h1>welcome</h1>
+      <h1>Welcome</h1>
       <p>What are you waiting for?</p>
       <div className='hero-btns'>
      

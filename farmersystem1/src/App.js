@@ -35,7 +35,9 @@ import ViewComplaint from './components/ViewComplaint';
 import Home from './components/pages/Home';
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
+import Organics from './components/pages/Organics';
 import SignUp from './components/pages/SignUp';
+import Shiftings from './components/pages/Shiftings';
 
 function App() {
   return (
@@ -47,7 +49,9 @@ function App() {
         <Route path='/' exact component={Home} />
         <Route path='/services' component={Services} />
         <Route path='/products' component={Products} />
+        <Route path='/organics' component={Organics} />
         <Route path='/sign-up' component={SignUp} />
+        <Route path='/shiftings' component={Shiftings} />
 
         <div className="container">
           <Switch>
@@ -87,7 +91,6 @@ function App() {
             <Route path = "/add-complaint" component = {AddComplaint}></Route>
             <Route path = "/view-complaint/:complaintId" component = {ViewComplaint}></Route>
             <Route path = "/complaint-list" component = {ComplaintList}></Route>
-
 
           </Switch>
         </div>
