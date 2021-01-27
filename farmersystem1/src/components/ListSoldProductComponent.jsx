@@ -47,6 +47,10 @@ class ListSoldProductComponent extends Component {
     addComplaint(){
         this.props.history.push(`/complaint-list`);
     }
+    back(){
+        this.props.history.push(`/soldProductList`);
+
+    }
 
     
     
@@ -67,8 +71,9 @@ render() {
     }
     
     return (
+        <div className="body_wrap ">
         <div>
-             <h2 className="text-center">Sold Product List</h2>
+             <h2 className="box_title">Sold Product List</h2><br></br>
              <div className = "row">
                 <button className="btn btn-primary" onClick={this.listSellProduct}>Sell Product</button>
                 <button className="btn btn-primary" onClick={this.addComplaint} style={{marginLeft:"10px"}}>Complaint Page</button>
@@ -110,7 +115,9 @@ render() {
                             }
                         </tbody>
                     </table>
+                    
 
+             </div>
              </div>
 
         </div>

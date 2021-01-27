@@ -116,8 +116,8 @@ render() {
                                     </div>
                                     <div className = "form-group" >
 
-                                    <button className="btn btn-success" /*disabled={this.state.farmerUserName.length===0||   this.state.complaintText.length === 0}*/
-                                    onClick={this.saveComplaint}>Save</button>
+                                    <button className="btn btn-success"
+                                    onClick={this.saveComplaint} /*disabled={ this.state.farmerUserName.length === 0 || this.state.complaintText.length === 0 }*/>Save</button>
                                     
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                     </div>

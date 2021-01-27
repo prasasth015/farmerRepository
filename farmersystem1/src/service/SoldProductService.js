@@ -7,8 +7,8 @@ class SoldProductService {
 
    
 
-    insertSoldProduct(quoteId){
-        return axios.post(SOLD_PRODUCT_API_BASE_URL, quoteId);
+    saveSoldProduct(soldProduct){
+        return axios.post(SOLD_PRODUCT_API_BASE_URL, soldProduct);
     }
 
     getSoldProductById(invoiceId){

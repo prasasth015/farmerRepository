@@ -136,7 +136,7 @@ class FarmerRegistration extends Component {
       case "farmerPassword":
         formErrors.farmerPassword = passwordRegex.test(value)
           ? ""
-          : "Enter valid password";
+          : "Enter valid password (A-z),(!@#),(0-9)";
         break;
      
 
@@ -239,7 +239,7 @@ class FarmerRegistration extends Component {
               
             </Card.Body>
             <Card.Footer style={{ "text-align": "center"}}>
-              <Button size="sm" type="button" variant="success" style={{ "width":"80%","padding":"10px"}} onClick={this.saveFarmer}>
+              <Button size="sm" type="button" variant="success" style={{ "width":"80%","padding":"10px"}} onClick={this.saveFarmer}disabled={this.state.farmerPassword.length === 0 || this.state.farmerName.length === 0 || this.state.farmerUserName.length === 0 || this.state.farmerAddress.length === 0 || this.state.farmerContactNo.length === 0}>
                 <FontAwesomeIcon icon={faUserPlus} /> SIGN-UP
                             </Button>{' '}<br></br>
                             <small><Link to="/farmerLogin">Already Have an Account? - Log-in</Link></small>

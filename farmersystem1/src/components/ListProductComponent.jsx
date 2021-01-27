@@ -1,16 +1,26 @@
 import React, { Component } from 'react'
 import ProductService from '../service/ProductService'
+import { Link,Redirect } from "react-router-dom";
 
 
 class ListProductComponent extends Component {
     constructor(props) {
         super(props)
+        const token = localStorage.getItem("token")
+        let loggedIn = true
+        if(token == null){
+            loggedIn = false
+        }
+
+        
 
         this.state = {
+            loggedIn,
                 products: []
         }
         this.addProduct = this.addProduct.bind(this);
         this.deleteProduct = this.deleteProduct.bind(this);
+        this.viewComplaintList = this.viewComplaintList.bind(this);
     }
 
     deleteProduct(productId){
@@ -33,17 +43,22 @@ class ListProductComponent extends Component {
     }
     
     
-    // viewComplaintList(){
-    //     this.props.history.push('/viewAdminComplaintList');
-    // }
+    viewComplaintList(){
+        this.props.history.push('/viewAdminComplaintList');
+    }
+    
 
 render() {
+    if(this.state.loggedIn === false){
+        return<Redirect to ="/adminLogin"/>
+    }
     return (
+        <div className="body_wrap ">
         <div>
-             <h2 className="text-center">Product List</h2>
+             <h2 className="box_title">Product List</h2>
              <div className = "row">
                 <button className="btn btn-primary" onClick={this.addProduct}> Add Product</button>
-                {/* <button style={{marginLeft: "10px"}} onClick={ this.viewComplaintList}  className="btn btn-primary">View Complaint List </button> */}
+                <button style={{ "marginLeft": "10px" }} className="btn btn-primary" onClick={this.viewComplaintList}> View Complaint List</button>
              </div>
              <br></br>
              <div className = "row">
@@ -80,7 +95,7 @@ render() {
                     </table>
 
              </div>
-
+             </div>
         </div>
     )
 }
