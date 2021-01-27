@@ -12,6 +12,8 @@ class SoldProductQuote extends Component {
             quote: []
         }
         this.addQuote = this.addQuote.bind(this);
+        this.back = this.back.bind(this);
+
 
     }
 
@@ -27,6 +29,9 @@ class SoldProductQuote extends Component {
         this.props.history.push('/soldProduct');
     }
 
+    back() {
+        this.props.history.push('/soldProductList');
+    }
 
     render() {
         return (
@@ -34,9 +39,10 @@ class SoldProductQuote extends Component {
               
                 <div className="body_wrap ">
                     <div>
-                        <h2 className="box_title">Product List</h2>
+                        <h2 className="box_title">Supplier Quote List</h2>
                         <div className="row">
                             <button    className="btn btn-primary" onClick={this.addQuote}> Sell product</button>
+                            <button   style={{"marginLeft":"10px"}}  className="btn btn-primary" onClick={this.back}> Back</button>
                 </div>
                 <br></br>
                 <div className="row">
@@ -45,10 +51,10 @@ class SoldProductQuote extends Component {
                         <thead>
                             <tr>
                                 <th> User Name</th>
-
                                 <th> Product Name</th>
                                 <th> Quantity</th>
-                                <th> quote Price</th>
+                                <th> Quote Price</th>
+                                <th> Actions </th>
 
                             </tr>
                         </thead>
@@ -61,6 +67,11 @@ class SoldProductQuote extends Component {
                                             <td> {quote.productName} </td>
                                             <td> {quote.quantity}</td>
                                             <td> {quote.quotePrice} </td>
+
+                                            <td>
+                                             
+                                             <button style={{marginLeft: "10px"}} onClick={ () => this.addSellProduct(quote.invoiceId)} className="btn btn-info">Add </button>
+                                         </td>
                                         </tr>
                                 )
                             }

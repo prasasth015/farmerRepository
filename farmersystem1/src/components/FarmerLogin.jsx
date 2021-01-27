@@ -7,11 +7,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { faLock, faUserPlus, faUser } from "@fortawesome/free-solid-svg-icons";
 
-
-
-
-
-
 class FarmerLogin extends Component {
     constructor(props) {
         super(props)
@@ -24,6 +19,7 @@ class FarmerLogin extends Component {
         this.state = {
             farmerUserName:"",
             farmerPassword:"",
+            user:{},
             loggedIn
                  
         }
@@ -56,14 +52,21 @@ class FarmerLogin extends Component {
             this.setState({
               loggedIn: true
             })
-            
-            
+
             //this.props.history.push("/soldProductList");
             
           }
-          else 
+          else if(res.status === 500 ){
+            this.setState({user: res.data});
+            console.log("applicant=>"+JSON.stringify(this.state.user));
+            alert(this.state.user);
+          }
+          /* else 
           {
-            alert("sorry")}
+            this.setState({user: res.data});
+        console.log("applicant=>"+JSON.stringify(this.state.user));
+         alert(this.state.user);
+          } */
         })
        
       }
@@ -115,7 +118,7 @@ class FarmerLogin extends Component {
               <Button size="sm" type="button" variant="success" style={{ "width":"80%","padding":"10px"}} onClick={this.verifyLogin} disabled={ this.state.farmerUserName.length === 0 || this.state.farmerPassword.length === 0 }>
                 <FontAwesomeIcon icon={faUserPlus} /> Log-In
                             </Button>{' '}<br></br>
-                            <small><Link to="/add-farmer/:farmerUserName">Already Have an Account? - SIGN-UP</Link></small>
+                            <small><Link to="/add-farmer/:farmerUserName">Don't Have an Account? - SIGN-UP</Link></small>
             </Card.Footer>
           </Card>
         </Col>

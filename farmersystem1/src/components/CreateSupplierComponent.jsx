@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -53,8 +52,6 @@ class CreateSupplierComponent extends Component {
   }
 
   componentDidMount() {
-
-    // step 4
     if (this.state.supplierUserName === '_add') {
       return
     }
@@ -65,14 +62,14 @@ class CreateSupplierComponent extends Component {
     let supplier = { supplierName: this.state.supplierName, supplierUserName: this.state.supplierUserName, supplierAddress: this.state.supplierAddress, supplierContactNumber: this.state.supplierContactNumber, password: this.state.password, confirmPassword: this.state.confirmPassword };
 
     console.log('supplier => ' + JSON.stringify(supplier));
-    if (this.state.password !== this.state.confirmPassword){
-    alert("Given password and confirm password should be same ");
-    }else{
-    SupplierService.createSupplier(supplier).then(res => {
-      this.props.history.push('/supplierLogin');
-    
-    });
-  }
+    if (this.state.password !== this.state.confirmPassword) {
+      alert("Given password and confirm password should be same ");
+    } else {
+      SupplierService.createSupplier(supplier).then(res => {
+        this.props.history.push('/supplierLogin');
+
+      });
+    }
   }
 
   handleSubmit = e => {
@@ -90,10 +87,7 @@ class CreateSupplierComponent extends Component {
         `);
     } else {
       console.error("FORM INVALID - DISPLAY ERROR MESSAGE");
-    }
- 
-
-
+    } 
   };
 
   handleChange = e => {
@@ -108,7 +102,7 @@ class CreateSupplierComponent extends Component {
         break;
       case "supplierUserName":
         formErrors.supplierUserName =
-          value.length < 5 ? "minimum 5 characters required" : "";
+          value.length < 5 ? "please enter a unique user name" : "";
         break;
       case "supplierAddress":
         formErrors.supplierAddress = addressRegex.test(value)
@@ -118,7 +112,7 @@ class CreateSupplierComponent extends Component {
       case "supplierContactNumber":
         formErrors.supplierContactNumber = numberRegex.test(value)
           ? ""
-          : "invalid Contact Number";
+          : "invalid contact number";
         break;
       case "password":
         formErrors.password = passwordRegex.test(value)
@@ -127,7 +121,6 @@ class CreateSupplierComponent extends Component {
         break;
       case "confirmPassword":
         formErrors.confirmPassword = passwordRegex.test(value) ? "" : "Confirm password should match password";
-        
         break;
 
       default:
@@ -232,7 +225,7 @@ class CreateSupplierComponent extends Component {
                     <InputGroup.Prepend>
                       <InputGroup.Text><FontAwesomeIcon icon={faEnvelope} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className={formErrors.supplierAddress.length > 0 ? "error" : null} required autoComplete="off" type="textarea" name="supplierAddress" value={this.state.supplierAddress} onChange={this.handleChange}
+                    <textarea style={{ "width": "89.5%", "outline-color": "#719ECE" }} className={formErrors.supplierAddress.length > 0 ? "error" : null} required autoComplete="off" type="textarea" name="supplierAddress" value={this.state.supplierAddress} onChange={this.handleChange}
                       className={"bg-white text-dark"} placeholder="Enter Address" />
                   </InputGroup>
                   {formErrors.supplierAddress.length > 0 && (

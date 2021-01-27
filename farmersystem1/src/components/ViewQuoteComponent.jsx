@@ -14,7 +14,7 @@ class ViewQuoteComponent extends Component {
 
     componentDidMount() {
         SupplierQuoteService.getQuoteById(this.state.quoteId).then(res => {
-            this.setState({ supplierQuote: res.data });
+            this.setState({ supplierQuote : res.data });
         })
     }
 
@@ -28,10 +28,9 @@ class ViewQuoteComponent extends Component {
                 <div className="card col-md-6 offset-md-3" style={{ height: '40vh', borderRadius: '20px' }}>
                     <h3 className="text-center"> View Quote Details</h3>
                     <div className="card-body">
-                       
                         <div className="row">
                             <label className="viewLabel">  Product Name :  </label>
-                            <div style={{ "marginTop": "7px", "marginLeft": "5px" }}> {this.state.supplierQuote.productName}</div>
+                            <div style={{ "marginTop": "6px", "marginLeft": "5px" }}> {this.state.supplierQuote.productName}</div>
                         </div>
                         <div className="row">
                             <label className="viewLabel"> Quantity :  </label>

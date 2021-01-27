@@ -15,6 +15,10 @@ class SoldProductService {
         return axios.get(SOLD_PRODUCT_API_BASE_URL + '/' + invoiceId);
     }
 
+    
+    getAllSoldProduct(){
+        return axios.get(SOLD_PRODUCT_API_BASE_URL);
+    }
    
     getAllQuote(){
         return axios.get(QUOTE_API_BASE_URL);

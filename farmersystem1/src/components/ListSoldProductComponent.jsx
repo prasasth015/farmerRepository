@@ -22,33 +22,43 @@ class ListSoldProductComponent extends Component {
         this.listSellProduct = this.listSellProduct.bind(this);
         this.addComplaint=this.addComplaint.bind(this);
         this.viewSupplierQuote = this.viewSupplierQuote.bind(this);
+        this.deleteSoldProduct = this.deleteSoldProduct.bind(this);
 
        
       
-       
+     
+    }
+
+    deleteSoldProduct(invoiceId) {
+        SoldProductService.deleteSoldProductById(invoiceId).then(res => {
+            this.setState({ soldProducts: this.state.soldProducts.filter(soldProduct => soldProduct.invoiceId !== invoiceId) });
+        });
     }
 
     listSellProduct(){
         this.props.history.push('/soldProduct'); 
     }
 
-    viewSoldProduct(invoiceId) {
-        this.props.history.push(`/viewSoldProduct/${invoiceId}`);
-    }
+   
 
     viewSupplierQuote(){
         this.props.history.push('/quoteList'); 
     }
     addComplaint(){
-        this.props.history.push(`/complaint-list/_add`);
+        this.props.history.push(`/complaint-list`);
+    }
+    back(){
+        this.props.history.push(`/soldProductList`);
+
     }
 
     
     
     
     componentDidMount() {
-        SoldProductService.getAllQuote().then((res) => {
+        SoldProductService.getAllSoldProduct().then((res) => {
             this.setState({ soldProducts: res.data });
+            console.log(res.data);
         });
     }
 
@@ -61,8 +71,9 @@ render() {
     }
     
     return (
+        <div className="body_wrap ">
         <div>
-             <h2 className="text-center">Product List</h2>
+             <h2 className="box_title">Sold Product List</h2><br></br>
              <div className = "row">
                 <button className="btn btn-primary" onClick={this.listSellProduct}>Sell Product</button>
                 <button className="btn btn-primary" onClick={this.addComplaint} style={{marginLeft:"10px"}}>Complaint Page</button>
@@ -95,8 +106,8 @@ render() {
                                          <td> {soldProduct.quotePrice}</td>
                                         
                                          <td>
-                                            
-                                             <button style={{marginLeft: "10px"}} onClick={ () => this.viewSoldProduct(soldProduct.invoiceId)} className="btn btn-info">View </button>
+                                             <button style={{ marginLeft: "10px" }} onClick={() => this.deleteSoldProduct(soldProduct.invoiceId)} className="btn btn-danger">Delete </button>
+                                             
                                          </td>
                                          
                                     </tr>
@@ -104,7 +115,9 @@ render() {
                             }
                         </tbody>
                     </table>
+                    
 
+             </div>
              </div>
 
         </div>

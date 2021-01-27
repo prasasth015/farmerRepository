@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
-import ViewSoldProductComponent from './components/ViewSoldProductComponent'
+
 
 import SoldProductComponent from './components/SoldProductComponent';
 import ListSoldProductComponent from './components/ListSoldProductComponent';
@@ -68,7 +68,7 @@ function App() {
             <Route path="/addProduct" component={ProductComponent}></Route>
             <Route path="/soldProductList" component={ListSoldProductComponent}></Route>
             <Route path="/soldProduct" component={SoldProductComponent}></Route>
-            <Route path="/viewSoldProduct" component={ViewSoldProductComponent}></Route>
+            {/* <Route path="/viewAdminComplaintList" component={AdminViewComplaint}></Route> */}
             
             
             {/*supplier*/}
@@ -87,8 +87,7 @@ function App() {
             
             <Route path = "/farmerLogin" component = {FarmerLogin}></Route>
             <Route path = "/add-farmer/:farmerUserName" component = {FarmerRegistration}></Route>
-            
-            <Route path = "/add-complaint" component = {AddComplaint}></Route>
+            <Route path = "/add-complaint/:complaintId" component = {AddComplaint}></Route>
             <Route path = "/view-complaint/:complaintId" component = {ViewComplaint}></Route>
             <Route path = "/complaint-list" component = {ComplaintList}></Route>
 
