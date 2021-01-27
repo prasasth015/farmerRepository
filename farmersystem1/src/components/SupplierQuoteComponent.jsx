@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "./SupplierQuote.css";
 import ProductService from '../service/ProductService'
 
+  
 class SupplierQuoteComponent extends Component {
     constructor(props) {
         super(props)
@@ -13,8 +14,8 @@ class SupplierQuoteComponent extends Component {
             userName: '',
             productName: '',
             quantity: '',
-            quotePrice: ''
-          
+            quotePrice: '',
+
         }
 
         this.state = {
@@ -36,7 +37,7 @@ class SupplierQuoteComponent extends Component {
             SupplierQuoteService.getQuoteById(this.state.quoteId).then((res) => {
                 let supplierQuote = res.data;
                 this.setState({
-                    userName:supplierQuote.userName,
+                    userName: supplierQuote.userName,
                     productName: supplierQuote.productName,
                     quantity: supplierQuote.quantity,
                     quotePrice: supplierQuote.quotePrice,
@@ -45,22 +46,26 @@ class SupplierQuoteComponent extends Component {
         }
     }
 
-
     saveOrUpdateQuote = (e) => {
         e.preventDefault();
-        let supplierQuote = { userName: this.state.userName,productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice }; //product: this.state.product
+        let supplierQuote = { userName: this.state.userName, productName: this.state.productName, quantity: this.state.quantity, quotePrice: this.state.quotePrice }; //product: this.state.product
         console.log('supplierQuote => ' + JSON.stringify(supplierQuote));
         ProductService.getAllProduct(this.state.productName);
+        if (this.state.userName == null || this.state.productName == null || this.state.quantity == null || this.state.quotePrice == null) {
+            this.props.history.push('/add-supplierQuote/:quoteId');
+            alert("Please fill all the Mandatory Fields")
+          
+        }
+        else {
+            fetch('http://localhost:8082/api/v1/addproduct')
+                .then(response => response.json())
+                .then(product => this.setState({ product: product }))
 
-        fetch('http://localhost:8082/api/v1/addproduct')
-            .then(response => response.json())
-            .then(product => this.setState({ product: product }))
+            SupplierQuoteService.insertQuote(supplierQuote).then(res => {
+                this.props.history.push('/supplierQuote');
 
-        SupplierQuoteService.insertQuote(supplierQuote).then(res => {
-            this.props.history.push('/supplierQuote');
-
-        });
-
+            });
+        }
     }
 
 
@@ -90,6 +95,7 @@ class SupplierQuoteComponent extends Component {
         this.props.history.push('/supplierQuote');
     }
 
+
     componentDidMount() {
         fetch('http://localhost:8082/api/v1/addproduct')
             .then(response => response.json())
@@ -106,39 +112,39 @@ class SupplierQuoteComponent extends Component {
                             <h3 style={{ "textAlign": "center" }}>Add Quote</h3>
                             <div className="card-body">
                                 <form >
-                                <div className="UserName">
-                                        <label className="Label">User Name: </label>
+                                    <div className="UserName">
+                                        <label className="Label">User Name:<span style={{ "color": "red" }}>*</span> </label>
                                         <input style={{ "width": "150%" }} placeholder="User name" name="user name" type="text" className="form-control"
                                             value={this.state.userName} onChange={this.changeUserNameHandler} />
                                     </div>
 
                                     <div className="Product">
-                                        <label className="Label"> Product Name: </label>
-                                        <select style={{ "width": "100%", "padding": "7px 7px" }} placeholder="Product Name" 
-                                        name="Product Name" className="form-control"
-                                        onChange={this.changeProductNameHandler}> <option selected disabled>Choose Product</option>{
-                                            this.state.product.map(products =>
-                                            <option value={this.state.productName}
-                                                onChange={this.changeProductNameHandler} >{products.productName}
-                                            </option>)
-                                        }
+                                        <label className="Label"> Product Name: <span style={{ "color": "red" }}>*</span></label>
+                                        <select style={{ "width": "100%", "padding": "7px 7px" }} placeholder="Product Name"
+                                            name="Product Name" className="form-control"
+                                            onChange={this.changeProductNameHandler}> <option>Choose Product</option>{
+                                                this.state.product.map(products =>
+                                                    <option value={this.state.productName}
+                                                        onChange={this.changeProductNameHandler} >{products.proName}
+                                                    </option>)
+                                            }
                                         </select>
                                     </div>
 
                                     <div className="quantity">
-                                        <label className="Label">Quantity: </label>
+                                        <label className="Label">Quantity: <span style={{ "color": "red" }}>*</span></label>
                                         <input placeholder="Quantity" name="quantity" type="number" className="form-control"
                                             value={this.state.quantity} onChange={this.changeQuantityHandler} />
                                     </div>
 
                                     <div className="quotePrice">
-                                        <label className="Label">Quote Price: </label>
+                                        <label className="Label">Quote Price:<span style={{ "color": "red" }}>*</span> </label>
                                         <input placeholder="Quote Price" name="quotePrice" type="number" className="form-control"
                                             value={this.state.quotePrice} onChange={this.changeQuotePriceHandler} />
                                     </div>
 
                                     <div className="button">
-                                        <button className="btn btn-success"  onClick={this.saveOrUpdateQuote}>Save</button>
+                                        <button className="btn btn-success" onClick={this.saveOrUpdateQuote}>Save</button>
                                         <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{ marginLeft: "10px" }}>Cancel</button>
                                     </div>
                                 </form>
