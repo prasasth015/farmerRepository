@@ -3,6 +3,7 @@ import ComplaintService from '../service/ComplaintService'
 
 
 class ComplaintList extends Component {
+    
     constructor(props) {
         super(props)
 
@@ -48,8 +49,9 @@ class ComplaintList extends Component {
     
 
     render() {
+        
         return (
-           
+            
                 <div className="body_wrap ">
                 <div>
                  <h2 className="box_title">Complaint List</h2>

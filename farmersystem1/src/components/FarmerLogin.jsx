@@ -1,76 +1,78 @@
-import React, { Component } from 'react'
-import FarmerService from '../service/FarmerService'
-import { Link,Redirect } from "react-router-dom";
-//import "bootstrap/dist/css/bootstrap.min.css";
-import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { faLock, faUserPlus, faUser } from "@fortawesome/free-solid-svg-icons";
-
-class FarmerLogin extends Component {
-    constructor(props) {
-        super(props)
-        const token = localStorage.getItem("token")
-        let loggedIn = true
-        if(token == null){
-            loggedIn = false
-        }
-
-        this.state = {
-            farmerUserName:"",
-            farmerPassword:"",
-            user:{},
-            loggedIn
-                 
-        }
-        this.verifyLogin=this.verifyLogin.bind(this);
-    }
-   
-    changeNameHandler=(event) => {
-      this.setState({farmerUserName: event.target.value});
-
-    }
-    changeUserPasswordHandler=(event) => {
-      this.setState({farmerPassword: event.target.value});
-    }
-    verifyLogin=(e) => {
-      e.preventDefault();
+      import React, { Component } from 'react'
+      import FarmerService from '../service/FarmerService'
+      import { Link,Redirect } from "react-router-dom";
+      //import "bootstrap/dist/css/bootstrap.min.css";
+      import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
+      import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
       
-        let farmer = {farmerUserName: this.state.farmerUserName, farmerPassword: this.state.farmerPassword};
-        console.log('farmer => ' + JSON.stringify(farmer));
-        
-          FarmerService.login(this.state.farmerUserName,this.state.farmerPassword);
-          FarmerService.login(this.state.farmerUserName,this.state.farmerPassword).then((res) => {
-          this.setState({farmer:res.data});
-          
-          console.log(res.data);
-          if(
-            res.data.farmerUserName === this.state.farmerUserName ||
-            res.data.farmerPassword === this.state.farmerPassword)
-          {
-            localStorage.setItem("token","farmer")
-            this.setState({
-              loggedIn: true
-            })
-
-            //this.props.history.push("/soldProductList");
+      import { faLock, faUserPlus, faUser } from "@fortawesome/free-solid-svg-icons";
+      
+      class FarmerLogin extends Component {
+          constructor(props) {
+              super(props)
+              const token = localStorage.getItem("token")
+              let loggedIn = true
+              if(token == null){
+                  loggedIn = false
+              }
+      
+              this.state = {
+                  farmerUserName:"",
+                  farmerPassword:"",
+                  user:{},
+                  loggedIn
+                       
+              }
+              this.verifyLogin=this.verifyLogin.bind(this);
+          }
+         
+          changeNameHandler=(event) => {
+            this.setState({farmerUserName: event.target.value});
+      
+          }
+          changeUserPasswordHandler=(event) => {
+            this.setState({farmerPassword: event.target.value});
+          }
+          verifyLogin=(e) => {
+            e.preventDefault();
             
-          }
-          else if(res.status === 500 ){
-            this.setState({user: res.data});
-            console.log("applicant=>"+JSON.stringify(this.state.user));
-            alert(this.state.user);
-          }
-          /* else 
-          {
-            this.setState({user: res.data});
-        console.log("applicant=>"+JSON.stringify(this.state.user));
-         alert(this.state.user);
-          } */
-        })
-       
-      }
+              let farmer = {farmerUserName: this.state.farmerUserName, farmerPassword: this.state.farmerPassword};
+              console.log('farmer => ' + JSON.stringify(farmer));
+              
+                FarmerService.login(this.state.farmerUserName,this.state.farmerPassword);
+                FarmerService.login(this.state.farmerUserName,this.state.farmerPassword).then((res) => {
+                this.setState({farmer:res.data});
+                
+                console.log(res.data);
+                if(
+                  res.data.farmerUserName === this.state.farmerUserName ||
+                  res.data.farmerPassword === this.state.farmerPassword)
+                {
+                  localStorage.setItem("token","farmer")
+                  this.setState({
+                    loggedIn: true
+                  })
+      
+                  //this.props.history.push("/soldProductList");
+                  
+                }
+                else if(res.status === 404 ){
+                  this.setState({user: res.data});
+                  console.log("applicant=>"+JSON.stringify(this.state.user));
+                  alert("wrong");
+                }
+                /* else 
+                {
+                  this.setState({user: res.data});
+              console.log("applicant=>"+JSON.stringify(this.state.user));
+               alert(this.state.user);
+                } */
+              })
+             
+            }
     render() {
+      const { formErrors } = this.state;
       if(this.state.loggedIn){
         return <Redirect to="/soldProductList"/>
       }
@@ -95,6 +97,7 @@ class FarmerLogin extends Component {
                       className={"bg-white text-dark"} placeholder="Enter User Name" />
                   </InputGroup>
                   
+                  
                 </Form.Group>
               </Form.Row>
 
@@ -105,10 +108,10 @@ class FarmerLogin extends Component {
                       <InputGroup.Text><FontAwesomeIcon icon={faLock} /></InputGroup.Text>
                     </InputGroup.Prepend>
                     <FormControl autoComplete="off" type="password"
-                      name="password" value={this.state.farmerPassword} onChange={this.changeUserPasswordHandler}
-                      className={"bg-white text-dark"} placeholder="Enter password" />
+                      name="farmerPassword"  value={this.state.farmerPassword} onChange={this.changeUserPasswordHandler}
+                      className={"bg-white text-dark"} placeholder="Enter Password" />
                   </InputGroup>
-                  
+                 
                 </Form.Group>
               </Form.Row>
 
@@ -127,9 +130,9 @@ class FarmerLogin extends Component {
 
          
           
-               
+                  }                   
               
         
       }
-}
+
 export default FarmerLogin;

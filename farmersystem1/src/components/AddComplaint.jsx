@@ -3,6 +3,8 @@ import "./FarmerLogin.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ComplaintService from '../service/ComplaintService'
 import SupplierService from '../service/SupplierService'
+import { Navbar } from 'react-bootstrap';
+
 
 class AddComplaint extends Component{
     constructor(props)
@@ -39,30 +41,25 @@ changeNameHandler=(event) => {
     console.log(this.state.complaintText);
   }
 
-/* componentDidMount()
-{
-    if(this.state.complaintId === '_add'){
-        fetch('http://localhost:8082/api/v1/createSupplier')
-        .then(response => response.json())
-        .then(supplier => this.setState({ supplier: supplier }))
-        return
-    }
-    
-} */
-
 saveComplaint=(e) =>{
     e.preventDefault();
     let complaint = {farmerUserName:this.state.farmerUserName,
         supplierUserName: this.state.supplierUserName, complaintText: this.state.complaintText };
     console.log('complaint => ' + JSON.stringify(complaint));
     SupplierService.getAllSupplier(this.state.supplierUserName);
+    if (this.state.farmerUserName == null || this.state.supplierUserName == null || this.state.complaintText == null) {
+        this.props.history.push('/add-complaint/:complaintId');
+        alert("Please fill all the Mandatory Fields")
+      
+    }
+    else{
     fetch('http://localhost:8082/api/v1/createSupplier')
             .then(response => response.json())
             .then(supplier => this.setState({ supplier: supplier }))
 
         ComplaintService.saveComplaint(complaint).then(res =>{
             this.props.history.push('/complaint-list');
-        });
+        }); }
 
 }
 
@@ -76,7 +73,9 @@ componentDidMount() {
 }
 
 render() {
+    
     return (
+        
         <div >
            
             <br></br>
@@ -99,7 +98,7 @@ render() {
                                             onChange={this.changeNameHandler} required/>
                                     </div> */}
                                      <div className="farmerUserName">
-                                        <label >Supplier UserName </label>
+                                        <label >Supplier UserName <span style={{color:"red"}}>*</span>  </label>
                                         <select style={{ "width": "100%", "padding": "7px 7px" }} placeholder="Supplier UserName" name="UserName" className="form-control" onChange={this.changeNameHandler}><option selected disabled>Choose Supplier</option>{
                                             this.state.supplier.map(suppliers =>
                                             <option value={this.state.supplierUserName}
@@ -110,7 +109,7 @@ render() {
                                     </div>
 
                                     <div className = "farmerUserName" >
-                                        <label >Enter Your Complaint </label>
+                                        <label >Enter Your Complaint<span style={{color:"red"}}>*</span> </label>
                                         <textarea placeholder="Complaint" name="Complaint" className="form-control" 
                                             value={this.state.complaintText} onChange={this.changeComplaintHandler} required/>
                                     </div>

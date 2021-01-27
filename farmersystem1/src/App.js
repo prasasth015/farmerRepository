@@ -44,7 +44,7 @@ function App() {
   return (
     <div>
       <Router>
-        <Navbar />
+      <Navbar />
         { /* <HeadComponent /> */}
         {/*home*/}
         <Route path='/' exact component={Home} />

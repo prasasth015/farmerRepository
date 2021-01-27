@@ -121,7 +121,7 @@ class FarmerRegistration extends Component {
         break;
       case "farmerUserName":
         formErrors.farmerUserName =
-          value.length < 5 ? "minimum 5 characaters required" : "";
+        value.length < 5 ? "please enter a unique user Name" : ""
         break;
       case "farmerAddress":
         formErrors.farmerAddress = addressRegex.test(value)
@@ -227,7 +227,7 @@ class FarmerRegistration extends Component {
                     <InputGroup.Prepend>
                       <InputGroup.Text><FontAwesomeIcon icon={faEnvelope} /></InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl className={formErrors.farmerAddress.length > 0 ? "error" : null} required autoComplete="off" type="textarea" name="farmerAddress" value={this.state.farmerAddress} onChange={this.handleChange}
+                    <textarea style={{"width":"89.5%","outline-color":"#719ECE"}} className={formErrors.farmerAddress.length > 0 ? "error" : null} required autoComplete="off" type="textarea" name="farmerAddress" value={this.state.farmerAddress} onChange={this.handleChange}
                       className={"bg-white text-dark"} placeholder="Enter Address" />
                   </InputGroup>
                   {formErrors.farmerAddress.length > 0 && (
