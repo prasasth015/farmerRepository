@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import AdminLoginService from '../service/AdminLoginService'
-import { Link } from "react-router-dom";
+import { Redirect,Link } from "react-router-dom";
 //import "bootstrap/dist/css/bootstrap.min.css";
 import './AdminLogin.css';
 import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
@@ -12,10 +12,16 @@ import { faPhone, faEnvelope, faLock, faUndo, faUserPlus, faUser, faUsers } from
 class AdminLogin extends Component {
   constructor(props) {
       super(props)
+      const token = localStorage.getItem("token")
+        let loggedIn = true
+        if(token == null){
+            loggedIn = false
+        }
 
       this.state = {
           adminUserName:"",
-          adminPassword:""
+          adminPassword:"",
+          loggedIn
                
       }
       this.verifyLogin=this.verifyLogin.bind(this);
@@ -42,6 +48,11 @@ class AdminLogin extends Component {
           res.data.adminUserName === this.state.adminUserName &&
           res.data.adminPassword === this.state.adminPassword
         ){
+          localStorage.setItem("token","farmer")
+            this.setState({
+              loggedIn: true
+            })
+
          
          
           this.props.history.push("/productList");
@@ -58,7 +69,11 @@ class AdminLogin extends Component {
 
 
 render() {
+  if(this.state.loggedIn){
+    return <Redirect to="/soldProductList"/>
+  }
   return (
+
     <Row className="justify-content-md-center" style={{ "margin-top": "60px" }}>
   <Col xs={5}>
     <Card className={"border border-dark bg-white-dark"} >

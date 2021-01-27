@@ -25,7 +25,7 @@ class UpdateQuoteComponent extends Component {
         SupplierQuoteService.getQuoteById(this.state.quoteId).then((res) => {
             let supplierQuote = res.data;
             this.setState({
-
+                    
                 productName: supplierQuote.productName,
                 quantity: supplierQuote.quantity,
                 quotePrice: supplierQuote.quotePrice,
@@ -71,6 +71,7 @@ class UpdateQuoteComponent extends Component {
     }
 
 
+    
     render() {
         return (
             <div>

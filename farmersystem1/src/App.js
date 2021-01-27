@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import AdminLogin from './components/AdminLogin';
 import ProductComponent from './components/ProductComponent';
 import ListProductComponent from './components/ListProductComponent';
+import AdminViewComplaint from './components/AdminViewComplaint';
 
 
 import SoldProductComponent from './components/SoldProductComponent';
@@ -35,10 +36,9 @@ import ViewComplaint from './components/ViewComplaint';
 import Home from './components/pages/Home';
 import Services from './components/pages/Services';
 import Products from './components/pages/Products';
+import Organics from './components/pages/Organics';
 import SignUp from './components/pages/SignUp';
-// import AdminViewComplaint from './components/AdminViewComplaint';
-
-//import ViewSupplierComponent from './components/ViewSupplierComponent';
+import Shiftings from './components/pages/Shiftings';
 
 function App() {
   return (
@@ -50,7 +50,9 @@ function App() {
         <Route path='/' exact component={Home} />
         <Route path='/services' component={Services} />
         <Route path='/products' component={Products} />
+        <Route path='/organics' component={Organics} />
         <Route path='/sign-up' component={SignUp} />
+        <Route path='/shiftings' component={Shiftings} />
 
         <div className="container">
           <Switch>
@@ -67,16 +69,14 @@ function App() {
             <Route path="/addProduct" component={ProductComponent}></Route>
             <Route path="/soldProductList" component={ListSoldProductComponent}></Route>
             <Route path="/soldProduct" component={SoldProductComponent}></Route>
-            {/* <Route path="/viewAdminComplaintList" component={AdminViewComplaint}></Route> */}
+            <Route path="/viewAdminComplaintList" component={AdminViewComplaint}></Route>
             
             
             {/*supplier*/}
 
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
             <Route path="/supplierLogin" component={SupplierLogin}></Route>
-
             <Route path="/supplierQuote" component={ListQuoteComponent}></Route>
-
             <Route path="/add-supplierQuote/:quoteId" component={SupplierQuoteComponent}></Route>
             <Route path="/view-supplierQuote/:quoteId" component={ViewQuoteComponent}></Route>
             <Route path="/update-supplierQuote/:quoteId" component={UpdateQuoteComponent}></Route>
@@ -89,7 +89,6 @@ function App() {
             <Route path = "/add-complaint/:complaintId" component = {AddComplaint}></Route>
             <Route path = "/view-complaint/:complaintId" component = {ViewComplaint}></Route>
             <Route path = "/complaint-list" component = {ComplaintList}></Route>
-
 
           </Switch>
         </div>

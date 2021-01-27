@@ -33,6 +33,16 @@ class SoldProductQuote extends Component {
         this.props.history.push('/soldProductList');
     }
 
+    addSellProduct = (quoteId) => {
+        let sellProduct = { userName: this.state.userName, productName: this.state.productName,quantity: this.quantity,quotePrice: this.quotePrice};
+        console.log('sellProduct => ' + JSON.stringify(sellProduct));
+    
+            SoldProductService.insertSoldProduct(quoteId).then(res =>{
+                this.props.history.push('/soldProductList');
+            });
+    }
+    
+
     render() {
         return (
           
@@ -54,7 +64,7 @@ class SoldProductQuote extends Component {
                                 <th> Product Name</th>
                                 <th> Quantity</th>
                                 <th> Quote Price</th>
-                                <th> Actions </th>
+                              
 
                             </tr>
                         </thead>
@@ -68,10 +78,7 @@ class SoldProductQuote extends Component {
                                             <td> {quote.quantity}</td>
                                             <td> {quote.quotePrice} </td>
 
-                                            <td>
-                                             
-                                             <button style={{marginLeft: "10px"}} onClick={ () => this.addSellProduct(quote.invoiceId)} className="btn btn-info">Add </button>
-                                         </td>
+                                           
                                         </tr>
                                 )
                             }

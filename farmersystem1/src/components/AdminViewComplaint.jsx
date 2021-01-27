@@ -1,5 +1,4 @@
-/* import React, { Component } from 'react'
-import ProductService from '../service/ProductService';
+import React, { Component } from 'react'
 import ComplaintService from '../service/ComplaintService'
 import "./ListQuote.css";
 
@@ -9,30 +8,46 @@ class AdminViewComplaint extends Component {
         super(props)
 
         this.state = {
-            admincomplaint: []
+            adminComplaintView: []
         }
-       
-
+        this.back=this.back.bind(this);
+        this.deleteComplaint = this.deleteComplaint.bind(this);
     }
 
 
 
     componentDidMount() {
         ComplaintService.getAllComplaint().then((res) => {
-            this.setState({ admincomplaint: res.data });
+            this.setState({ adminComplaintView: res.data });
         });
     }
 
-   
+    back(){
+        this.props.history.push(`/productList`);
 
+    }
+
+    
+    deleteComplaint(complaintId) {
+        ComplaintService.deleteComplaint(complaintId).then(res => {
+            this.setState({ complaint: this.state.complaint.filter(complaints => complaints.complaintId !== complaintId) });
+        });
+    }
+    viewComplaint(complaintId){
+        this.props.history.push(`/view-complaint/${complaintId}`);
+        
+    }
 
     render() {
         return (
-            <div>
-                 <h2 className="text-center">Admin Complaint List</h2>
-                  <div className = "row">
-                    <button className="btn btn-primary" onClick={this.addComplaint}> Add Complaint</button>
-                 </div> 
+           
+                <div className="body_wrap ">
+                <div>
+                 <h2 className="box_title">Admin Complaint List</h2>
+                 
+                 <div className = "row">
+                    {/* <button className="btn btn-primary" onClick={this.addComplaint}> Add Complaint</button> */}
+                 </div>
                  <br></br>
                  <div className = "row">
                         <table className = "table table-striped table-bordered">
@@ -47,7 +62,7 @@ class AdminViewComplaint extends Component {
                             </thead>
                             <tbody>
                                 {
-                                    this.state.complaint.map(
+                                    this.state.adminComplaintView.map(
                                         complaint => 
                                         <tr key = {complaint.complaintId}>
                                             <td>{complaint.farmerUserName}</td>
@@ -61,10 +76,17 @@ class AdminViewComplaint extends Component {
                                              </td>
                                         </tr>
                                     )
+                                    
                                 }
                             </tbody>
+                            
                         </table>
+                        <div >
 
+                        <button className="btn btn-success" onClick={this.back}>Back</button>
+                        </div> 
+
+                 </div>
                  </div>
 
             </div>
@@ -74,4 +96,3 @@ class AdminViewComplaint extends Component {
 
 
 export default AdminViewComplaint
- */
