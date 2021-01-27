@@ -1,6 +1,13 @@
 import React from 'react';
 import '../../App.css';
 
-export default function SignUp() {
-  return <h1 className='sign-up'>LIKE & SUBSCRIBE</h1>;
+function SignUp() {
+  
+  return (
+    <>
+    <h4 style={{"color":"white","textAlign":"center"}}>Read The Article about Plantation Farming</h4>
+  <p className='sign-up'><a style={{"color":"white" }} href="https://www.britannica.com/topic/plantation-agriculture">Article For Plantation Farming</a></p>;
+  </>
+  );
 }
+export default SignUp;
