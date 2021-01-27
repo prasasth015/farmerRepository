@@ -39,7 +39,7 @@ class ComplaintList extends Component {
     }
 
     addComplaint(){
-        this.props.history.push(`/add-complaint/:complaintId}`);
+        this.props.history.push('/add-complaint/_add');
     }
     back(){
         this.props.history.push(`/soldProductList`);
@@ -49,8 +49,11 @@ class ComplaintList extends Component {
 
     render() {
         return (
-            <div>
-                 <h2 className="text-center">Complaint List</h2>
+           
+                <div className="body_wrap ">
+                <div>
+                 <h2 className="box_title">Complaint List</h2>
+                 
                  <div className = "row">
                     <button className="btn btn-primary" onClick={this.addComplaint}> Add Complaint</button>
                  </div>
@@ -82,6 +85,7 @@ class ComplaintList extends Component {
                                              </td>
                                         </tr>
                                     )
+                                    
                                 }
                             </tbody>
                             
@@ -91,6 +95,7 @@ class ComplaintList extends Component {
                         <button className="btn btn-success" onClick={this.back}>Back</button>
                         </div> 
 
+                 </div>
                  </div>
 
             </div>

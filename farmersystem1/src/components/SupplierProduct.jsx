@@ -54,7 +54,7 @@ class SupplierProduct extends Component {
                                     this.state.product.map(
                                         products =>
                                             <tr key={products.productId}>
-                                                <td> {products.proName} </td>
+                                                <td> {products.productName} </td>
                                                 <td> {products.productDescription}</td>
                                             </tr>
                                     )

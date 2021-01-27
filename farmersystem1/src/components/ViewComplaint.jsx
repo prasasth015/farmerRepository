@@ -41,7 +41,7 @@ class ViewComplaint extends Component {
                         <br></br>
                         <div className = "row" >
                             <label style={{fontWeight:'bold',fontSize:'medium'}}>Supplier UserName: </label>
-                            <div> { this.state.complaint.supplierUserName }</div>
+                            <div style={{ "marginTop": "5px", "marginLeft": "5px" }}> { this.state.complaint.supplierUserName }</div>
                         </div>
                         <br></br>
                         

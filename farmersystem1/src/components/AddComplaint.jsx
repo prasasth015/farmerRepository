@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import "./FarmerLogin.css";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ComplaintService from '../service/ComplaintService'
+import SupplierService from '../service/SupplierService'
 
 class AddComplaint extends Component{
     constructor(props)
@@ -13,7 +14,11 @@ class AddComplaint extends Component{
         farmerUserName: '',
         supplierUserName: '',
         complaintText: '',
+        supplier:''
         
+    }
+    this.state = {
+        supplier: []
     }
     this.saveComplaint=this.saveComplaint.bind(this);
     
@@ -26,6 +31,7 @@ changeUserNameHandler=(event) => {
 
 changeNameHandler=(event) => {
     this.setState({supplierUserName: event.target.value});
+    console.log(this.state.supplierUserName);
 
   }
   changeComplaintHandler=(event) => {
@@ -33,48 +39,41 @@ changeNameHandler=(event) => {
     console.log(this.state.complaintText);
   }
 
-componentDidMount()
+/* componentDidMount()
 {
     if(this.state.complaintId === '_add'){
+        fetch('http://localhost:8082/api/v1/createSupplier')
+        .then(response => response.json())
+        .then(supplier => this.setState({ supplier: supplier }))
         return
     }
-    /* else{
-        console.log(this.state.complaintId);
-        console.log(this.state.farmerUserName);
-        console.log(this.state.supplierUserName);
-        console.log(this.state.complaintText);
-        ComplaintService.viewComplaint(this.state.complaintId).then((res) =>{
-            let complaint = res.data;
-            console.log(res.data);
-            this.setState({farmerUserName:complaint.farmerUserName,
-                 supplierUserName:complaint.supplierUserName,
-                 complaintText:complaint.complaintText})
-        })
-    }    */     
-}
-
+    
+} */
 
 saveComplaint=(e) =>{
     e.preventDefault();
     let complaint = {farmerUserName:this.state.farmerUserName,
         supplierUserName: this.state.supplierUserName, complaintText: this.state.complaintText };
     console.log('complaint => ' + JSON.stringify(complaint));
+    SupplierService.getAllSupplier(this.state.supplierUserName);
+    fetch('http://localhost:8082/api/v1/createSupplier')
+            .then(response => response.json())
+            .then(supplier => this.setState({ supplier: supplier }))
 
-    // step 5
-    
         ComplaintService.saveComplaint(complaint).then(res =>{
             this.props.history.push('/complaint-list');
         });
-    
-    
+
 }
 
 cancel(){
     this.props.history.push('/complaint-list');
 }
-
-
-    
+componentDidMount() {
+    fetch('http://localhost:8082/api/v1/createSupplier')
+        .then(response => response.json())
+        .then(supplier => this.setState({ supplier: supplier }))
+}
 
 render() {
     return (
@@ -94,12 +93,22 @@ render() {
                                             value={this.state.farmerUserName} onChange={this.changeUserNameHandler}required/>
                                     </div>
 
-                                    <div className = "farmerUserName" >
-                                        <label >Enter Supplier UserName </label>
-                                        <input placeholder="Supplier UserName" name="UserName" className="form-control" 
-                                            value={this.state.supplierUserName} onChange={this.changeNameHandler} required/>
+                                    {/* <div className = "farmerUserName" >
+                                        <label >Supplier UserName </label>
+                                        <select placeholder="Supplier UserName" name="UserName" className="form-control" 
+                                            onChange={this.changeNameHandler} required/>
+                                    </div> */}
+                                     <div className="farmerUserName">
+                                        <label >Supplier UserName </label>
+                                        <select style={{ "width": "100%", "padding": "7px 7px" }} placeholder="Supplier UserName" name="UserName" className="form-control" onChange={this.changeNameHandler}><option selected disabled>Choose Supplier</option>{
+                                            this.state.supplier.map(suppliers =>
+                                            <option value={this.state.supplierUserName}
+                                                onChange={this.changeNameHandler} >{suppliers.supplierUserName}
+                                            </option>)
+                                        }
+                                        </select>
                                     </div>
-                                   
+
                                     <div className = "farmerUserName" >
                                         <label >Enter Your Complaint </label>
                                         <textarea placeholder="Complaint" name="Complaint" className="form-control" 
@@ -107,8 +116,8 @@ render() {
                                     </div>
                                     <div className = "form-group" >
 
-                                    <button className="btn btn-success" disabled={this.state.farmerUserName.length===0|| this.state.supplierUserName.length === 0 ||  this.state.complaintText.length === 0}
-                                    onClick={this.saveComplaint}>Save</button>
+                                    <button className="btn btn-success"
+                                    onClick={this.saveComplaint} /*disabled={ this.state.farmerUserName.length === 0 || this.state.complaintText.length === 0 }*/>Save</button>
                                     
                                     <button className="btn btn-danger" onClick={this.cancel.bind(this)} style={{marginLeft: "10px"}}>Cancel</button>
                                     </div>
