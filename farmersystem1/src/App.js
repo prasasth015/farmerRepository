@@ -75,9 +75,7 @@ function App() {
 
             <Route path="/add-supplier/:supplierUserName" component={CreateSupplierComponent}></Route>
             <Route path="/supplierLogin" component={SupplierLogin}></Route>
-
             <Route path="/supplierQuote" component={ListQuoteComponent}></Route>
-
             <Route path="/add-supplierQuote/:quoteId" component={SupplierQuoteComponent}></Route>
             <Route path="/view-supplierQuote/:quoteId" component={ViewQuoteComponent}></Route>
             <Route path="/update-supplierQuote/:quoteId" component={UpdateQuoteComponent}></Route>
