@@ -5,41 +5,42 @@ import CardItem from './CardItem';
 function Cards() {
   return (
     <div className='cards'>
-      <h1>Some Interesting fatcts of farming system!</h1>
+      <h1>Some Interesting Fatcts Of Farmer System!</h1>
       <div className='cards__container'>
         <div className='cards__wrapper'>
           <ul className='cards__items'>
             <CardItem
               src='images/mixedfarmm.jpg'
               text='Fresh Spring small fresh green Wheat Field Banner'
-              label='Mixed Farm'
-              path='/services'
+              label='Mixed Farm'              
+              to="https://www.britannica.com/topic/shifting-agriculture"
+              path="/services"
             />
             <CardItem
-              src='images/commercial.jpg'
+              src='images/image7.jpg'
               text='Grren wheat field during blue sky during daytime'
               label='Commercial'
-              path='/services'
+              path='/products'
             />
           </ul>
           <ul className='cards__items'>
             <CardItem
-              src='images/plant.jpg'
+              src='images/image8.jpg'
               text='Beautiful Scenery in Farm Stock Footage'
               label='Plantation Farming'              
-              path="/services"
+              path="/sign-up"
             />
             <CardItem
-              src='images/purchase10.jpg'
+              src='images/pic3.jpg'
               text='Production area has been stabled, But production has been intensified'
-              label='nature'
-              path='/products'
+              label='Organic'
+              path='/organics'
             />
             <CardItem
-              src='images/shifting.jpg'
+              src='images/image6.jpg'
               text='Ride through the Sahara Desert on a guided camel tour'
               label='Shifting'
-              path='/sign-up'
+              path='/shiftings'
             />
           </ul>
         </div>

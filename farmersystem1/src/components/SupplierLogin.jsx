@@ -7,11 +7,6 @@ import { faLock, faUserPlus, faUser } from "@fortawesome/free-solid-svg-icons";
 import { Row, Col, Card, Form, InputGroup, FormControl, Button } from 'react-bootstrap';
 import { Redirect } from "react-router-dom";
 
-
-const passwordRegex = RegExp(
-  /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/
-);
-
 class SupplierLogin extends Component {
   constructor(props) {
     super(props)
@@ -48,26 +43,20 @@ class SupplierLogin extends Component {
       this.setState({ supplier: res.data });
 
       console.log(res.data);
-      if (
-        res.data.supplierUserName === this.state.supplierUserName ||
+      if ( res.data.supplierUserName === this.state.supplierUserName ||
         res.data.password === this.state.password) {
         localStorage.setItem("token", "supplier")
         this.setState({
           loggedIn: true
         })
-
-        // this.props.history.push("/supplierQuote");
-
       }
       else {
-        alert("sorry")
+        alert("InValid User Name and password");
       }
 
     })
 
   }
-
-
 
   render() {
     if (this.state.loggedIn) {

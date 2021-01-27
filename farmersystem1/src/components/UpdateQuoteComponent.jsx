@@ -71,6 +71,7 @@ class UpdateQuoteComponent extends Component {
     }
 
 
+    
     render() {
         return (
             <div>
