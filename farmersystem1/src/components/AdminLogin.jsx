@@ -98,7 +98,7 @@ render() {
         
         </Card.Body>
             <Card.Footer style={{ "text-align": "center"}}>
-              <Button size="sm" type="button" variant="success" style={{ "width":"80%","padding":"10px"}} onClick={this.verifyLogin}>
+              <Button size="sm" type="button" variant="success" style={{ "width":"80%","padding":"10px"}} onClick={this.verifyLogin} disabled={this.state.adminUserName.length === 0 ||this.state.adminPassword.length === 0}>
                 <FontAwesomeIcon icon={faUserPlus} /> Log-In
                             </Button>{' '}<br></br>
                             

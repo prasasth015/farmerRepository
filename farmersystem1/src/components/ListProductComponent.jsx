@@ -39,8 +39,9 @@ class ListProductComponent extends Component {
 
 render() {
     return (
+        <div className="body_wrap ">
         <div>
-             <h2 className="text-center">Product List</h2>
+             <h2 className="box_title">Product List</h2>
              <div className = "row">
                 <button className="btn btn-primary" onClick={this.addProduct}> Add Product</button>
                 {/* <button style={{marginLeft: "10px"}} onClick={ this.viewComplaintList}  className="btn btn-primary">View Complaint List </button> */}
@@ -80,7 +81,7 @@ render() {
                     </table>
 
              </div>
-
+             </div>
         </div>
     )
 }
