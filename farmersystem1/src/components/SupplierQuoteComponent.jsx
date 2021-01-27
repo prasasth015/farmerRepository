@@ -95,7 +95,6 @@ class SupplierQuoteComponent extends Component {
         this.props.history.push('/supplierQuote');
     }
 
-
     componentDidMount() {
         fetch('http://localhost:8082/api/v1/addproduct')
             .then(response => response.json())
@@ -125,7 +124,7 @@ class SupplierQuoteComponent extends Component {
                                             onChange={this.changeProductNameHandler}> <option>Choose Product</option>{
                                                 this.state.product.map(products =>
                                                     <option value={this.state.productName}
-                                                        onChange={this.changeProductNameHandler} >{products.proName}
+                                                        onChange={this.changeProductNameHandler} >{products.productName}
                                                     </option>)
                                             }
                                         </select>
